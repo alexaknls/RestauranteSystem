@@ -1,8 +1,8 @@
 namespace RestauranteSystem
 {
-    public partial class Form1 : Form
+    public partial class frmReservas : Form
     {
-        public Form1()
+        public frmReservas()
         {
             InitializeComponent();
         }
