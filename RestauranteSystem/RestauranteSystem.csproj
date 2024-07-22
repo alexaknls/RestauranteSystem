@@ -12,4 +12,13 @@
     <ProjectReference Include="..\RestauranteLib\RestauranteLib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Inventario\" />
+    <Folder Include="Clientes\" />
+    <Folder Include="Empleados\" />
+    <Folder Include="Menu\" />
+    <Folder Include="Login\" />
+    <Folder Include="Pedidos\" />
+  </ItemGroup>
+
 </Project>
