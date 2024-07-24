@@ -13,12 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Inventario\" />
-    <Folder Include="Clientes\" />
-    <Folder Include="Empleados\" />
-    <Folder Include="Menu\" />
-    <Folder Include="Login\" />
-    <Folder Include="Pedidos\" />
+    <Folder Include="Forms\Inventario\" />
+    <Folder Include="Forms\Clientes\" />
+    <Folder Include="Forms\Empleados\" />
+    <Folder Include="Forms\Menu\" />
+    <Folder Include="Forms\Login\" />
+    <Folder Include="Forms\Pedidos\" />
   </ItemGroup>
 
   <ItemGroup>
