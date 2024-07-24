@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static RestauranteDAO.RestauranteDataSet;
 
 namespace RestauranteLib.Controladores
 {
@@ -26,10 +27,9 @@ namespace RestauranteLib.Controladores
             reservasAdapter.Fill(restauranteDataSet.Reservas);
             foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
             {
-                DateTime reservaDateTime = reservasRow.ReservaDateTime.Add(reservasRow.ReservaDateTime.TimeOfDay);
                 ReservasLib reservasItem = new ReservasLib(
                         reservasRow.ReservaID,
-                        reservaDateTime,
+                        reservasRow.ReservaDateTime,
                         reservasRow.PersonasCant,
                         reservasRow.NumeroMesa,
                         reservasRow.ReservaEstado,
@@ -39,6 +39,24 @@ namespace RestauranteLib.Controladores
             }
             return _reservaLista;
         }
-
+        
+        public ReservasLib ObtenerReservas(int id)
+        {
+            ReservasLib reservas = null;
+            reservasAdapter.FillBy(restauranteDataSet.Reservas, id);
+            RestauranteDataSet.ReservasRow _reservasRow = restauranteDataSet.Reservas.FirstOrDefault(); 
+            if (_reservasRow != null)
+            {
+                reservas = new ReservasLib(
+                    _reservasRow.ReservaID,
+                    _reservasRow.ReservaDateTime,
+                    _reservasRow.PersonasCant,
+                    _reservasRow.NumeroMesa,
+                    _reservasRow.ReservaEstado,
+                    _reservasRow.ReservaCreacion
+                    );
+            }
+            return reservas;
+        }
     }
 }
