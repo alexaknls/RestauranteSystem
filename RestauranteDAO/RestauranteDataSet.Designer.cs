@@ -3234,9 +3234,7 @@ namespace RestauranteDAO {
             
             private global::System.Data.DataColumn columnReservaID;
             
-            private global::System.Data.DataColumn columnReservaDate;
-            
-            private global::System.Data.DataColumn columnReservaTime;
+            private global::System.Data.DataColumn columnReservaDateTime;
             
             private global::System.Data.DataColumn columnPersonasCant;
             
@@ -3289,17 +3287,9 @@ namespace RestauranteDAO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ReservaDateColumn {
+            public global::System.Data.DataColumn ReservaDateTimeColumn {
                 get {
-                    return this.columnReservaDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ReservaTimeColumn {
-                get {
-                    return this.columnReservaTime;
+                    return this.columnReservaDateTime;
                 }
             }
             
@@ -3372,18 +3362,17 @@ namespace RestauranteDAO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ReservasRow AddReservasRow(int ReservaID, System.DateTime ReservaDate, System.TimeSpan ReservaTime, int PersonasCant, MesasRow parentMesasRowByFK_Reservas_Mesas, string ReservaEstado, System.DateTime ReservaCreacion) {
+            public ReservasRow AddReservasRow(int ReservaID, System.DateTime ReservaDateTime, int PersonasCant, MesasRow parentMesasRowByFK_Reservas_Mesas, string ReservaEstado, System.DateTime ReservaCreacion) {
                 ReservasRow rowReservasRow = ((ReservasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ReservaID,
-                        ReservaDate,
-                        ReservaTime,
+                        ReservaDateTime,
                         PersonasCant,
                         null,
                         ReservaEstado,
                         ReservaCreacion};
                 if ((parentMesasRowByFK_Reservas_Mesas != null)) {
-                    columnValuesArray[4] = parentMesasRowByFK_Reservas_Mesas[0];
+                    columnValuesArray[3] = parentMesasRowByFK_Reservas_Mesas[0];
                 }
                 rowReservasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReservasRow);
@@ -3415,8 +3404,7 @@ namespace RestauranteDAO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnReservaID = base.Columns["ReservaID"];
-                this.columnReservaDate = base.Columns["ReservaDate"];
-                this.columnReservaTime = base.Columns["ReservaTime"];
+                this.columnReservaDateTime = base.Columns["ReservaDateTime"];
                 this.columnPersonasCant = base.Columns["PersonasCant"];
                 this.columnNumeroMesa = base.Columns["NumeroMesa"];
                 this.columnReservaEstado = base.Columns["ReservaEstado"];
@@ -3428,10 +3416,8 @@ namespace RestauranteDAO {
             private void InitClass() {
                 this.columnReservaID = new global::System.Data.DataColumn("ReservaID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReservaID);
-                this.columnReservaDate = new global::System.Data.DataColumn("ReservaDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReservaDate);
-                this.columnReservaTime = new global::System.Data.DataColumn("ReservaTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReservaTime);
+                this.columnReservaDateTime = new global::System.Data.DataColumn("ReservaDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReservaDateTime);
                 this.columnPersonasCant = new global::System.Data.DataColumn("PersonasCant", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPersonasCant);
                 this.columnNumeroMesa = new global::System.Data.DataColumn("NumeroMesa", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4991,33 +4977,17 @@ namespace RestauranteDAO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime ReservaDate {
+            public System.DateTime ReservaDateTime {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableReservas.ReservaDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableReservas.ReservaDateTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ReservaDate\' de la tabla \'Reservas\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ReservaDateTime\' de la tabla \'Reservas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReservas.ReservaDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.TimeSpan ReservaTime {
-                get {
-                    try {
-                        return ((global::System.TimeSpan)(this[this.tableReservas.ReservaTimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ReservaTime\' de la tabla \'Reservas\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableReservas.ReservaTimeColumn] = value;
+                    this[this.tableReservas.ReservaDateTimeColumn] = value;
                 }
             }
             
@@ -5098,26 +5068,14 @@ namespace RestauranteDAO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsReservaDateNull() {
-                return this.IsNull(this.tableReservas.ReservaDateColumn);
+            public bool IsReservaDateTimeNull() {
+                return this.IsNull(this.tableReservas.ReservaDateTimeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetReservaDateNull() {
-                this[this.tableReservas.ReservaDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsReservaTimeNull() {
-                return this.IsNull(this.tableReservas.ReservaTimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetReservaTimeNull() {
-                this[this.tableReservas.ReservaTimeColumn] = global::System.Convert.DBNull;
+            public void SetReservaDateTimeNull() {
+                this[this.tableReservas.ReservaDateTimeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9271,8 +9229,7 @@ SELECT MesasID, CantPersonas, MesaEstado FROM Mesas WHERE (MesasID = @MesasID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Reservas";
             tableMapping.ColumnMappings.Add("ReservaID", "ReservaID");
-            tableMapping.ColumnMappings.Add("ReservaDate", "ReservaDate");
-            tableMapping.ColumnMappings.Add("ReservaTime", "ReservaTime");
+            tableMapping.ColumnMappings.Add("ReservaDateTime", "ReservaDateTime");
             tableMapping.ColumnMappings.Add("PersonasCant", "PersonasCant");
             tableMapping.ColumnMappings.Add("NumeroMesa", "NumeroMesa");
             tableMapping.ColumnMappings.Add("ReservaEstado", "ReservaEstado");
@@ -9280,13 +9237,11 @@ SELECT MesasID, CantPersonas, MesaEstado FROM Mesas WHERE (MesasID = @MesasID)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Reservas] WHERE (([ReservaID] = @Original_ReservaID) AND ((@IsNull_ReservaDate = 1 AND [ReservaDate] IS NULL) OR ([ReservaDate] = @Original_ReservaDate)) AND ((@IsNull_ReservaTime = 1 AND [ReservaTime] IS NULL) OR ([ReservaTime] = @Original_ReservaTime)) AND ((@IsNull_PersonasCant = 1 AND [PersonasCant] IS NULL) OR ([PersonasCant] = @Original_PersonasCant)) AND ((@IsNull_NumeroMesa = 1 AND [NumeroMesa] IS NULL) OR ([NumeroMesa] = @Original_NumeroMesa)) AND ((@IsNull_ReservaEstado = 1 AND [ReservaEstado] IS NULL) OR ([ReservaEstado] = @Original_ReservaEstado)) AND ((@IsNull_ReservaCreacion = 1 AND [ReservaCreacion] IS NULL) OR ([ReservaCreacion] = @Original_ReservaCreacion)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Reservas] WHERE (([ReservaID] = @Original_ReservaID) AND ((@IsNull_ReservaDateTime = 1 AND [ReservaDateTime] IS NULL) OR ([ReservaDateTime] = @Original_ReservaDateTime)) AND ((@IsNull_PersonasCant = 1 AND [PersonasCant] IS NULL) OR ([PersonasCant] = @Original_PersonasCant)) AND ((@IsNull_NumeroMesa = 1 AND [NumeroMesa] IS NULL) OR ([NumeroMesa] = @Original_NumeroMesa)) AND ((@IsNull_ReservaEstado = 1 AND [ReservaEstado] IS NULL) OR ([ReservaEstado] = @Original_ReservaEstado)) AND ((@IsNull_ReservaCreacion = 1 AND [ReservaCreacion] IS NULL) OR ([ReservaCreacion] = @Original_ReservaCreacion)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaDateTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumeroMesa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroMesa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -9297,33 +9252,29 @@ SELECT MesasID, CantPersonas, MesaEstado FROM Mesas WHERE (MesasID = @MesasID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaCreacion", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaCreacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Reservas] ([ReservaID], [ReservaDate], [ReservaTime], [PersonasCant], [NumeroMesa], [ReservaEstado], [ReservaCreacion]) VALUES (@ReservaID, @ReservaDate, @ReservaTime, @PersonasCant, @NumeroMesa, @ReservaEstado, @ReservaCreacion);
-SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion FROM Reservas WHERE (ReservaID = @ReservaID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Reservas] ([ReservaID], [ReservaDateTime], [PersonasCant], [NumeroMesa], [ReservaEstado], [ReservaCreacion]) VALUES (@ReservaID, @ReservaDateTime, @PersonasCant, @NumeroMesa, @ReservaEstado, @ReservaCreacion);
+SELECT ReservaID, ReservaDateTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion FROM Reservas WHERE (ReservaID = @ReservaID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumeroMesa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroMesa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaEstado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaCreacion", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaCreacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Reservas] SET [ReservaID] = @ReservaID, [ReservaDate] = @ReservaDate, [ReservaTime] = @ReservaTime, [PersonasCant] = @PersonasCant, [NumeroMesa] = @NumeroMesa, [ReservaEstado] = @ReservaEstado, [ReservaCreacion] = @ReservaCreacion WHERE (([ReservaID] = @Original_ReservaID) AND ((@IsNull_ReservaDate = 1 AND [ReservaDate] IS NULL) OR ([ReservaDate] = @Original_ReservaDate)) AND ((@IsNull_ReservaTime = 1 AND [ReservaTime] IS NULL) OR ([ReservaTime] = @Original_ReservaTime)) AND ((@IsNull_PersonasCant = 1 AND [PersonasCant] IS NULL) OR ([PersonasCant] = @Original_PersonasCant)) AND ((@IsNull_NumeroMesa = 1 AND [NumeroMesa] IS NULL) OR ([NumeroMesa] = @Original_NumeroMesa)) AND ((@IsNull_ReservaEstado = 1 AND [ReservaEstado] IS NULL) OR ([ReservaEstado] = @Original_ReservaEstado)) AND ((@IsNull_ReservaCreacion = 1 AND [ReservaCreacion] IS NULL) OR ([ReservaCreacion] = @Original_ReservaCreacion)));
-SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion FROM Reservas WHERE (ReservaID = @ReservaID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Reservas] SET [ReservaID] = @ReservaID, [ReservaDateTime] = @ReservaDateTime, [PersonasCant] = @PersonasCant, [NumeroMesa] = @NumeroMesa, [ReservaEstado] = @ReservaEstado, [ReservaCreacion] = @ReservaCreacion WHERE (([ReservaID] = @Original_ReservaID) AND ((@IsNull_ReservaDateTime = 1 AND [ReservaDateTime] IS NULL) OR ([ReservaDateTime] = @Original_ReservaDateTime)) AND ((@IsNull_PersonasCant = 1 AND [PersonasCant] IS NULL) OR ([PersonasCant] = @Original_PersonasCant)) AND ((@IsNull_NumeroMesa = 1 AND [NumeroMesa] IS NULL) OR ([NumeroMesa] = @Original_NumeroMesa)) AND ((@IsNull_ReservaEstado = 1 AND [ReservaEstado] IS NULL) OR ([ReservaEstado] = @Original_ReservaEstado)) AND ((@IsNull_ReservaCreacion = 1 AND [ReservaCreacion] IS NULL) OR ([ReservaCreacion] = @Original_ReservaCreacion)));
+SELECT ReservaID, ReservaDateTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion FROM Reservas WHERE (ReservaID = @ReservaID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumeroMesa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroMesa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaEstado", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaCreacion", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaCreacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReservaDateTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReservaDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonasCant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonasCant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumeroMesa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroMesa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -9345,18 +9296,12 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEsta" +
-                "do, ReservaCreacion FROM dbo.Reservas";
+            this._commandCollection[0].CommandText = "SELECT ReservaID, ReservaDateTime, PersonasCant, NumeroMesa, ReservaEstado, Reser" +
+                "vaCreacion FROM dbo.Reservas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEsta" +
-                "do, ReservaCreacion\r\nFROM     Reservas\r\nWHERE  (ReservaID = @ReservaID)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9378,32 +9323,6 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual RestauranteDataSet.ReservasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            RestauranteDataSet.ReservasDataTable dataTable = new RestauranteDataSet.ReservasDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(RestauranteDataSet.ReservasDataTable dataTable, int ReservaID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual RestauranteDataSet.ReservasDataTable GetDataBy(int ReservaID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
             RestauranteDataSet.ReservasDataTable dataTable = new RestauranteDataSet.ReservasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9442,55 +9361,47 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDate, global::System.Nullable<global::System.TimeSpan> Original_ReservaTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
+        public virtual int Delete(int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDateTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ReservaID));
-            if ((Original_ReservaDate.HasValue == true)) {
+            if ((Original_ReservaDateTime.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_ReservaDate.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_ReservaDateTime.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_ReservaTime.HasValue == true)) {
+            if ((Original_PersonasCant.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.TimeSpan)(Original_ReservaTime.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_PersonasCant.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_PersonasCant.HasValue == true)) {
+            if ((Original_NumeroMesa.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_PersonasCant.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_NumeroMesa.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_NumeroMesa.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_NumeroMesa.Value));
-            }
-            else {
+            if ((Original_ReservaEstado == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_ReservaEstado == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ReservaEstado));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_ReservaEstado));
             }
             if ((Original_ReservaCreacion.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_ReservaCreacion.Value));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_ReservaCreacion.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9512,43 +9423,37 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ReservaID, global::System.Nullable<global::System.DateTime> ReservaDate, global::System.Nullable<global::System.TimeSpan> ReservaTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion) {
+        public virtual int Insert(int ReservaID, global::System.Nullable<global::System.DateTime> ReservaDateTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ReservaID));
-            if ((ReservaDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(ReservaDate.Value));
+            if ((ReservaDateTime.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(ReservaDateTime.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((ReservaTime.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(ReservaTime.Value));
+            if ((PersonasCant.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PersonasCant.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PersonasCant.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(PersonasCant.Value));
+            if ((NumeroMesa.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NumeroMesa.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((NumeroMesa.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(NumeroMesa.Value));
-            }
-            else {
+            if ((ReservaEstado == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ReservaEstado == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ReservaEstado));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ReservaEstado));
             }
             if ((ReservaCreacion.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(ReservaCreacion.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(ReservaCreacion.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9570,92 +9475,78 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ReservaID, global::System.Nullable<global::System.DateTime> ReservaDate, global::System.Nullable<global::System.TimeSpan> ReservaTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion, int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDate, global::System.Nullable<global::System.TimeSpan> Original_ReservaTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
+        public virtual int Update(int ReservaID, global::System.Nullable<global::System.DateTime> ReservaDateTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion, int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDateTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ReservaID));
-            if ((ReservaDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(ReservaDate.Value));
+            if ((ReservaDateTime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(ReservaDateTime.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((ReservaTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(ReservaTime.Value));
+            if ((PersonasCant.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(PersonasCant.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PersonasCant.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(PersonasCant.Value));
+            if ((NumeroMesa.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NumeroMesa.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((NumeroMesa.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(NumeroMesa.Value));
-            }
-            else {
+            if ((ReservaEstado == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ReservaEstado == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ReservaEstado));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ReservaEstado));
             }
             if ((ReservaCreacion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(ReservaCreacion.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(ReservaCreacion.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ReservaID));
-            if ((Original_ReservaDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_ReservaDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ReservaTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.TimeSpan)(Original_ReservaTime.Value));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ReservaID));
+            if ((Original_ReservaDateTime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_ReservaDateTime.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_PersonasCant.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_PersonasCant.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_PersonasCant.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_NumeroMesa.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_NumeroMesa.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_NumeroMesa.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_ReservaEstado == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_ReservaEstado));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_ReservaEstado));
             }
             if ((Original_ReservaCreacion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_ReservaCreacion.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_ReservaCreacion.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9677,8 +9568,8 @@ SELECT ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEst
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ReservaDate, global::System.Nullable<global::System.TimeSpan> ReservaTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion, int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDate, global::System.Nullable<global::System.TimeSpan> Original_ReservaTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
-            return this.Update(Original_ReservaID, ReservaDate, ReservaTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion, Original_ReservaID, Original_ReservaDate, Original_ReservaTime, Original_PersonasCant, Original_NumeroMesa, Original_ReservaEstado, Original_ReservaCreacion);
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ReservaDateTime, global::System.Nullable<int> PersonasCant, global::System.Nullable<int> NumeroMesa, string ReservaEstado, global::System.Nullable<global::System.DateTime> ReservaCreacion, int Original_ReservaID, global::System.Nullable<global::System.DateTime> Original_ReservaDateTime, global::System.Nullable<int> Original_PersonasCant, global::System.Nullable<int> Original_NumeroMesa, string Original_ReservaEstado, global::System.Nullable<global::System.DateTime> Original_ReservaCreacion) {
+            return this.Update(Original_ReservaID, ReservaDateTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion, Original_ReservaID, Original_ReservaDateTime, Original_PersonasCant, Original_NumeroMesa, Original_ReservaEstado, Original_ReservaCreacion);
         }
     }
     
