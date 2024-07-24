@@ -8,7 +8,6 @@
         private int _numeroMesa;
         private string _reservaEstado;
         private DateTime _reservaCreacion;
-
         public int ReservaID { get => _reservaID; set => _reservaID = value; }
         public DateTime ReservaDateTime { get => _reservaDateTime; set => _reservaDateTime = value; }
         public int PersonasCant { get => _personasCant; set => _personasCant = value; }

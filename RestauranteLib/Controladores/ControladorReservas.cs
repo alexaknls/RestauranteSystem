@@ -2,6 +2,7 @@
 using RestauranteDAO.RestauranteDataSetTableAdapters;
 using RestauranteLib;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,18 @@ namespace RestauranteLib.Controladores
     public class ControladorReservas
     {
         private RestauranteDataSet restauranteDataSet;
-        private ReservasTableAdapter reservasAdapter;
+        private ReservasTableAdapter _adapter;
 
         public ControladorReservas()
         {
             restauranteDataSet = RestauranteDAO.Contexto.GetDataSet();
-            reservasAdapter = new ReservasTableAdapter();
+            _adapter = new ReservasTableAdapter();
         }
 
         public List<ReservasLib> ObtenerReservas()
         {
             List<ReservasLib> _reservaLista = new List<ReservasLib>();
-            reservasAdapter.Fill(restauranteDataSet.Reservas);
+            _adapter.Fill(restauranteDataSet.Reservas);
             foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
             {
                 ReservasLib reservasItem = new ReservasLib(
@@ -43,7 +44,7 @@ namespace RestauranteLib.Controladores
         public ReservasLib ObtenerReservas(int id)
         {
             ReservasLib reservas = null;
-            reservasAdapter.FillBy(restauranteDataSet.Reservas, id);
+            _adapter.FillBy(restauranteDataSet.Reservas, id);
             RestauranteDataSet.ReservasRow _reservasRow = restauranteDataSet.Reservas.FirstOrDefault(); 
             if (_reservasRow != null)
             {
