@@ -54,14 +54,14 @@
             panel2 = new Panel();
             btnViewReserva = new Button();
             dgvReservasView = new DataGridView();
-            colReservaID = new DataGridViewTextBoxColumn();
+            bnSrcReservas = new BindingSource(components);
+            label1 = new Label();
+            colReservaCodigo = new DataGridViewTextBoxColumn();
             colReservaDateTime = new DataGridViewTextBoxColumn();
             colPersonasCant = new DataGridViewTextBoxColumn();
             colNumeroMesa = new DataGridViewTextBoxColumn();
             colReservaEstado = new DataGridViewTextBoxColumn();
             colReservaCreacion = new DataGridViewTextBoxColumn();
-            bnSrcReservas = new BindingSource(components);
-            label1 = new Label();
             pnlNuevaReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -281,9 +281,9 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(btnViewReserva);
             panel2.Controls.Add(dgvReservasView);
-            panel2.Location = new Point(2, 370);
+            panel2.Location = new Point(12, 370);
             panel2.Name = "panel2";
-            panel2.Size = new Size(598, 277);
+            panel2.Size = new Size(588, 277);
             panel2.TabIndex = 1;
             // 
             // btnViewReserva
@@ -301,7 +301,7 @@
             dgvReservasView.AllowUserToDeleteRows = false;
             dgvReservasView.AutoGenerateColumns = false;
             dgvReservasView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaID, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion });
+            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaCodigo, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion });
             dgvReservasView.DataSource = bnSrcReservas;
             dgvReservasView.Location = new Point(28, 21);
             dgvReservasView.Name = "dgvReservasView";
@@ -310,16 +310,26 @@
             dgvReservasView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReservasView.Size = new Size(536, 191);
             dgvReservasView.TabIndex = 0;
-            dgvReservasView.SizeChanged += dgvReservasView_SizeChanged;
+            dgvReservasView.SelectionChanged += dgvReservasView_SelectionChanged;
             // 
-            // colReservaID
+            // label1
             // 
-            colReservaID.DataPropertyName = "ReservaID";
-            colReservaID.HeaderText = "ID";
-            colReservaID.MinimumWidth = 6;
-            colReservaID.Name = "colReservaID";
-            colReservaID.ReadOnly = true;
-            colReservaID.Width = 125;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 28);
+            label1.TabIndex = 1;
+            label1.Text = "Nueva Reserva";
+            // 
+            // colReservaCodigo
+            // 
+            colReservaCodigo.DataPropertyName = "ReservaCodigo";
+            colReservaCodigo.HeaderText = "Codigo";
+            colReservaCodigo.MinimumWidth = 6;
+            colReservaCodigo.Name = "colReservaCodigo";
+            colReservaCodigo.ReadOnly = true;
+            colReservaCodigo.Width = 125;
             // 
             // colReservaDateTime
             // 
@@ -365,16 +375,6 @@
             colReservaCreacion.Name = "colReservaCreacion";
             colReservaCreacion.ReadOnly = true;
             colReservaCreacion.Width = 125;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Nueva Reserva";
             // 
             // frmReservas
             // 
@@ -426,7 +426,7 @@
         private Button btnMesasView;
         private TextBox txbMesasNum;
         private BindingSource bnSrcReservas;
-        private DataGridViewTextBoxColumn colReservaID;
+        private DataGridViewTextBoxColumn colReservaCodigo;
         private DataGridViewTextBoxColumn colReservaDateTime;
         private DataGridViewTextBoxColumn colPersonasCant;
         private DataGridViewTextBoxColumn colNumeroMesa;

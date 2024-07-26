@@ -25,16 +25,19 @@ namespace RestauranteLib.Controladores
         public List<ReservasLib> ObtenerReservas()
         {
             List<ReservasLib> _reservaLista = new List<ReservasLib>();
+
             _adapter.Fill(restauranteDataSet.Reservas);
             foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
             {
                 ReservasLib reservasItem = new ReservasLib(
                         reservasRow.ReservaID,
+                        reservasRow.ReservaCodigo,
                         reservasRow.ReservaDateTime,
                         reservasRow.PersonasCant,
                         reservasRow.NumeroMesa,
                         reservasRow.ReservaEstado,
                         reservasRow.ReservaCreacion
+                        
                     );
                 _reservaLista.Add( reservasItem );
             }
@@ -50,6 +53,7 @@ namespace RestauranteLib.Controladores
             {
                 reservas = new ReservasLib(
                     _reservasRow.ReservaID,
+                    _reservasRow.ReservaCodigo,
                     _reservasRow.ReservaDateTime,
                     _reservasRow.PersonasCant,
                     _reservasRow.NumeroMesa,
@@ -58,6 +62,19 @@ namespace RestauranteLib.Controladores
                     );
             }
             return reservas;
+        }
+
+        public void AgregarReserva(ReservasLib reservas)
+        {
+            int result = _adapter.Insert(
+                    reservas.ReservaCodigo,
+                    reservas.ReservaDateTime,
+                    reservas.PersonasCant,
+                    reservas.NumeroMesa,
+                    reservas.ReservaEstado,
+                    reservas.ReservaCreacion
+                );
+            _adapter.Fill(restauranteDataSet.Reservas);
         }
     }
 }

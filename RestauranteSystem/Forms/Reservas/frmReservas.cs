@@ -19,6 +19,8 @@ namespace RestauranteSystem.Reservas
         private ControladorReservas _controladorReservas;
         private List<ReservasLib> _reservasLista;
         private ReservasLib _selectedReserva;
+
+
         public frmReservas()
         {
             InitializeComponent();
@@ -26,8 +28,7 @@ namespace RestauranteSystem.Reservas
             _reservasLista = _controladorReservas.ObtenerReservas();
             bnSrcReservas.DataSource = _reservasLista;
         }
-
-        private void dgvReservasView_SizeChanged(object sender, EventArgs e)
+        private void dgvReservasView_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvReservasView.SelectedRows.Count > 0)
             {
