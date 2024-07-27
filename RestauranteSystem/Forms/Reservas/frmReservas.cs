@@ -25,13 +25,16 @@ namespace RestauranteSystem.Reservas
 
         private bool _esEdicion = false;
         private bool _esEliminacion = false;
+        private bool _esVerReserva = false;
+        private bool actualizarReservaGlobal;
         private ReservasLib _originalReserva = null;
+        private DateTime reservaDatetime;
 
 
         public frmReservas()
         {
             InitializeComponent();
-
+            
             _controladorReservas = new ControladorReservas();
             _reservasLista = _controladorReservas.ObtenerReservas();
             bnSrcReservas.DataSource = _reservasLista;
@@ -85,21 +88,27 @@ namespace RestauranteSystem.Reservas
                 dtpReservaCreacion.Value = _selectedReserva.ReservaCreacion;
             }
         }
+       
+        private void SelectedReservaUpdate()
+        {
+            
+            
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 string reservaCodigo = txbReservaCodigo.Text;
                 string reservaCliente = txbClienteID.Text;
-
-                DateTime reservaFecha = dtpReservaFecha.Value;
-                DateTime reservaHora = dtpReservaHora.Value;
-                DateTime reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
-
                 int personasCant = int.Parse(txbCantPersonas.Text);
                 int numeroMesa = int.Parse(txbMesasNum.Text);
                 string reservaEstado = cboReservaEstado.SelectedItem.ToString();
                 DateTime reservaCreacion = dtpReservaCreacion.Value;
+
+                DateTime reservaFecha = dtpReservaFecha.Value;
+                DateTime reservaHora = dtpReservaHora.Value;
+
+                reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
 
                 _selectedReserva.ReservaCodigo = txbReservaCodigo.Text;
                 _selectedReserva.ReservaDateTime = reservaDatetime;
@@ -109,11 +118,31 @@ namespace RestauranteSystem.Reservas
                 _selectedReserva.ReservaCreacion = dtpReservaCreacion.Value;
                 _selectedReserva.ReservaCliente = txbClienteID.Text;
 
+                if (_esEdicion == false || _esEliminacion == false)
+                {
+                   
+                    btnGuardar.Text = "Guardar";
+                    cboReservaEstado.Enabled = false;
+                    ReservasLib nuevaReserva = new ReservasLib
+                    {
+                        ReservaCodigo = reservaCodigo,
+                        ReservaDateTime = reservaDatetime,
+                        PersonasCant = personasCant,
+                        NumeroMesa = numeroMesa,
+                        ReservaEstado = reservaEstado,
+                        ReservaCreacion = reservaCreacion,
+                        ReservaCliente = reservaCliente
+
+                    };
+                    _controladorReservas.AgregarReserva(nuevaReserva);
+                }
+
                 if (_esEdicion)
                 {
+                    bool actualizarReserva = _controladorReservas.EditarReserva(_selectedReserva, _originalReserva);
+                    actualizarReservaGlobal = actualizarReserva;
 
-                    bool actualizado = _controladorReservas.EditarReserva(_selectedReserva, _originalReserva);
-                    if (actualizado)
+                    if (actualizarReserva)
                     {
                         MessageBox.Show("Reserva actualizada exitosamente.");
                     }
@@ -122,6 +151,7 @@ namespace RestauranteSystem.Reservas
                         MessageBox.Show("Error al actualizar la reserva.");
                     }
                     _esEdicion = false;
+
                 }
                 if (_esEliminacion)
                 {
@@ -144,25 +174,10 @@ namespace RestauranteSystem.Reservas
                         _esEliminacion = false;
                     }
                 }
-                if (_esEdicion == false || _esEliminacion == false)
-                {
-                    btnGuardar.Text = "Guardar";
-                    ReservasLib nuevaReserva = new ReservasLib
-                    {
-                        ReservaCodigo = reservaCodigo,
-                        ReservaDateTime = reservaDatetime,
-                        PersonasCant = personasCant,
-                        NumeroMesa = numeroMesa,
-                        ReservaEstado = reservaEstado,
-                        ReservaCreacion = reservaCreacion,
-                        ReservaCliente = reservaCliente
-
-                    };
-                    _controladorReservas.AgregarReserva(nuevaReserva);
-                }
-
+                
                 LimpiarFormulario();
                 ActivateElements();
+                
                 _originalReserva = null;
                 _reservasLista = _controladorReservas.ObtenerReservas();
                 bnSrcReservas.DataSource = _reservasLista;
@@ -175,13 +190,11 @@ namespace RestauranteSystem.Reservas
 
         }
 
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
         }
-
+       
         private void btnMesasView_Click(object sender, EventArgs e)
         {
             MenuMesas frmMenuMesas = new MenuMesas();
@@ -214,10 +227,15 @@ namespace RestauranteSystem.Reservas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (_esVerReserva == true)
+            {
+                _esVerReserva = false;
+                ActivateElements();
+            }
             if (_selectedReserva != null)
             {
                 btnGuardar.Text = "Editar";
-                cboReservaEstado.Enabled = false;
+                cboReservaEstado.Enabled = true;
                 _esEdicion = true;
 
                 _originalReserva = new ReservasLib(
@@ -232,6 +250,7 @@ namespace RestauranteSystem.Reservas
                 );
                 ActualizarTextBoxReserva();
             }
+            
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -254,7 +273,7 @@ namespace RestauranteSystem.Reservas
                 {
                     _controls.Enabled = false;
                 }
-                if( _controls is Button)
+                if (_controls is Button)
                 {
                     _controls.Enabled = false;
                     btnGuardar.Enabled = true;
@@ -283,6 +302,12 @@ namespace RestauranteSystem.Reservas
             }
         }
 
-
+        private void btnVerReserva_Click(object sender, EventArgs e)
+        {
+            _esVerReserva = true;
+            ActualizarTextBoxReserva();
+            DeactivateElements();
+            btnGuardar.Enabled = false;
+        }
     }
 }

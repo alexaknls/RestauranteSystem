@@ -355,6 +355,7 @@
             btnVerReserva.TabIndex = 24;
             btnVerReserva.Text = "Ver Reserva";
             btnVerReserva.UseVisualStyleBackColor = true;
+            btnVerReserva.Click += btnVerReserva_Click;
             // 
             // btnEliminar
             // 
