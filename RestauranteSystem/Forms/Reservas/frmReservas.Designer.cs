@@ -54,7 +54,15 @@
             label9 = new Label();
             txbReservaCodigo = new TextBox();
             panel2 = new Panel();
-            btnViewReserva = new Button();
+            btnImportarExcel = new Button();
+            btnExportarExcel = new Button();
+            btnVerReserva = new Button();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnNext = new Button();
+            btnPrevious = new Button();
+            txbBuscadorReserva = new TextBox();
+            btnBuscadorReserva = new Button();
             dgvReservasView = new DataGridView();
             colReservaCodigo = new DataGridViewTextBoxColumn();
             colReservaDateTime = new DataGridViewTextBoxColumn();
@@ -62,6 +70,7 @@
             colNumeroMesa = new DataGridViewTextBoxColumn();
             colReservaEstado = new DataGridViewTextBoxColumn();
             colReservaCreacion = new DataGridViewTextBoxColumn();
+            colCedula = new DataGridViewTextBoxColumn();
             bnSrcReservas = new BindingSource(components);
             label1 = new Label();
             pnlNuevaReserva.SuspendLayout();
@@ -120,6 +129,7 @@
             // cboReservaEstado
             // 
             cboReservaEstado.BackColor = SystemColors.ScrollBar;
+            cboReservaEstado.Enabled = false;
             cboReservaEstado.FormattingEnabled = true;
             cboReservaEstado.Items.AddRange(new object[] { "INA", "ACT" });
             cboReservaEstado.Location = new Point(360, 186);
@@ -146,8 +156,10 @@
             // 
             // txbMesasNum
             // 
+            txbMesasNum.Enabled = false;
             txbMesasNum.Location = new Point(416, 143);
             txbMesasNum.Name = "txbMesasNum";
+            txbMesasNum.ReadOnly = true;
             txbMesasNum.Size = new Size(103, 27);
             txbMesasNum.TabIndex = 20;
             // 
@@ -301,21 +313,102 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(btnViewReserva);
+            panel2.Controls.Add(btnImportarExcel);
+            panel2.Controls.Add(btnExportarExcel);
+            panel2.Controls.Add(btnVerReserva);
+            panel2.Controls.Add(btnEliminar);
+            panel2.Controls.Add(btnEditar);
+            panel2.Controls.Add(btnNext);
+            panel2.Controls.Add(btnPrevious);
+            panel2.Controls.Add(txbBuscadorReserva);
+            panel2.Controls.Add(btnBuscadorReserva);
             panel2.Controls.Add(dgvReservasView);
             panel2.Location = new Point(12, 370);
             panel2.Name = "panel2";
-            panel2.Size = new Size(588, 277);
+            panel2.Size = new Size(588, 347);
             panel2.TabIndex = 1;
             // 
-            // btnViewReserva
+            // btnImportarExcel
             // 
-            btnViewReserva.Location = new Point(28, 229);
-            btnViewReserva.Name = "btnViewReserva";
-            btnViewReserva.Size = new Size(94, 29);
-            btnViewReserva.TabIndex = 18;
-            btnViewReserva.Text = "Ver Reserva";
-            btnViewReserva.UseVisualStyleBackColor = true;
+            btnImportarExcel.Location = new Point(359, 303);
+            btnImportarExcel.Name = "btnImportarExcel";
+            btnImportarExcel.Size = new Size(94, 29);
+            btnImportarExcel.TabIndex = 26;
+            btnImportarExcel.Text = "Importar";
+            btnImportarExcel.UseVisualStyleBackColor = true;
+            // 
+            // btnExportarExcel
+            // 
+            btnExportarExcel.Location = new Point(459, 303);
+            btnExportarExcel.Name = "btnExportarExcel";
+            btnExportarExcel.Size = new Size(94, 29);
+            btnExportarExcel.TabIndex = 25;
+            btnExportarExcel.Text = "Exportar";
+            btnExportarExcel.UseVisualStyleBackColor = true;
+            // 
+            // btnVerReserva
+            // 
+            btnVerReserva.Location = new Point(335, 247);
+            btnVerReserva.Name = "btnVerReserva";
+            btnVerReserva.Size = new Size(94, 29);
+            btnVerReserva.TabIndex = 24;
+            btnVerReserva.Text = "Ver Reserva";
+            btnVerReserva.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(235, 247);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.TabIndex = 23;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(135, 247);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(94, 29);
+            btnEditar.TabIndex = 22;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnNext
+            // 
+            btnNext.Location = new Point(459, 247);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(94, 29);
+            btnNext.TabIndex = 21;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPrevious
+            // 
+            btnPrevious.Location = new Point(22, 247);
+            btnPrevious.Name = "btnPrevious";
+            btnPrevious.Size = new Size(94, 29);
+            btnPrevious.TabIndex = 20;
+            btnPrevious.Text = "Previous";
+            btnPrevious.UseVisualStyleBackColor = true;
+            // 
+            // txbBuscadorReserva
+            // 
+            txbBuscadorReserva.Location = new Point(169, 15);
+            txbBuscadorReserva.Name = "txbBuscadorReserva";
+            txbBuscadorReserva.PlaceholderText = "NUMERO DE CEDULA [CLIENTE]";
+            txbBuscadorReserva.Size = new Size(389, 27);
+            txbBuscadorReserva.TabIndex = 19;
+            // 
+            // btnBuscadorReserva
+            // 
+            btnBuscadorReserva.Location = new Point(22, 15);
+            btnBuscadorReserva.Name = "btnBuscadorReserva";
+            btnBuscadorReserva.Size = new Size(141, 29);
+            btnBuscadorReserva.TabIndex = 18;
+            btnBuscadorReserva.Text = "Buscar Reservas";
+            btnBuscadorReserva.UseVisualStyleBackColor = true;
+            btnBuscadorReserva.Click += btnBuscadorReserva_Click;
             // 
             // dgvReservasView
             // 
@@ -323,9 +416,9 @@
             dgvReservasView.AllowUserToDeleteRows = false;
             dgvReservasView.AutoGenerateColumns = false;
             dgvReservasView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaCodigo, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion });
+            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaCodigo, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion, colCedula });
             dgvReservasView.DataSource = bnSrcReservas;
-            dgvReservasView.Location = new Point(28, 21);
+            dgvReservasView.Location = new Point(22, 50);
             dgvReservasView.Name = "dgvReservasView";
             dgvReservasView.ReadOnly = true;
             dgvReservasView.RowHeadersWidth = 51;
@@ -388,6 +481,15 @@
             colReservaCreacion.ReadOnly = true;
             colReservaCreacion.Width = 125;
             // 
+            // colCedula
+            // 
+            colCedula.DataPropertyName = "ReservaCliente";
+            colCedula.HeaderText = "Cliente Cedula";
+            colCedula.MinimumWidth = 6;
+            colCedula.Name = "colCedula";
+            colCedula.ReadOnly = true;
+            colCedula.Width = 125;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -402,7 +504,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 668);
+            ClientSize = new Size(619, 729);
             Controls.Add(txbReservaCodigo);
             Controls.Add(label1);
             Controls.Add(panel2);
@@ -413,6 +515,7 @@
             pnlNuevaReserva.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvReservasView).EndInit();
             ((System.ComponentModel.ISupportInitialize)bnSrcReservas).EndInit();
             ResumeLayout(false);
@@ -441,20 +544,29 @@
         private Label label8;
         private PictureBox pictureBox1;
         private Label label9;
-        private Button btnViewReserva;
+        private Button btnBuscadorReserva;
         private Button btnMesasView;
         private TextBox txbMesasNum;
         private BindingSource bnSrcReservas;
+        private DateTimePicker dtpReservaFecha;
+        private ComboBox cboReservaEstado;
+        private Label label4;
+        private DateTimePicker dtpReservaHora;
+        private Label label10;
+        private TextBox txbBuscadorReserva;
         private DataGridViewTextBoxColumn colReservaCodigo;
         private DataGridViewTextBoxColumn colReservaDateTime;
         private DataGridViewTextBoxColumn colPersonasCant;
         private DataGridViewTextBoxColumn colNumeroMesa;
         private DataGridViewTextBoxColumn colReservaEstado;
         private DataGridViewTextBoxColumn colReservaCreacion;
-        private DateTimePicker dtpReservaFecha;
-        private ComboBox cboReservaEstado;
-        private Label label4;
-        private DateTimePicker dtpReservaHora;
-        private Label label10;
+        private DataGridViewTextBoxColumn colCedula;
+        private Button btnImportarExcel;
+        private Button btnExportarExcel;
+        private Button btnVerReserva;
+        private Button btnEliminar;
+        private Button btnEditar;
+        private Button btnNext;
+        private Button btnPrevious;
     }
 }

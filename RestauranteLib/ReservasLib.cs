@@ -9,6 +9,8 @@
         private int _numeroMesa;
         private string _reservaEstado;
         private DateTime _reservaCreacion;
+        private string _reservaCliente;
+
         public int ReservaID { get => _reservaID; set => _reservaID = value; }
         public string ReservaCodigo { get => _reservaCodigo; set => _reservaCodigo = value; }
         public DateTime ReservaDateTime { get => _reservaDateTime; set => _reservaDateTime = value; }
@@ -16,6 +18,7 @@
         public int NumeroMesa { get => _numeroMesa; set => _numeroMesa = value; }
         public string ReservaEstado { get => _reservaEstado; set => _reservaEstado = value; }
         public DateTime ReservaCreacion { get => _reservaCreacion; set => _reservaCreacion = value; }
+        public string ReservaCliente { get => _reservaCliente; set => _reservaCliente = value; }
 
         public ReservasLib()
         {
@@ -26,6 +29,7 @@
             NumeroMesa = 0;
             ReservaEstado = "";
             ReservaCreacion = DateTime.MinValue;
+            ReservaCliente = "";
         }
 
         public ReservasLib(
@@ -35,7 +39,8 @@
             int personasCant,
             int numeroMesa,
             string reservaEstado,
-            DateTime reservaCreacion
+            DateTime reservaCreacion,
+            string reservaCliente
             )
         {
             ReservaID = reservaID;
@@ -45,6 +50,7 @@
             NumeroMesa = numeroMesa;
             _reservaEstado = reservaEstado;
             ReservaCreacion = reservaCreacion;
+            ReservaCliente= reservaCliente;
         }
     }
 }

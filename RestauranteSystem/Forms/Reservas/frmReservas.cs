@@ -21,27 +21,31 @@ namespace RestauranteSystem.Reservas
         private List<ReservasLib> _reservasLista;
         private ReservasLib _selectedReserva;
         private string nuevoCodigoReserva;
+        private DateTime _reservaDateTime;
+
+        private bool _esEdicion = false;
+        private ReservasLib _originalReserva = null;
+
 
         public frmReservas()
         {
             InitializeComponent();
+            DateTime reservaFecha = dtpReservaFecha.Value;
+            DateTime reservaHora = dtpReservaHora.Value;
+            DateTime _reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
+
             _controladorReservas = new ControladorReservas();
             _reservasLista = _controladorReservas.ObtenerReservas();
             bnSrcReservas.DataSource = _reservasLista;
 
             GeneradordeCodigoReservaFromForm();
-
+            LimpiarTextBoxReserva();
         }
         private void frmReservas_Load(object sender, EventArgs e)
         {
             dgvReservasView.DataSource = bnSrcReservas;
-        }
-        private void dgvReservasView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvReservasView.SelectedRows.Count > 0)
-            {
-                _selectedReserva = (ReservasLib)dgvReservasView.SelectedRows[0].DataBoundItem;
-            }
+            LimpiarTextBoxReserva();
+
         }
         private void GeneradordeCodigoReservaFromForm()
         {
@@ -49,36 +53,92 @@ namespace RestauranteSystem.Reservas
             txbReservaCodigo.Text = nuevoCodigoReserva;
         }
 
+        private void dgvReservasView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvReservasView.SelectedRows.Count > 0)
+            {
+                _selectedReserva = (ReservasLib)dgvReservasView.SelectedRows[0].DataBoundItem;
+            }
+
+        }
+        private void LimpiarTextBoxReserva()
+        {
+            _reservaDateTime = DateTime.Now;
+            txbCantPersonas.Text = string.Empty;
+            txbMesasNum.Text = string.Empty;
+            cboReservaEstado.Text = string.Empty;
+            dtpReservaCreacion.Value = DateTime.Now;
+        }
+        private void ActualizarTextBoxReserva()
+        {
+            if (_selectedReserva != null)
+            {
+                txbClienteID.Text = _selectedReserva.ReservaCliente;
+                txbReservaCodigo.Text = _selectedReserva.ReservaCodigo;
+                _reservaDateTime = _selectedReserva.ReservaDateTime;
+                txbCantPersonas.Text = _selectedReserva.PersonasCant.ToString();
+                txbMesasNum.Text = _selectedReserva.NumeroMesa.ToString();
+                cboReservaEstado.Text = _selectedReserva.ReservaEstado;
+                dtpReservaCreacion.Value = _selectedReserva.ReservaCreacion;
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 string reservaCodigo = txbReservaCodigo.Text;
-                DateTime reservaFecha = dtpReservaFecha.Value;
-                DateTime reservaHora = dtpReservaHora.Value;
-                DateTime reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
-
+                string reservaCliente = txbClienteID.Text;
                 int personasCant = int.Parse(txbCantPersonas.Text);
                 int numeroMesa = int.Parse(txbMesasNum.Text);
                 string reservaEstado = cboReservaEstado.SelectedItem.ToString();
                 DateTime reservaCreacion = dtpReservaCreacion.Value;
 
-                ReservasLib nuevaReserva = new ReservasLib
+                if (_esEdicion)
                 {
-                    ReservaCodigo = reservaCodigo,
-                    ReservaDateTime = reservaDatetime,
-                    PersonasCant = personasCant,
-                    NumeroMesa = numeroMesa,
-                    ReservaEstado = reservaEstado,
-                    ReservaCreacion = reservaCreacion
+                    
+                    _selectedReserva.ReservaCodigo = txbReservaCodigo.Text;
+                    _selectedReserva.ReservaDateTime = _reservaDateTime;
+                    _selectedReserva.PersonasCant = int.Parse(txbCantPersonas.Text);
+                    _selectedReserva.NumeroMesa = int.Parse(txbMesasNum.Text);
+                    _selectedReserva.ReservaEstado = cboReservaEstado.Text;
+                    _selectedReserva.ReservaCreacion = dtpReservaCreacion.Value;
+                    _selectedReserva.ReservaCliente = txbClienteID.Text;
 
-                };
-                _controladorReservas.AgregarReserva(nuevaReserva);
+                    bool actualizado = _controladorReservas.EditarReserva(_selectedReserva, _originalReserva);
+                    if (actualizado)
+                    {
+                        MessageBox.Show("Reserva actualizada exitosamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar la reserva.");
+                    }
+                    LimpiarFormulario();
+                }
+                else
+                {
+                    Button btnGuardarTexto = new Button();
+                    btnGuardarTexto.Text = "Guardar";
+                    ReservasLib nuevaReserva = new ReservasLib
+                    {
+                        ReservaCodigo = reservaCodigo,
+                        ReservaDateTime = _reservaDateTime,
+                        PersonasCant = personasCant,
+                        NumeroMesa = numeroMesa,
+                        ReservaEstado = reservaEstado,
+                        ReservaCreacion = reservaCreacion,
+                        ReservaCliente = reservaCliente
 
+                    };
+                    _controladorReservas.AgregarReserva(nuevaReserva);
+                }
+                _esEdicion = false;
+                _originalReserva = null;
+                LimpiarTextBoxReserva();
+                btnGuardar.Text = "Guardar";
                 _reservasLista = _controladorReservas.ObtenerReservas();
                 bnSrcReservas.DataSource = _reservasLista;
-                bnSrcReservas.ResetBindings(false);
-                LimpiarFormulario();
+                bnSrcReservas.ResetBindings(true);
             }
             catch
             {
@@ -95,7 +155,7 @@ namespace RestauranteSystem.Reservas
             dtpReservaHora.Value = DateTime.Now;
             txbCantPersonas.Text = "";
             txbMesasNum.Text = "";
-            cboReservaEstado.SelectedIndex = 1;
+            cboReservaEstado.Text = "ACT";
             dtpReservaCreacion.Value = DateTime.Now;
         }
 
@@ -107,11 +167,54 @@ namespace RestauranteSystem.Reservas
         private void btnMesasView_Click(object sender, EventArgs e)
         {
             MenuMesas frmMenuMesas = new MenuMesas();
-            if(frmMenuMesas.ShowDialog() == DialogResult.OK)
+            if (frmMenuMesas.ShowDialog() == DialogResult.OK)
             {
                 txbMesasNum.Text = frmMenuMesas.NumeroMesasSeleccionada.ToString();
             }
             //frmMenuMesas.ShowDialog(this);
+        }
+
+        private void btnBuscadorReserva_Click(object sender, EventArgs e)
+        {
+            string cedula = txbBuscadorReserva.Text;
+
+            if (string.IsNullOrEmpty(cedula))
+            {
+                MessageBox.Show("Por favor, introduzca la cédula del cliente.");
+                return;
+            }
+
+            List<ReservasLib> reservasFiltradas = _controladorReservas.BuscarReservasPorCedula(cedula);
+
+            if (reservasFiltradas.Count == 0)
+            {
+                MessageBox.Show("No se encontraron reservas para la cédula proporcionada.");
+            }
+
+            bnSrcReservas.DataSource = reservasFiltradas;
+            bnSrcReservas.ResetBindings(true);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (_selectedReserva != null)
+            {
+                btnGuardar.Text = "Editar";
+                cboReservaEstado.Enabled = true;
+
+                _esEdicion = true;
+                _originalReserva = new ReservasLib(
+                    _selectedReserva.ReservaID,
+                    _selectedReserva.ReservaCodigo,
+                    _selectedReserva.ReservaDateTime,
+                    _selectedReserva.PersonasCant,
+                    _selectedReserva.NumeroMesa,
+                    _selectedReserva.ReservaEstado,
+                    _selectedReserva.ReservaCreacion,
+                    _selectedReserva.ReservaCliente
+                );
+                ActualizarTextBoxReserva();
+            }
         }
     }
 }
