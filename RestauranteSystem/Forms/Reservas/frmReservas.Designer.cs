@@ -54,13 +54,12 @@
             label9 = new Label();
             txbReservaCodigo = new TextBox();
             panel2 = new Panel();
-            btnImportarExcel = new Button();
+            btnExportarXML = new Button();
+            btnImportarXML = new Button();
             btnExportarExcel = new Button();
             btnVerReserva = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
-            btnNext = new Button();
-            btnPrevious = new Button();
             txbBuscadorReserva = new TextBox();
             btnBuscadorReserva = new Button();
             dgvReservasView = new DataGridView();
@@ -73,6 +72,10 @@
             colCedula = new DataGridViewTextBoxColumn();
             bnSrcReservas = new BindingSource(components);
             label1 = new Label();
+            saveDialogExcel = new SaveFileDialog();
+            openDialog = new OpenFileDialog();
+            saveDialogXML = new SaveFileDialog();
+            saveDialogX = new SaveFileDialog();
             pnlNuevaReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -314,13 +317,12 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(btnImportarExcel);
+            panel2.Controls.Add(btnExportarXML);
+            panel2.Controls.Add(btnImportarXML);
             panel2.Controls.Add(btnExportarExcel);
             panel2.Controls.Add(btnVerReserva);
             panel2.Controls.Add(btnEliminar);
             panel2.Controls.Add(btnEditar);
-            panel2.Controls.Add(btnNext);
-            panel2.Controls.Add(btnPrevious);
             panel2.Controls.Add(txbBuscadorReserva);
             panel2.Controls.Add(btnBuscadorReserva);
             panel2.Controls.Add(dgvReservasView);
@@ -329,23 +331,35 @@
             panel2.Size = new Size(588, 347);
             panel2.TabIndex = 1;
             // 
-            // btnImportarExcel
+            // btnExportarXML
             // 
-            btnImportarExcel.Location = new Point(359, 303);
-            btnImportarExcel.Name = "btnImportarExcel";
-            btnImportarExcel.Size = new Size(94, 29);
-            btnImportarExcel.TabIndex = 26;
-            btnImportarExcel.Text = "Importar";
-            btnImportarExcel.UseVisualStyleBackColor = true;
+            btnExportarXML.Location = new Point(166, 303);
+            btnExportarXML.Name = "btnExportarXML";
+            btnExportarXML.Size = new Size(114, 29);
+            btnExportarXML.TabIndex = 27;
+            btnExportarXML.Text = "Exportar XML";
+            btnExportarXML.UseVisualStyleBackColor = true;
+            btnExportarXML.Click += btnExportarXML_Click;
+            // 
+            // btnImportarXML
+            // 
+            btnImportarXML.Location = new Point(18, 303);
+            btnImportarXML.Name = "btnImportarXML";
+            btnImportarXML.Size = new Size(136, 29);
+            btnImportarXML.TabIndex = 26;
+            btnImportarXML.Text = "Importar XML";
+            btnImportarXML.UseVisualStyleBackColor = true;
+            btnImportarXML.Click += btnImportarExcel_Click;
             // 
             // btnExportarExcel
             // 
-            btnExportarExcel.Location = new Point(459, 303);
+            btnExportarExcel.Location = new Point(429, 303);
             btnExportarExcel.Name = "btnExportarExcel";
-            btnExportarExcel.Size = new Size(94, 29);
+            btnExportarExcel.Size = new Size(124, 29);
             btnExportarExcel.TabIndex = 25;
-            btnExportarExcel.Text = "Exportar";
+            btnExportarExcel.Text = "Exportar a Excel";
             btnExportarExcel.UseVisualStyleBackColor = true;
+            btnExportarExcel.Click += btnExportarExcel_Click;
             // 
             // btnVerReserva
             // 
@@ -376,24 +390,6 @@
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
-            // 
-            // btnNext
-            // 
-            btnNext.Location = new Point(459, 247);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(94, 29);
-            btnNext.TabIndex = 21;
-            btnNext.Text = "Next";
-            btnNext.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevious
-            // 
-            btnPrevious.Location = new Point(22, 247);
-            btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(94, 29);
-            btnPrevious.TabIndex = 20;
-            btnPrevious.Text = "Previous";
-            btnPrevious.UseVisualStyleBackColor = true;
             // 
             // txbBuscadorReserva
             // 
@@ -503,6 +499,30 @@
             label1.TabIndex = 1;
             label1.Text = "Nueva Reserva";
             // 
+            // saveDialogExcel
+            // 
+            saveDialogExcel.DefaultExt = "xlsx";
+            saveDialogExcel.FileName = "reservasDataBU";
+            saveDialogExcel.Filter = "Archivos de Excel 2007+ | *.xlsx";
+            // 
+            // openDialog
+            // 
+            openDialog.DefaultExt = "xml";
+            openDialog.FileName = "restauranteReserasListado";
+            openDialog.Filter = "Archivos XML (*.xml) | *.xml";
+            // 
+            // saveDialogXML
+            // 
+            saveDialogXML.DefaultExt = "xlsx";
+            saveDialogXML.FileName = "reservasDataBU";
+            saveDialogXML.Filter = "Archivos de Excel 2007+ | *.xlsx";
+            // 
+            // saveDialogX
+            // 
+            saveDialogX.DefaultExt = "xml";
+            saveDialogX.FileName = "saveXMLReservas";
+            saveDialogX.Filter = "Archivos XML (*.xml) | *.xml";
+            // 
             // frmReservas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -564,12 +584,15 @@
         private DataGridViewTextBoxColumn colReservaEstado;
         private DataGridViewTextBoxColumn colReservaCreacion;
         private DataGridViewTextBoxColumn colCedula;
-        private Button btnImportarExcel;
         private Button btnExportarExcel;
         private Button btnVerReserva;
         private Button btnEliminar;
         private Button btnEditar;
-        private Button btnNext;
-        private Button btnPrevious;
+        private SaveFileDialog saveDialogExcel;
+        private OpenFileDialog openDialog;
+        private Button btnImportarXML;
+        private Button btnExportarXML;
+        private SaveFileDialog saveDialogXML;
+        private SaveFileDialog saveDialogX;
     }
 }
