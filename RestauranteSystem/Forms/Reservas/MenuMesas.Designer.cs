@@ -74,6 +74,7 @@
             panel23 = new Panel();
             btnMesa20 = new Button();
             gbCocina = new GroupBox();
+            lblMesasOcupadas = new Label();
             gbPatio = new GroupBox();
             panel17 = new Panel();
             btnMesa18 = new Button();
@@ -120,6 +121,7 @@
             panel24.SuspendLayout();
             panel22.SuspendLayout();
             panel23.SuspendLayout();
+            gbCocina.SuspendLayout();
             gbPatio.SuspendLayout();
             panel17.SuspendLayout();
             panel18.SuspendLayout();
@@ -352,12 +354,13 @@
             // 
             // btnMesa4
             // 
-            btnMesa4.Location = new Point(17, 10);
+            btnMesa4.BackColor = SystemColors.ButtonHighlight;
+            btnMesa4.Location = new Point(14, 10);
             btnMesa4.Name = "btnMesa4";
-            btnMesa4.Size = new Size(24, 29);
+            btnMesa4.Size = new Size(33, 29);
             btnMesa4.TabIndex = 0;
             btnMesa4.Text = "4";
-            btnMesa4.UseVisualStyleBackColor = true;
+            btnMesa4.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
@@ -555,12 +558,22 @@
             // gbCocina
             // 
             gbCocina.BackColor = Color.Silver;
+            gbCocina.Controls.Add(lblMesasOcupadas);
             gbCocina.Location = new Point(621, 175);
             gbCocina.Name = "gbCocina";
             gbCocina.Size = new Size(201, 445);
             gbCocina.TabIndex = 3;
             gbCocina.TabStop = false;
             gbCocina.Text = "Cocina";
+            // 
+            // lblMesasOcupadas
+            // 
+            lblMesasOcupadas.AutoSize = true;
+            lblMesasOcupadas.Location = new Point(9, 41);
+            lblMesasOcupadas.Name = "lblMesasOcupadas";
+            lblMesasOcupadas.Size = new Size(50, 20);
+            lblMesasOcupadas.TabIndex = 0;
+            lblMesasOcupadas.Text = "label1";
             // 
             // gbPatio
             // 
@@ -806,6 +819,8 @@
             panel24.ResumeLayout(false);
             panel22.ResumeLayout(false);
             panel23.ResumeLayout(false);
+            gbCocina.ResumeLayout(false);
+            gbCocina.PerformLayout();
             gbPatio.ResumeLayout(false);
             panel17.ResumeLayout(false);
             panel18.ResumeLayout(false);
@@ -890,5 +905,6 @@
         private Button btnMesa20;
         private PictureBox pictureBox1;
         private Panel panelMesas;
+        private Label lblMesasOcupadas;
     }
 }

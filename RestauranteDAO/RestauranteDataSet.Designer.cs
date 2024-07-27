@@ -2282,7 +2282,7 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Reser" +
@@ -2298,17 +2298,22 @@ WHERE  (c.ClienteCedula = @Cedula)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteCedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Reser" +
-                "vaEstado, ReservaCreacion, ReservaCliente\r\nFROM     Reservas\r\nWHERE  (ReservaID " +
-                "= @ReservaID)";
+            this._commandCollection[2].CommandText = "SELECT NumeroMesa\r\nFROM     Reservas\r\nWHERE  (ReservaDateTime = @fechaHora)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaHora", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
+            this._commandCollection[3].CommandText = "SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Reser" +
+                "vaEstado, ReservaCreacion, ReservaCliente\r\nFROM     Reservas\r\nWHERE  (ReservaID " +
+                "= @ReservaID)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
 FROM     Reservas INNER JOIN
                   Clientes ON Reservas.ReservaCliente = Clientes.ClienteCedula";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2375,8 +2380,44 @@ FROM     Reservas INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByReservas(RestauranteDataSet.ReservasDataTable dataTable, int ReservaID) {
+        public virtual int FillByMesasOcupadas(RestauranteDataSet.ReservasDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaHora) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fechaHora.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(fechaHora.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RestauranteDataSet.ReservasDataTable GetByMesasOcupadas(global::System.Nullable<global::System.DateTime> fechaHora) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fechaHora.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(fechaHora.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            RestauranteDataSet.ReservasDataTable dataTable = new RestauranteDataSet.ReservasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByReservas(RestauranteDataSet.ReservasDataTable dataTable, int ReservaID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2390,7 +2431,7 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.ReservasDataTable GetDataByReservas(int ReservaID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
             RestauranteDataSet.ReservasDataTable dataTable = new RestauranteDataSet.ReservasDataTable();
             this.Adapter.Fill(dataTable);
@@ -2716,7 +2757,7 @@ FROM     Reservas INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object GetReservasByCliente() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

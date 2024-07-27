@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static RestauranteDAO.RestauranteDataSet;
 using System.Runtime.CompilerServices;
+using System.Data;
 
 namespace RestauranteLib.Controladores
 {
@@ -171,13 +172,16 @@ namespace RestauranteLib.Controladores
             }
         }
 
-
-
-
-
-
-
-
+        public List<int> ObtenerMesasOcupadas(DateTime fechaHora)
+        {
+            List<int> mesasOcupadas = new List<int>();
+            DataTable resultTable = _adapter.GetByMesasOcupadas(fechaHora);
+            foreach (DataRow row in resultTable.Rows)
+            {
+                mesasOcupadas.Add(Convert.ToInt32(row["NumeroMesa"]));
+            }
+            return mesasOcupadas;
+        }
 
 
 

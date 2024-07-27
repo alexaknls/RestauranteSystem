@@ -101,8 +101,7 @@ namespace RestauranteSystem.Reservas
 
                 DateTime reservaFecha = dtpReservaFecha.Value;
                 DateTime reservaHora = dtpReservaHora.Value;
-
-                reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
+                DateTime reservaDatetime = new DateTime(reservaFecha.Year, reservaFecha.Month, reservaFecha.Day, reservaHora.Hour, reservaHora.Minute, reservaHora.Second);
 
                 _selectedReserva.ReservaCodigo = txbReservaCodigo.Text;
                 _selectedReserva.ReservaDateTime = reservaDatetime;
@@ -194,10 +193,13 @@ namespace RestauranteSystem.Reservas
 
         private void btnMesasView_Click(object sender, EventArgs e)
         {
-            MenuMesas frmMenuMesas = new MenuMesas();
-            if (frmMenuMesas.ShowDialog() == DialogResult.OK)
+            DateTime fechaHoraSeleccionada = new DateTime(dtpReservaFecha.Value.Year, dtpReservaFecha.Value.Month, dtpReservaFecha.Value.Day, dtpReservaHora.Value.Hour, dtpReservaHora.Value.Minute, dtpReservaHora.Value.Second);
+            MenuMesas menuMesas = new MenuMesas(fechaHoraSeleccionada);
+            menuMesas.ShowDialog();
+
+            if (menuMesas.DialogResult == DialogResult.OK)
             {
-                txbMesasNum.Text = frmMenuMesas.NumeroMesasSeleccionada.ToString();
+                txbMesasNum.Text = menuMesas.NumeroMesasSeleccionada.ToString();
             }
         }
 
