@@ -29,9 +29,11 @@ namespace RestauranteLib.Controladores
             _adapter.Fill(restauranteDataSet.Reservas);
             foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
             {
+                string reservasCodigo = reservasRow.IsReservaCodigoNull() ? string.Empty : reservasRow.ReservaCodigo;
+
                 ReservasLib reservasItem = new ReservasLib(
                         reservasRow.ReservaID,
-                        reservasRow.ReservaCodigo,
+                        reservasCodigo,
                         reservasRow.ReservaDateTime,
                         reservasRow.PersonasCant,
                         reservasRow.NumeroMesa,
@@ -49,11 +51,13 @@ namespace RestauranteLib.Controladores
             ReservasLib reservas = null;
             _adapter.FillBy(restauranteDataSet.Reservas, id);
             RestauranteDataSet.ReservasRow _reservasRow = restauranteDataSet.Reservas.FirstOrDefault(); 
+
             if (_reservasRow != null)
             {
+                string reservasCodigo = _reservasRow.IsReservaCodigoNull() ? string.Empty : _reservasRow.ReservaCodigo;
                 reservas = new ReservasLib(
                     _reservasRow.ReservaID,
-                    _reservasRow.ReservaCodigo,
+                    reservasCodigo,
                     _reservasRow.ReservaDateTime,
                     _reservasRow.PersonasCant,
                     _reservasRow.NumeroMesa,
@@ -75,6 +79,15 @@ namespace RestauranteLib.Controladores
                     reservas.ReservaCreacion
                 );
             _adapter.Fill(restauranteDataSet.Reservas);
+        }
+
+        public string GeneradordeCodigoReserva()
+        {
+            string fechaHoraReserva = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string numeroAleatorio = new Random().Next(1000, 9999).ToString();
+            string codigoGeneradoReserva = $"RES-{fechaHoraReserva}-{numeroAleatorio}";
+
+            return codigoGeneradoReserva;
         }
     }
 }

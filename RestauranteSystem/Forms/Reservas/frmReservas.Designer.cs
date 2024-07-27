@@ -31,6 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReservas));
             pnlNuevaReserva = new Panel();
+            dtpReservaHora = new DateTimePicker();
+            label10 = new Label();
+            cboReservaEstado = new ComboBox();
+            label4 = new Label();
+            dtpReservaFecha = new DateTimePicker();
             txbMesasNum = new TextBox();
             btnMesasView = new Button();
             label8 = new Label();
@@ -44,24 +49,21 @@
             dtpReservaCreacion = new DateTimePicker();
             label6 = new Label();
             label5 = new Label();
-            dtpReservaTime = new DateTimePicker();
-            label4 = new Label();
             label3 = new Label();
-            dtpReservaDate = new DateTimePicker();
             txbCantPersonas = new TextBox();
             label9 = new Label();
-            txbReservaID = new TextBox();
+            txbReservaCodigo = new TextBox();
             panel2 = new Panel();
             btnViewReserva = new Button();
             dgvReservasView = new DataGridView();
-            bnSrcReservas = new BindingSource(components);
-            label1 = new Label();
             colReservaCodigo = new DataGridViewTextBoxColumn();
             colReservaDateTime = new DataGridViewTextBoxColumn();
             colPersonasCant = new DataGridViewTextBoxColumn();
             colNumeroMesa = new DataGridViewTextBoxColumn();
             colReservaEstado = new DataGridViewTextBoxColumn();
             colReservaCreacion = new DataGridViewTextBoxColumn();
+            bnSrcReservas = new BindingSource(components);
+            label1 = new Label();
             pnlNuevaReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -72,6 +74,11 @@
             // pnlNuevaReserva
             // 
             pnlNuevaReserva.BorderStyle = BorderStyle.FixedSingle;
+            pnlNuevaReserva.Controls.Add(dtpReservaHora);
+            pnlNuevaReserva.Controls.Add(label10);
+            pnlNuevaReserva.Controls.Add(cboReservaEstado);
+            pnlNuevaReserva.Controls.Add(label4);
+            pnlNuevaReserva.Controls.Add(dtpReservaFecha);
             pnlNuevaReserva.Controls.Add(txbMesasNum);
             pnlNuevaReserva.Controls.Add(btnMesasView);
             pnlNuevaReserva.Controls.Add(label8);
@@ -85,10 +92,7 @@
             pnlNuevaReserva.Controls.Add(dtpReservaCreacion);
             pnlNuevaReserva.Controls.Add(label6);
             pnlNuevaReserva.Controls.Add(label5);
-            pnlNuevaReserva.Controls.Add(dtpReservaTime);
-            pnlNuevaReserva.Controls.Add(label4);
             pnlNuevaReserva.Controls.Add(label3);
-            pnlNuevaReserva.Controls.Add(dtpReservaDate);
             pnlNuevaReserva.Controls.Add(txbCantPersonas);
             pnlNuevaReserva.Controls.Add(label9);
             pnlNuevaReserva.Location = new Point(12, 50);
@@ -96,10 +100,55 @@
             pnlNuevaReserva.Size = new Size(588, 297);
             pnlNuevaReserva.TabIndex = 0;
             // 
+            // dtpReservaHora
+            // 
+            dtpReservaHora.Format = DateTimePickerFormat.Time;
+            dtpReservaHora.Location = new Point(335, 93);
+            dtpReservaHora.Name = "dtpReservaHora";
+            dtpReservaHora.Size = new Size(219, 27);
+            dtpReservaHora.TabIndex = 25;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(287, 93);
+            label10.Name = "label10";
+            label10.Size = new Size(42, 20);
+            label10.TabIndex = 24;
+            label10.Text = "Hora";
+            // 
+            // cboReservaEstado
+            // 
+            cboReservaEstado.BackColor = SystemColors.ScrollBar;
+            cboReservaEstado.FormattingEnabled = true;
+            cboReservaEstado.Items.AddRange(new object[] { "INA", "ACT" });
+            cboReservaEstado.Location = new Point(360, 186);
+            cboReservaEstado.Name = "cboReservaEstado";
+            cboReservaEstado.Size = new Size(193, 28);
+            cboReservaEstado.TabIndex = 23;
+            cboReservaEstado.Text = "ACT";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(287, 189);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 20);
+            label4.TabIndex = 22;
+            label4.Text = "Estado";
+            // 
+            // dtpReservaFecha
+            // 
+            dtpReservaFecha.Location = new Point(71, 89);
+            dtpReservaFecha.Name = "dtpReservaFecha";
+            dtpReservaFecha.Size = new Size(193, 27);
+            dtpReservaFecha.TabIndex = 21;
+            // 
             // txbMesasNum
             // 
             txbMesasNum.Location = new Point(416, 143);
             txbMesasNum.Name = "txbMesasNum";
+            txbMesasNum.ReadOnly = true;
             txbMesasNum.Size = new Size(103, 27);
             txbMesasNum.TabIndex = 20;
             // 
@@ -111,6 +160,7 @@
             btnMesasView.TabIndex = 19;
             btnMesasView.Text = "+";
             btnMesasView.UseVisualStyleBackColor = true;
+            btnMesasView.Click += btnMesasView_Click;
             // 
             // label8
             // 
@@ -140,6 +190,7 @@
             btnCancelar.TabIndex = 15;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnBuscarClienteID
             // 
@@ -167,13 +218,15 @@
             btnGuardar.TabIndex = 2;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // txbClienteID
             // 
             txbClienteID.Location = new Point(61, 36);
             txbClienteID.Name = "txbClienteID";
+            txbClienteID.ReadOnly = true;
             txbClienteID.Size = new Size(125, 27);
-            txbClienteID.TabIndex = 12;
+            txbClienteID.TabIndex = 0;
             // 
             // label2
             // 
@@ -210,27 +263,6 @@
             label5.TabIndex = 7;
             label5.Text = "Cantidad de Personas";
             // 
-            // dtpReservaTime
-            // 
-            dtpReservaTime.Format = DateTimePickerFormat.Time;
-            dtpReservaTime.Location = new Point(335, 87);
-            dtpReservaTime.MaxDate = new DateTime(2024, 7, 23, 0, 0, 0, 0);
-            dtpReservaTime.MinDate = new DateTime(2000, 12, 1, 0, 0, 0, 0);
-            dtpReservaTime.Name = "dtpReservaTime";
-            dtpReservaTime.Size = new Size(219, 27);
-            dtpReservaTime.TabIndex = 6;
-            dtpReservaTime.TabStop = false;
-            dtpReservaTime.Value = new DateTime(2024, 7, 23, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(287, 90);
-            label4.Name = "label4";
-            label4.Size = new Size(42, 20);
-            label4.TabIndex = 5;
-            label4.Text = "Hora";
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -239,18 +271,6 @@
             label3.Size = new Size(47, 20);
             label3.TabIndex = 4;
             label3.Text = "Fecha";
-            // 
-            // dtpReservaDate
-            // 
-            dtpReservaDate.Format = DateTimePickerFormat.Short;
-            dtpReservaDate.Location = new Point(75, 85);
-            dtpReservaDate.MaxDate = new DateTime(2024, 7, 23, 0, 0, 0, 0);
-            dtpReservaDate.MinDate = new DateTime(2000, 12, 1, 0, 0, 0, 0);
-            dtpReservaDate.Name = "dtpReservaDate";
-            dtpReservaDate.Size = new Size(189, 27);
-            dtpReservaDate.TabIndex = 3;
-            dtpReservaDate.TabStop = false;
-            dtpReservaDate.Value = new DateTime(2024, 7, 23, 0, 0, 0, 0);
             // 
             // txbCantPersonas
             // 
@@ -269,12 +289,14 @@
             label9.TabIndex = 18;
             label9.Text = "Lo De María";
             // 
-            // txbReservaID
+            // txbReservaCodigo
             // 
-            txbReservaID.Location = new Point(372, 36);
-            txbReservaID.Name = "txbReservaID";
-            txbReservaID.Size = new Size(194, 27);
-            txbReservaID.TabIndex = 0;
+            txbReservaCodigo.Location = new Point(372, 36);
+            txbReservaCodigo.Name = "txbReservaCodigo";
+            txbReservaCodigo.ReadOnly = true;
+            txbReservaCodigo.Size = new Size(194, 27);
+            txbReservaCodigo.TabIndex = 0;
+            txbReservaCodigo.TabStop = false;
             // 
             // panel2
             // 
@@ -311,16 +333,6 @@
             dgvReservasView.Size = new Size(536, 191);
             dgvReservasView.TabIndex = 0;
             dgvReservasView.SelectionChanged += dgvReservasView_SelectionChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Nueva Reserva";
             // 
             // colReservaCodigo
             // 
@@ -376,12 +388,22 @@
             colReservaCreacion.ReadOnly = true;
             colReservaCreacion.Width = 125;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 28);
+            label1.TabIndex = 1;
+            label1.Text = "Nueva Reserva";
+            // 
             // frmReservas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(619, 668);
-            Controls.Add(txbReservaID);
+            Controls.Add(txbReservaCodigo);
             Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(pnlNuevaReserva);
@@ -403,13 +425,10 @@
         private Panel panel2;
         private DataGridView dgvReservasView;
         private Button btnGuardar;
-        private TextBox txbReservaID;
+        private TextBox txbReservaCodigo;
         private Label label1;
         private TextBox txbCantPersonas;
-        private Label label4;
         private Label label3;
-        private DateTimePicker dtpReservaDate;
-        private DateTimePicker dtpReservaTime;
         private Label label6;
         private Label label5;
         private ComboBox cmbNumMesa;
@@ -432,5 +451,10 @@
         private DataGridViewTextBoxColumn colNumeroMesa;
         private DataGridViewTextBoxColumn colReservaEstado;
         private DataGridViewTextBoxColumn colReservaCreacion;
+        private DateTimePicker dtpReservaFecha;
+        private ComboBox cboReservaEstado;
+        private Label label4;
+        private DateTimePicker dtpReservaHora;
+        private Label label10;
     }
 }
