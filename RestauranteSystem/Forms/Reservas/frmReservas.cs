@@ -106,7 +106,12 @@ namespace RestauranteSystem.Reservas
 
         private void btnMesasView_Click(object sender, EventArgs e)
         {
-
+            MenuMesas frmMenuMesas = new MenuMesas();
+            if(frmMenuMesas.ShowDialog() == DialogResult.OK)
+            {
+                txbMesasNum.Text = frmMenuMesas.NumeroMesasSeleccionada.ToString();
+            }
+            //frmMenuMesas.ShowDialog(this);
         }
     }
 }

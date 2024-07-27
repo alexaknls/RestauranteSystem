@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestauranteSystem.Forms.Reservas
+namespace RestauranteSystem.Forms.Clientes
 {
-    public partial class MenuMesas : Form
+    public partial class FrmClientes : Form
     {
-        public MenuMesas()
+        public FrmClientes()
         {
             InitializeComponent();
         }

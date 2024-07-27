@@ -148,7 +148,6 @@
             // 
             txbMesasNum.Location = new Point(416, 143);
             txbMesasNum.Name = "txbMesasNum";
-            txbMesasNum.ReadOnly = true;
             txbMesasNum.Size = new Size(103, 27);
             txbMesasNum.TabIndex = 20;
             // 
@@ -224,7 +223,6 @@
             // 
             txbClienteID.Location = new Point(61, 36);
             txbClienteID.Name = "txbClienteID";
-            txbClienteID.ReadOnly = true;
             txbClienteID.Size = new Size(125, 27);
             txbClienteID.TabIndex = 0;
             // 
@@ -291,6 +289,8 @@
             // 
             // txbReservaCodigo
             // 
+            txbReservaCodigo.Cursor = Cursors.No;
+            txbReservaCodigo.Enabled = false;
             txbReservaCodigo.Location = new Point(372, 36);
             txbReservaCodigo.Name = "txbReservaCodigo";
             txbReservaCodigo.ReadOnly = true;

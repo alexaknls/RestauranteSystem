@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Inventario\" />
-    <Folder Include="Forms\Clientes\" />
-    <Folder Include="Forms\Empleados\" />
     <Folder Include="Forms\Menu\" />
     <Folder Include="Forms\Login\" />
     <Folder Include="Forms\Pedidos\" />
