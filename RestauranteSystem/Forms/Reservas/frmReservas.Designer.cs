@@ -249,6 +249,7 @@
             // 
             // dtpReservaCreacion
             // 
+            dtpReservaCreacion.Enabled = false;
             dtpReservaCreacion.Format = DateTimePickerFormat.Custom;
             dtpReservaCreacion.Location = new Point(412, 34);
             dtpReservaCreacion.Name = "dtpReservaCreacion";
@@ -363,6 +364,7 @@
             btnEliminar.TabIndex = 23;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 

@@ -118,7 +118,7 @@ namespace RestauranteLib.Controladores
             return _reservaLista;
         }
 
-        public Boolean EditarReserva(ReservasLib reservas, ReservasLib originalClinica)
+        public Boolean EditarReserva(ReservasLib reservas, ReservasLib originalReserva)
         {
             try 
             {
@@ -131,14 +131,14 @@ namespace RestauranteLib.Controladores
                         reservas.ReservaEstado, 
                         reservas.ReservaCreacion,
                         reservas.ReservaCliente,
-                        originalClinica.ReservaID,
-                        originalClinica.ReservaCodigo,
-                        originalClinica.ReservaDateTime,
-                        originalClinica.PersonasCant,
-                        originalClinica.NumeroMesa,
-                        originalClinica.ReservaEstado,
-                        originalClinica.ReservaCreacion,
-                        originalClinica.ReservaCliente
+                        originalReserva.ReservaID,
+                        originalReserva.ReservaCodigo,
+                        originalReserva.ReservaDateTime,
+                        originalReserva.PersonasCant,
+                        originalReserva.NumeroMesa,
+                        originalReserva.ReservaEstado,
+                        originalReserva.ReservaCreacion,
+                        originalReserva.ReservaCliente
                     );
                 _adapter.Fill(restauranteDataSet.Reservas);
                 return true;
@@ -148,12 +148,11 @@ namespace RestauranteLib.Controladores
             }
         }
 
-        private void FillReservas()
+        public Boolean EliminarReserva(ReservasLib reservas)
         {
-            _reservas.Clear();
-            foreach(RestauranteDataSet.ReservasRow reservas in restauranteDataSet.Reservas.Rows)
+            try
             {
-                _reservas.Add(new ReservasLib(
+                _adapter.Delete(
                     reservas.ReservaID,
                     reservas.ReservaCodigo,
                     reservas.ReservaDateTime,
@@ -162,11 +161,19 @@ namespace RestauranteLib.Controladores
                     reservas.ReservaEstado,
                     reservas.ReservaCreacion,
                     reservas.ReservaCliente
-                    )
-                );
+                 );
+                _adapter.Fill(restauranteDataSet.Reservas);
+                return true;
             }
-
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
+
+
+
+
 
 
 

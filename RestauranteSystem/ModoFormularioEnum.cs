@@ -9,8 +9,8 @@ namespace RestauranteSystem
     public enum ModoFormularioEnum
     {
         Nuevo,
-        Editar,
-        Ver,
-        Eliminar
+        Modificar,
+        Eliminar,
+        Consultar
     }
 }
