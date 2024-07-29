@@ -40,44 +40,51 @@ namespace RestauranteSystem.Forms.Reservas
 
         private void DeshabilitarMesasOcupadas(DateTime fechaHoraSeleccionada)
         {
-            //List<ReservasLib> reservasOcupadas = _controladorReservas.ObtenerMesasOcupadas(fechaHoraSeleccionada);
             var mesasOcupadas = _controladorReservas.ObtenerMesasOcupadas(fechaHoraSeleccionada);
 
-            string mesasTexto = "-Mesas Ocupadas-";
+            string mesasTexto = "-Mesas Ocupadas- \n";
 
             foreach (var mesa in mesasOcupadas)
             {
                 int numeroMesa = mesa.Key;
                 List<ReservasLib> reservas = mesa.Value;
+                bool mostrarMesa = false;
+                string horarios = "";
 
-                // Construir el texto para cada mesa con todas sus fechas.
-                mesasTexto += $"Mesa {numeroMesa}:\n";
                 foreach (ReservasLib reserva in reservas)
                 {
-                    string estado = reserva.ReservaEstado;
+                    if (reserva.ReservaEstado != "INA")
+                    {
+                        mostrarMesa = true;
+                        horarios += $"  - {reserva.ReservaDateTime.ToString("dd/MM/yyyy HH:mm")} \n";
+                    }
+                }
+
+                if (mostrarMesa)
+                {
+                    mesasTexto += $"Mesa {numeroMesa}:\n{horarios}\n";
+
                     Button buttonMesa = this.Controls.Find("btnMesa" + numeroMesa.ToString(), true).FirstOrDefault() as Button;
                     if (buttonMesa != null)
                     {
-                        if (estado == "INA")
-                        {
-                            buttonMesa.Enabled = true;
-                            buttonMesa.BackColor = SystemColors.Control;
-                            buttonMesa.FlatStyle = FlatStyle.Standard;
-                        }
-                        else
-                        {
-                            buttonMesa.Enabled = false;
-                            buttonMesa.BackColor = SystemColors.ControlDarkDark;
-                            buttonMesa.FlatStyle = FlatStyle.Flat;
-                        }
+                        buttonMesa.Enabled = false;
+                        buttonMesa.BackColor = SystemColors.ControlDarkDark;
+                        buttonMesa.FlatStyle = FlatStyle.Flat;
                     }
-
-                    mesasTexto += $"  - {reserva.ReservaDateTime.ToString("dd/MM/yyyy HH:mm")} \n";
                 }
-                mesasTexto += "\n";
+                else
+                {
+                    Button buttonMesa = this.Controls.Find("btnMesa" + numeroMesa.ToString(), true).FirstOrDefault() as Button;
+                    if (buttonMesa != null)
+                    {
+                        buttonMesa.Enabled = true;
+                        buttonMesa.BackColor = SystemColors.Control;
+                        buttonMesa.FlatStyle = FlatStyle.Standard;
+                    }
+                }
             }
 
-            // Actualizar el texto del label con la información de las mesas ocupadas.
+            lblMesasOcupadas.Text = mesasTexto;
         }
         public void BtnMesasControls()
         {

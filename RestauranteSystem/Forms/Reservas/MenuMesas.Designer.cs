@@ -65,7 +65,6 @@
             panel1 = new Panel();
             btnMesa1 = new Button();
             gbEntrada = new GroupBox();
-            lblMesasOcupadas1 = new Label();
             panel21 = new Panel();
             btnMesa22 = new Button();
             panel24 = new Panel();
@@ -75,6 +74,7 @@
             panel23 = new Panel();
             btnMesa20 = new Button();
             gbCocina = new GroupBox();
+            panel14 = new Panel();
             lblMesasOcupadas = new Label();
             gbPatio = new GroupBox();
             panel17 = new Panel();
@@ -98,8 +98,6 @@
             panel10 = new Panel();
             btnMesa9 = new Button();
             panelMesas = new Panel();
-            lstbMesasOcupadas = new ListBox();
-            textBox1 = new TextBox();
             gbTerraza.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel25.SuspendLayout();
@@ -125,6 +123,7 @@
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             gbCocina.SuspendLayout();
+            panel14.SuspendLayout();
             gbPatio.SuspendLayout();
             panel17.SuspendLayout();
             panel18.SuspendLayout();
@@ -152,7 +151,7 @@
             gbTerraza.Controls.Add(panel32);
             gbTerraza.Location = new Point(15, 12);
             gbTerraza.Name = "gbTerraza";
-            gbTerraza.Size = new Size(807, 152);
+            gbTerraza.Size = new Size(831, 152);
             gbTerraza.TabIndex = 0;
             gbTerraza.TabStop = false;
             gbTerraza.Text = "Terraza";
@@ -475,8 +474,6 @@
             // 
             // gbEntrada
             // 
-            gbEntrada.Controls.Add(lstbMesasOcupadas);
-            gbEntrada.Controls.Add(lblMesasOcupadas1);
             gbEntrada.Controls.Add(panel21);
             gbEntrada.Controls.Add(panel24);
             gbEntrada.Controls.Add(panel22);
@@ -487,15 +484,6 @@
             gbEntrada.TabIndex = 2;
             gbEntrada.TabStop = false;
             gbEntrada.Text = "Entrada";
-            // 
-            // lblMesasOcupadas1
-            // 
-            lblMesasOcupadas1.AutoSize = true;
-            lblMesasOcupadas1.Location = new Point(10, 34);
-            lblMesasOcupadas1.Name = "lblMesasOcupadas1";
-            lblMesasOcupadas1.Size = new Size(50, 20);
-            lblMesasOcupadas1.TabIndex = 23;
-            lblMesasOcupadas1.Text = "label1";
             // 
             // panel21
             // 
@@ -572,20 +560,29 @@
             // gbCocina
             // 
             gbCocina.BackColor = Color.Silver;
-            gbCocina.Controls.Add(textBox1);
-            gbCocina.Controls.Add(lblMesasOcupadas);
+            gbCocina.Controls.Add(panel14);
             gbCocina.Location = new Point(621, 175);
             gbCocina.Name = "gbCocina";
-            gbCocina.Size = new Size(266, 445);
+            gbCocina.Size = new Size(226, 445);
             gbCocina.TabIndex = 3;
             gbCocina.TabStop = false;
             gbCocina.Text = "Mesas Ocupadas";
             // 
+            // panel14
+            // 
+            panel14.AutoScroll = true;
+            panel14.Controls.Add(lblMesasOcupadas);
+            panel14.Location = new Point(6, 26);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(210, 413);
+            panel14.TabIndex = 0;
+            // 
             // lblMesasOcupadas
             // 
-            lblMesasOcupadas.Location = new Point(9, 33);
+            lblMesasOcupadas.AutoSize = true;
+            lblMesasOcupadas.Location = new Point(3, 8);
             lblMesasOcupadas.Name = "lblMesasOcupadas";
-            lblMesasOcupadas.Size = new Size(251, 137);
+            lblMesasOcupadas.Size = new Size(50, 20);
             lblMesasOcupadas.TabIndex = 0;
             lblMesasOcupadas.Text = "label1";
             // 
@@ -797,32 +794,15 @@
             panelMesas.Controls.Add(gbEntrada);
             panelMesas.Location = new Point(12, 12);
             panelMesas.Name = "panelMesas";
-            panelMesas.Size = new Size(913, 642);
+            panelMesas.Size = new Size(853, 642);
             panelMesas.TabIndex = 5;
-            // 
-            // lstbMesasOcupadas
-            // 
-            lstbMesasOcupadas.FormattingEnabled = true;
-            lstbMesasOcupadas.Location = new Point(21, 77);
-            lstbMesasOcupadas.Name = "lstbMesasOcupadas";
-            lstbMesasOcupadas.Size = new Size(150, 104);
-            lstbMesasOcupadas.TabIndex = 24;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(14, 108);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
             // 
             // MenuMesas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(937, 666);
+            ClientSize = new Size(870, 666);
             Controls.Add(panelMesas);
             Name = "MenuMesas";
             Text = "MenuMesas";
@@ -846,13 +826,13 @@
             panel8.ResumeLayout(false);
             panel1.ResumeLayout(false);
             gbEntrada.ResumeLayout(false);
-            gbEntrada.PerformLayout();
             panel21.ResumeLayout(false);
             panel24.ResumeLayout(false);
             panel22.ResumeLayout(false);
             panel23.ResumeLayout(false);
             gbCocina.ResumeLayout(false);
-            gbCocina.PerformLayout();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
             gbPatio.ResumeLayout(false);
             panel17.ResumeLayout(false);
             panel18.ResumeLayout(false);
@@ -938,8 +918,6 @@
         private PictureBox pictureBox1;
         private Panel panelMesas;
         private Label lblMesasOcupadas;
-        private Label lblMesasOcupadas1;
-        private ListBox lstbMesasOcupadas;
-        private TextBox textBox1;
+        private Panel panel14;
     }
 }

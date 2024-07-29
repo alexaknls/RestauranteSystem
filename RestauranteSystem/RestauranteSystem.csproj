@@ -9,13 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestauranteLib\RestauranteLib.csproj" />
+    <Compile Remove="Forms\Login\**" />
+    <Compile Remove="Forms\Menu\**" />
+    <Compile Remove="Forms\Pedidos\**" />
+    <EmbeddedResource Remove="Forms\Login\**" />
+    <EmbeddedResource Remove="Forms\Menu\**" />
+    <EmbeddedResource Remove="Forms\Pedidos\**" />
+    <None Remove="Forms\Login\**" />
+    <None Remove="Forms\Menu\**" />
+    <None Remove="Forms\Pedidos\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Menu\" />
-    <Folder Include="Forms\Login\" />
-    <Folder Include="Forms\Pedidos\" />
+    <ProjectReference Include="..\RestauranteLib\RestauranteLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>
