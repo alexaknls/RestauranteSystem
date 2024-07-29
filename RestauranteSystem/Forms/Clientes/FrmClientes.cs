@@ -16,32 +16,43 @@ using RestauranteDAO.RestauranteDataSetTableAdapters;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using SixLabors.Fonts;
+using RestauranteLib.Controladores;
 
 namespace RestauranteSystem.Forms.Clientes
 {
     public partial class FrmClientes : Form
     {
-        private List<Clienteslib> _clienteslis;
+        private Clienteslib _clienteslib;
+        private BindingList<Clienteslib> bindingList;
         private BindingSource _brnsCliente;
         private Button btnBuscar;
         private TextBox txtBuscar;
         private DataGridView dataGridView;
         private ClientData dataset;
         private RestauranteDataSet.ClientesDataTable DataTable;
+        private ControladorClientes controladorClientes;
         public FrmClientes()
         {
             InitializeComponent();
 
             InitializeCustomComponents();
+            _clienteslib = new Clienteslib();
+            dataGridView1.DataSource = _clienteslib._Clientes;
             dataset = new ClientData();
             DataTable = new RestauranteDataSet.ClientesDataTable();
-         
+            _clienteslib = new Clienteslib();
+            dataGridView1.DataSource = new BindingList<Clienteslib>(_clienteslib._Clientes);
+            ActualizarDataGridView();
             this.btmeliminar.Click += new System.EventHandler(this.btmeliminar_Click);
             this.btmmodificar.Click += new System.EventHandler(this.btmmodificar_Click);
-         
             this.btmver.Click += new System.EventHandler(this.btmver_Click);
         }
-       
+        private void ActualizarDataGridView()
+        {
+            dataGridView1.DataSource = null;  
+            dataGridView1.DataSource = _clienteslib._Clientes;  
+            dataGridView1.Refresh();  
+        }
         private void btmregresar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -103,17 +114,17 @@ namespace RestauranteSystem.Forms.Clientes
             btmBuscar.Location = new Point(10, 10);
             btmBuscar.Click += new EventHandler(this.btmBuscar_Click);
 
-          
+
             txtBuscar = new TextBox();
             txtBuscar.Location = new Point(100, 10);
 
-       
+
             btmagregar = new Button();
             btmagregar.Text = "Agregar";
             btmagregar.Location = new Point(10, 40);
             btmagregar.Click += new EventHandler(this.btmagregar_Click);
 
-            
+
 
             txtcelula = new TextBox();
             txtcelula.PlaceholderText = "Célula";
@@ -139,15 +150,15 @@ namespace RestauranteSystem.Forms.Clientes
             txtdireccion.PlaceholderText = "Dirección";
             txtdireccion.Location = new Point(700, 40);
 
-           // txtreserv = new TextBox();
-          //  txtreserv.PlaceholderText = "Reserv";
-           // txtreserv.Location = new Point(800, 40);
+            // txtreserv = new TextBox();
+            //  txtreserv.PlaceholderText = "Reserv";
+            // txtreserv.Location = new Point(800, 40);
 
-       
+
             this.Controls.Add(btnBuscar);
             this.Controls.Add(txtBuscar);
             this.Controls.Add(btmagregar);
-            
+
             this.Controls.Add(txtcelula);
             this.Controls.Add(txttelefono);
             this.Controls.Add(txtnombre);
@@ -156,12 +167,12 @@ namespace RestauranteSystem.Forms.Clientes
             this.Controls.Add(txtdireccion);
             //this.Controls.Add(txtreserv);
 
-      
+
             dataGridView = new DataGridView();
             dataGridView.Location = new Point(10, 80);
             dataGridView.Size = new Size(900, 200);
 
-     
+
             dataGridView1.Columns.Add("ID", "ID");
             dataGridView1.Columns.Add("Celula", "Célula");
             dataGridView1.Columns.Add("Telefono", "Teléfono");
@@ -193,23 +204,21 @@ namespace RestauranteSystem.Forms.Clientes
                 !string.IsNullOrWhiteSpace(apellido) &&
                 !string.IsNullOrWhiteSpace(direccion) )
             {
-              
-              /* RestauranteLib.Clienteslib nuevoCliente = RestauranteLib.(
-                    0, celula, nombre, apellido, telefono, email, direccion);
 
-           
-                dataGridView1.Rows.Add(nuevoCliente.ClienteCelula, nuevoCliente.ClientePhone,
-                                      nuevoCliente.ClienteNombre, nuevoCliente.ClienteEmail,
-                                      nuevoCliente.ClientesApellido, nuevoCliente.ClienteDireccion);
+                var nuevoCliente = new Clienteslib
+                {
+                     ClienteCelula= Convert.ToInt32(txtcelula.Text),
+                    ClientePhone = txttelefono.Text,
+                    ClienteNombre = txtnombre.Text,
+                    ClienteEmail = txtemail.Text,
+                    ClientesApellido = txtapellido.Text,
+                    ClienteDireccion = txtdireccion.Text
+                };
 
-                txtcelula.Clear();
-                txttelefono.Clear();
-                txtnombre.Clear();
-                txtemail.Clear();
-                txtapellido.Clear();
-                txtdireccion.Clear();
-                //txtreserv.Clear();*/
+                _clienteslib.AgregarCliente(nuevoCliente);
+                dataGridView1.DataSource = new BindingList<Clienteslib>(_clienteslib._Clientes);
             }
+        
             else
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

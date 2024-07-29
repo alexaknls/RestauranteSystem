@@ -4,8 +4,9 @@ namespace RestauranteLib
         public class Clienteslib
         {
 
-            public int _id;
-            public string _Celula;
+        public List<Clienteslib> _Clientes { get; private set; }
+        public int _id;
+            public int _Celula;
             public string _Telefono;
             public string _Nombre;
             public string _Email;
@@ -14,7 +15,7 @@ namespace RestauranteLib
             public string _reser;
 
             public int ClienteID { get => _id; set => _id = value; }
-            public string ClienteCelula { get => _Celula; set => _Celula = value; }
+            public int ClienteCelula { get => _Celula; set => _Celula = value; }
             public string ClienteNombre { get => _Nombre; set => _Nombre = value; }
             public string ClientesApellido { get => _Apellido; set => _Apellido = value; }
             public string ClientePhone{ get => _Telefono; set => _Telefono = value; }
@@ -24,6 +25,7 @@ namespace RestauranteLib
 
             public Clienteslib()
             {
+                _Clientes = new List<Clienteslib>();
                 ClienteID = 0;
                 ClienteCelula = "";
                 ClienteNombre = "";
@@ -53,7 +55,11 @@ namespace RestauranteLib
                 ClienteDireccion = direccionc;
                 ClienteReservas = reser;
             }
+        public void AgregarCliente(Clienteslib cliente)
+        {
+            _Clientes.Add(cliente);
         }
+    }
 
     }
 

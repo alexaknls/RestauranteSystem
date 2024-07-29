@@ -39,6 +39,15 @@
             apellido = new DataGridViewTextBoxColumn();
             phone = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
+            reservaIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservaCodigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservaDateTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            personasCantDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            numeroMesaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservaEstadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservaCreacionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservaClienteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            reservasLibBindingSource = new BindingSource(components);
             txtbuscar = new TextBox();
             btmBuscar = new Button();
             panel2 = new Panel();
@@ -63,6 +72,7 @@
             bnrsClientes = new BindingSource(components);
             Cliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)reservasLibBindingSource).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bnrsClientes).BeginInit();
             SuspendLayout();
@@ -81,8 +91,10 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, direccion, reservas, cedula, nombre, apellido, phone, email });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, direccion, reservas, cedula, nombre, apellido, phone, email, reservaIDDataGridViewTextBoxColumn, reservaCodigoDataGridViewTextBoxColumn, reservaDateTimeDataGridViewTextBoxColumn, personasCantDataGridViewTextBoxColumn, numeroMesaDataGridViewTextBoxColumn, reservaEstadoDataGridViewTextBoxColumn, reservaCreacionDataGridViewTextBoxColumn, reservaClienteDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = reservasLibBindingSource;
             dataGridView1.Location = new Point(17, 61);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -153,6 +165,82 @@
             email.Name = "email";
             email.ReadOnly = true;
             email.Width = 125;
+            // 
+            // reservaIDDataGridViewTextBoxColumn
+            // 
+            reservaIDDataGridViewTextBoxColumn.DataPropertyName = "ReservaID";
+            reservaIDDataGridViewTextBoxColumn.HeaderText = "ReservaID";
+            reservaIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaIDDataGridViewTextBoxColumn.Name = "reservaIDDataGridViewTextBoxColumn";
+            reservaIDDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservaCodigoDataGridViewTextBoxColumn
+            // 
+            reservaCodigoDataGridViewTextBoxColumn.DataPropertyName = "ReservaCodigo";
+            reservaCodigoDataGridViewTextBoxColumn.HeaderText = "ReservaCodigo";
+            reservaCodigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaCodigoDataGridViewTextBoxColumn.Name = "reservaCodigoDataGridViewTextBoxColumn";
+            reservaCodigoDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaCodigoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservaDateTimeDataGridViewTextBoxColumn
+            // 
+            reservaDateTimeDataGridViewTextBoxColumn.DataPropertyName = "ReservaDateTime";
+            reservaDateTimeDataGridViewTextBoxColumn.HeaderText = "ReservaDateTime";
+            reservaDateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaDateTimeDataGridViewTextBoxColumn.Name = "reservaDateTimeDataGridViewTextBoxColumn";
+            reservaDateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaDateTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // personasCantDataGridViewTextBoxColumn
+            // 
+            personasCantDataGridViewTextBoxColumn.DataPropertyName = "PersonasCant";
+            personasCantDataGridViewTextBoxColumn.HeaderText = "PersonasCant";
+            personasCantDataGridViewTextBoxColumn.MinimumWidth = 6;
+            personasCantDataGridViewTextBoxColumn.Name = "personasCantDataGridViewTextBoxColumn";
+            personasCantDataGridViewTextBoxColumn.ReadOnly = true;
+            personasCantDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // numeroMesaDataGridViewTextBoxColumn
+            // 
+            numeroMesaDataGridViewTextBoxColumn.DataPropertyName = "NumeroMesa";
+            numeroMesaDataGridViewTextBoxColumn.HeaderText = "NumeroMesa";
+            numeroMesaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            numeroMesaDataGridViewTextBoxColumn.Name = "numeroMesaDataGridViewTextBoxColumn";
+            numeroMesaDataGridViewTextBoxColumn.ReadOnly = true;
+            numeroMesaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservaEstadoDataGridViewTextBoxColumn
+            // 
+            reservaEstadoDataGridViewTextBoxColumn.DataPropertyName = "ReservaEstado";
+            reservaEstadoDataGridViewTextBoxColumn.HeaderText = "ReservaEstado";
+            reservaEstadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaEstadoDataGridViewTextBoxColumn.Name = "reservaEstadoDataGridViewTextBoxColumn";
+            reservaEstadoDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaEstadoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservaCreacionDataGridViewTextBoxColumn
+            // 
+            reservaCreacionDataGridViewTextBoxColumn.DataPropertyName = "ReservaCreacion";
+            reservaCreacionDataGridViewTextBoxColumn.HeaderText = "ReservaCreacion";
+            reservaCreacionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaCreacionDataGridViewTextBoxColumn.Name = "reservaCreacionDataGridViewTextBoxColumn";
+            reservaCreacionDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaCreacionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservaClienteDataGridViewTextBoxColumn
+            // 
+            reservaClienteDataGridViewTextBoxColumn.DataPropertyName = "ReservaCliente";
+            reservaClienteDataGridViewTextBoxColumn.HeaderText = "ReservaCliente";
+            reservaClienteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            reservaClienteDataGridViewTextBoxColumn.Name = "reservaClienteDataGridViewTextBoxColumn";
+            reservaClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            reservaClienteDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // reservasLibBindingSource
+            // 
+            reservasLibBindingSource.DataSource = typeof(RestauranteLib.ReservasLib);
             // 
             // txtbuscar
             // 
@@ -365,6 +453,7 @@
             Cliente.ResumeLayout(false);
             Cliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)reservasLibBindingSource).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)bnrsClientes).EndInit();
@@ -405,5 +494,14 @@
         private DataGridViewTextBoxColumn phone;
         private DataGridViewTextBoxColumn email;
         private BindingSource bnrsClientes;
+        private DataGridViewTextBoxColumn reservaIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reservaCodigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reservaDateTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn personasCantDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numeroMesaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reservaEstadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reservaCreacionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reservaClienteDataGridViewTextBoxColumn;
+        private BindingSource reservasLibBindingSource;
     }
 }
