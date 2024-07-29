@@ -24,6 +24,7 @@ namespace RestauranteSystem.Reservas
         private ControladorReservas _controladorReservas;
         private List<ReservasLib> _reservasLista;
         private ReservasLib _selectedReserva;
+
         private string nuevoCodigoReserva;
 
         private bool _esEdicion = false;
@@ -39,6 +40,7 @@ namespace RestauranteSystem.Reservas
             InitializeComponent();
             _controladorReservas = new ControladorReservas();
             _reservasLista = _controladorReservas.ObtenerReservas();
+
             dtpReservaHora.CloseUp += new EventHandler(dtpReservaHora_CloseUp);
             bnSrcReservas.DataSource = _reservasLista;
 

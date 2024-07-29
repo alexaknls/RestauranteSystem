@@ -9,13 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Forms\Login\**" />
     <Compile Remove="Forms\Menu\**" />
     <Compile Remove="Forms\Pedidos\**" />
-    <EmbeddedResource Remove="Forms\Login\**" />
     <EmbeddedResource Remove="Forms\Menu\**" />
     <EmbeddedResource Remove="Forms\Pedidos\**" />
-    <None Remove="Forms\Login\**" />
     <None Remove="Forms\Menu\**" />
     <None Remove="Forms\Pedidos\**" />
   </ItemGroup>
