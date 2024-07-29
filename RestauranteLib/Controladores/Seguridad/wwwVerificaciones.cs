@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace RestauranteLib.Controladores.Seguridad
 {
-    public class classVerificaciones
+    public class wwwVerificaciones
     {
         private RestauranteDataSet restaurantedataset;
         private VerificacionesTableAdapter verificacionesTableAdapter;
         private List<Verificacion> _verificacionLista;
 
-        public classVerificaciones()
+        public wwwVerificaciones()
         {
             _verificacionLista = new List<Verificacion>();
             verificacionesTableAdapter = new VerificacionesTableAdapter();

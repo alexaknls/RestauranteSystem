@@ -11,14 +11,14 @@ namespace RestauranteSystem.Forms.Login
 {
     public partial class FrmVerificaciones : Form
     {
-        private classVerificaciones _controladorVerificaciones;
+        private wwwVerificaciones _controladorVerificaciones;
         private List<Verificacion> _verificacionLista;
         private Verificacion _verificacionLib;
 
         public FrmVerificaciones()
         {
             InitializeComponent();
-            _controladorVerificaciones = new classVerificaciones();
+            _controladorVerificaciones = new wwwVerificaciones();
             _verificacionLista = _controladorVerificaciones.wwwObtenerVerificaciones();
             bndSrcVerificaciones.DataSource = _verificacionLista;
         }
@@ -108,7 +108,7 @@ namespace RestauranteSystem.Forms.Login
             nuevaVerificacionForm.Modo = EModoFormulario.Nuevo;
             if (nuevaVerificacionForm.ShowDialog() == DialogResult.OK)
             {
-                    _verificacionLista = _controladorVerificaciones.wwwObtenerVerificaciones();
+                _verificacionLista = _controladorVerificaciones.wwwObtenerVerificaciones();
                     bndSrcVerificaciones.DataSource = _verificacionLista;
                     bndSrcVerificaciones.ResetBindings(false);
             }

@@ -8,9 +8,11 @@ namespace RestauranteLib.Seguridad
 {
     public class Rol
     {
+        private int rolId;
+        private string rolName;
         private string estado;
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
+        private DateTime rolCreacion;
+        
 
         public string Estado
         {
@@ -26,17 +28,24 @@ namespace RestauranteLib.Seguridad
                 }
             }
         }
+
+        public int RolId { get => rolId; set => rolId = value; }
+        public DateTime RolCreacion { get => rolCreacion; set => rolCreacion = value; }
+        public string RolName { get => rolName; set => rolName = value; }
+
         public Rol()
         {
-            Codigo = "";
-            Descripcion = "";
+            RolId = 0;
+            RolName = "";
             Estado = ECommonStatus.ACT;
+            RolCreacion = DateTime.Now;
         }
-        public Rol(string codigo, string descripcion, string estado)
+        public Rol(int rolId, string name, string estado, DateTime rolCreacion)
         {
-            Codigo = codigo;
-            Descripcion = descripcion;
+            RolId = rolId; 
+            RolName = name;
             Estado = estado;
+            RolCreacion = rolCreacion;
         }
     }
 }

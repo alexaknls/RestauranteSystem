@@ -1,38 +1,38 @@
-﻿using RestauranteLib.Seguridad;
+﻿using RestauranteLib.Controladores.Seguridad;
+using RestauranteLib.Seguridad;
 using RestauranteLib;
-using RestauranteLib.Controladores.Seguridad;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
+namespace RestauranteSystem.Forms.Login.Seguridad.Roles
 {
-    public partial class VerificacionesEnum : Form
+    public partial class RolesEnum : Form
     {
         private EModoFormulario _modo;
-        private Verificacion _verificacion;
-        private wwwVerificaciones _controladorVerificaciones;
-        private int codigoEnTextbox;
-
-        public VerificacionesEnum()
+        private Rol _rol;
+        private wwwRoles _wwwRoles;
+        public RolesEnum()
         {
             InitializeComponent();
-            _verificacion = new Verificacion();
-            _controladorVerificaciones = new wwwVerificaciones();
+            _rol = new Rol();
+            _wwwRoles = new wwwRoles();
         }
-
-        public Verificacion Verificacion
+        public Rol Rol
         {
-            get => _verificacion;
+            get => _rol;
             set
             {
-                _verificacion = value;
+                _rol = value;
                 setClientToControls();
             }
         }
-
         public EModoFormulario Modo
         {
             get => _modo;
@@ -51,27 +51,23 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
                 _modo = value;
             }
         }
-
         private void setClientToControls()
         {
-            if (_verificacion == null) return;
-            if (_verificacion.VerificacionID > 0)
+            if (_rol == null) return;
+            if (_rol.RolId > 0)
             {
                 establecerTitulo();
-                txtDescripcion.Text = _verificacion.Descripcion;
-                txtNombre.Text = _verificacion.Codigo;
-                cboEstado.Text = _verificacion.Estado == "ACT" ? "Activo" : "Inactivo";
-                txtCodigo.Text = _verificacion.VerificacionID.ToString();
-                txtCodigo.Enabled = false;
+                txtNombre.Text = _rol.RolName;
+                cboEstado.Text = _rol.Estado == "ACT" ? "Activo" : "Inactivo";
+                dtpRolFecha.Text = DateTime.Now.ToString();
                 setReadOnly();
-                
             }
         }
 
         private void establecerTitulo()
         {
-            
-            if (_verificacion.VerificacionID > 0)
+
+            if (_rol.RolId > 0)
             {
                 switch (_modo)
                 {
@@ -95,7 +91,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
             if (_modo == EModoFormulario.Consultar || _modo == EModoFormulario.Eliminar)
             {
                 txtNombre.Enabled = false;
-                txtDescripcion.Enabled = false;
+                dtpRolFecha.Enabled = false;
                 cboEstado.Enabled = false;
                 if (_modo == EModoFormulario.Consultar)
                 {
@@ -103,24 +99,25 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
                 }
             }
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void btnConfirmar_Click_1(object sender, EventArgs e)
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
-                _verificacion = new Verificacion(
+            _rol = new Rol(
                 int.Parse(txtCodigo.Text),
                 txtNombre.Text,
-                txtDescripcion.Text,
-                cboEstado.SelectedItem.ToString() == "Activo" ? "ACT" : "INA"
+                cboEstado.SelectedItem.ToString() == "Activo" ? "ACT" : "INA",
+                dtpRolFecha.Value
             );
 
             if (_modo == EModoFormulario.Modificar)
             {
-                if (_controladorVerificaciones.ActualizarVerificacion(_verificacion, _verificacion))
+                if (_wwwRoles.ActualizarRoles(_rol, _rol))
                 {
                     MessageBox.Show("Verificación actualizada exitosamente");
                 }
@@ -131,7 +128,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
             }
             else if (_modo == EModoFormulario.Nuevo)
             {
-                if (_controladorVerificaciones.InsertarVerificacion(_verificacion))
+                if (_wwwRoles.InsertarRol(_rol))
                 {
                     MessageBox.Show("Nueva verificación agregada exitosamente");
                 }
@@ -144,5 +141,20 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
             this.Close();
         }
 
+        private void dtpRolFecha_CloseUp(object sender, EventArgs e)
+        {
+            DateTime fechaHoraCreacion = dtpRolFecha.Value;
+
+            DateTime fechaHoraSinSegundos = new DateTime(
+                fechaHoraCreacion.Year,
+                fechaHoraCreacion.Month,
+                fechaHoraCreacion.Day,
+                fechaHoraCreacion.Hour,
+                fechaHoraCreacion.Minute,
+                0
+            );
+
+            dtpRolFecha.Value = fechaHoraSinSegundos;
+        }
     }
 }

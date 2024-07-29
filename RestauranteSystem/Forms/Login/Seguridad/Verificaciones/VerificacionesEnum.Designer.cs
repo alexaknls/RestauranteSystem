@@ -47,9 +47,9 @@
             tituloFormulario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tituloFormulario.Location = new Point(22, 20);
             tituloFormulario.Name = "tituloFormulario";
-            tituloFormulario.Size = new Size(65, 28);
+            tituloFormulario.Size = new Size(276, 28);
             tituloFormulario.TabIndex = 0;
-            tituloFormulario.Text = "label1";
+            tituloFormulario.Text = "Ingresando Nueva Verificación";
             // 
             // txtNombre
             // 
@@ -143,7 +143,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
-            ClientSize = new Size(285, 464);
+            ClientSize = new Size(350, 464);
             Controls.Add(lblCodigoID);
             Controls.Add(txtCodigo);
             Controls.Add(btnCancelar);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestauranteLib.Controladores.Seguridad
 {
-    public class Usuarios
+    public class wwwUsuarios
     {
         private UsuariosTableAdapter usuariosTableAdapter;
         private RolesXUsuarioTableAdapter rolesXUsuarioTA;

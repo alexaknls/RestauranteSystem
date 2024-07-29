@@ -133,10 +133,8 @@ namespace RestauranteSystem.Reservas
         }
         private void dtpReservaHora_CloseUp(object sender, EventArgs e)
         {
-            // Obtener el valor actual del DateTimePicker
             DateTime fechaHoraSeleccionada = dtpReservaHora.Value;
 
-            // Crear un nuevo DateTime con los segundos establecidos en 00
             DateTime fechaHoraSinSegundos = new DateTime(
                 fechaHoraSeleccionada.Year,
                 fechaHoraSeleccionada.Month,
@@ -146,7 +144,6 @@ namespace RestauranteSystem.Reservas
                 0
             );
 
-            // Actualizar el valor del DateTimePicker
             dtpReservaHora.Value = fechaHoraSinSegundos;
         }
 
