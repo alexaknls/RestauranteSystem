@@ -1,5 +1,6 @@
 ﻿using RestauranteSystem.Forms.Login;
 using RestauranteSystem.Forms.Login.Seguridad.Roles;
+using RestauranteSystem.Forms.Login.Seguridad.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,12 @@ namespace RestauranteSystem.Login.Seguridad
         {
             Roles frmRoles = new Roles();
             frmRoles.ShowDialog();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            Usuarios frmUsuarios = new Usuarios();
+            frmUsuarios.ShowDialog();
         }
     }
 }

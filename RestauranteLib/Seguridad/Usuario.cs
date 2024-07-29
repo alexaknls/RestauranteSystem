@@ -9,12 +9,10 @@ namespace RestauranteLib.Seguridad
     public class Usuario
     {
         private string status;
-        public int Codigo { get; set; }
+        public int ID { get; set; }
         public string User { get; set; }
         public string Password { get; set; }
         public DateTime PasswordExpires { get; set; }
-        public string PasswordSalt { get; set; }
-        public string PasswordHash { get; set; }
         public string Name { get; set; }
 
         public string Estado
@@ -34,23 +32,19 @@ namespace RestauranteLib.Seguridad
         }
         public Usuario()
         {
-            Codigo = 0;
+            ID = 0;
             User = "";
             Password = "";
             PasswordExpires = DateTime.Now.AddDays(30);
-            PasswordHash = "";
-            PasswordSalt = "";
             Name = "";
             Estado = ECommonStatus.ACT;
         }
-        public Usuario(int codigo, string user, string password, DateTime passwordExpires, string passwordSalt, string passwordHash, string name, string estado)
+        public Usuario(int id, string user, string password, DateTime passwordExpires, string name, string estado)
         {
-            Codigo = codigo;
+            ID = id;
             User = user;
             Password = password;
             PasswordExpires = passwordExpires;
-            PasswordSalt = passwordSalt;
-            PasswordHash = passwordHash;
             Name = name;
             Estado = estado;
         }
