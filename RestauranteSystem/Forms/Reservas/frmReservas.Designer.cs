@@ -217,6 +217,7 @@
             btnBuscarClienteID.TabIndex = 14;
             btnBuscarClienteID.Text = "Buscar";
             btnBuscarClienteID.UseVisualStyleBackColor = true;
+            btnBuscarClienteID.Click += btnBuscarClienteID_Click;
             // 
             // label7
             // 
@@ -352,7 +353,7 @@
             btnImportarXML.TabIndex = 26;
             btnImportarXML.Text = "Importar XML";
             btnImportarXML.UseVisualStyleBackColor = true;
-            btnImportarXML.Click += btnImportarExcel_Click;
+            btnImportarXML.Click += btnImportarXML_Click;
             // 
             // btnExportarExcel
             // 

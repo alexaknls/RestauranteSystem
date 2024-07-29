@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestauranteSystem
+namespace RestauranteLib.Controladores.Seguridad
 {
-    public enum ModoFormularioEnum
+    internal class Usuarios
     {
-        Nuevo,
-        Modificar,
-        Eliminar,
-        Consultar
     }
 }
