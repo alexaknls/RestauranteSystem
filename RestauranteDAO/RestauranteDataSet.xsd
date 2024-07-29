@@ -386,6 +386,14 @@ SELECT RolID, RolName, RolEstado, RolCreacion FROM Roles WHERE (RolID = @RolID)<
               <Mapping SourceColumn="RolCreacion" DataSetColumn="RolCreacion" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarRoles" Modifier="Public" Name="ContarRoles" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarRoles">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(*) FROM Roles</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAssignToUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssignToUser" GeneratorSourceName="FillByAssignToUser" GetMethodModifier="Public" GetMethodName="GetDataByAssignToUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssignToUser" UserSourceName="FillByAssignToUser">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -575,10 +583,10 @@ FROM     Verificaciones INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNotAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToRol" GeneratorSourceName="FillByNotAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToRol" UserSourceName="FillByNotAssignToRol">
+              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNotAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToRol" GeneratorSourceName="FillByNotAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToRol" UserSourceName="FillByNotAssignToRol">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, Verificaciones.verificacionID
+                    <CommandText>SELECT Verificaciones.verificacionID, Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, VerificacionesXRol.rol
 FROM     Verificaciones LEFT OUTER JOIN
                   VerificacionesXRol ON Verificaciones.verificacion = VerificacionesXRol.verificacion AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.fechaExp &lt;= GETDATE() AND VerificacionesXRol.rol = @rol</CommandText>
                     <Parameters>
@@ -863,25 +871,25 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VerificacionesXRol" msprop:Generator_RowClassName="VerificacionesXRolRow" msprop:Generator_RowEvHandlerName="VerificacionesXRolRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesXRolRowDeleted" msprop:Generator_RowDeletingName="VerificacionesXRolRowDeleting" msprop:Generator_RowEvArgName="VerificacionesXRolRowChangeEvent" msprop:Generator_TablePropName="VerificacionesXRol" msprop:Generator_RowChangedName="VerificacionesXRolRowChanged" msprop:Generator_UserTableName="VerificacionesXRol" msprop:Generator_RowChangingName="VerificacionesXRolRowChanging" msprop:Generator_TableClassName="VerificacionesXRolDataTable" msprop:Generator_TableVarName="tableVerificacionesXRol">
+        <xs:element name="VerificacionesXRol" msprop:Generator_RowEvHandlerName="VerificacionesXRolRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesXRolRowDeleted" msprop:Generator_RowDeletingName="VerificacionesXRolRowDeleting" msprop:Generator_RowEvArgName="VerificacionesXRolRowChangeEvent" msprop:Generator_TablePropName="VerificacionesXRol" msprop:Generator_RowChangedName="VerificacionesXRolRowChanged" msprop:Generator_UserTableName="VerificacionesXRol" msprop:Generator_RowChangingName="VerificacionesXRolRowChanging" msprop:Generator_RowClassName="VerificacionesXRolRow" msprop:Generator_TableClassName="VerificacionesXRolDataTable" msprop:Generator_TableVarName="tableVerificacionesXRol">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
+              <xs:element name="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion" minOccurs="0">
+              <xs:element name="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus" minOccurs="0">
+              <xs:element name="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />

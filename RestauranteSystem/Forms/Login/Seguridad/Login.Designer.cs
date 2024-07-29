@@ -28,25 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnSession = new Button();
+            btnVerificaciones = new Button();
+            btnRoles = new Button();
+            btnUsuarios = new Button();
             SuspendLayout();
             // 
-            // btnSession
+            // btnVerificaciones
             // 
-            btnSession.Location = new Point(210, 145);
-            btnSession.Name = "btnSession";
-            btnSession.Size = new Size(131, 29);
-            btnSession.TabIndex = 0;
-            btnSession.Text = "Verificaciones";
-            btnSession.UseVisualStyleBackColor = true;
-            btnSession.Click += btnSession_Click;
+            btnVerificaciones.Location = new Point(210, 145);
+            btnVerificaciones.Name = "btnVerificaciones";
+            btnVerificaciones.Size = new Size(131, 29);
+            btnVerificaciones.TabIndex = 0;
+            btnVerificaciones.Text = "Verificaciones";
+            btnVerificaciones.UseVisualStyleBackColor = true;
+            btnVerificaciones.Click += btnSession_Click;
+            // 
+            // btnRoles
+            // 
+            btnRoles.Location = new Point(110, 145);
+            btnRoles.Name = "btnRoles";
+            btnRoles.Size = new Size(94, 29);
+            btnRoles.TabIndex = 1;
+            btnRoles.Text = "Roles";
+            btnRoles.UseVisualStyleBackColor = true;
+            btnRoles.Click += btnRoles_Click;
+            // 
+            // btnUsuarios
+            // 
+            btnUsuarios.Location = new Point(10, 145);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(94, 29);
+            btnUsuarios.TabIndex = 2;
+            btnUsuarios.Text = "Usuarios";
+            btnUsuarios.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(353, 186);
-            Controls.Add(btnSession);
+            Controls.Add(btnUsuarios);
+            Controls.Add(btnRoles);
+            Controls.Add(btnVerificaciones);
             Name = "Login";
             Text = "Login";
             ResumeLayout(false);
@@ -54,6 +77,8 @@
 
         #endregion
 
-        private Button btnSession;
+        private Button btnVerificaciones;
+        private Button btnRoles;
+        private Button btnUsuarios;
     }
 }

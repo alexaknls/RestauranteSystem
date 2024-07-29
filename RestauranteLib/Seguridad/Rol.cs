@@ -12,11 +12,11 @@ namespace RestauranteLib.Seguridad
         private string rolName;
         private string estado;
         private DateTime rolCreacion;
-        
 
         public string Estado
         {
-            get => estado; set
+            get => estado;
+            set
             {
                 if (value == ECommonStatus.ACT || value == ECommonStatus.INA)
                 {
@@ -40,10 +40,11 @@ namespace RestauranteLib.Seguridad
             Estado = ECommonStatus.ACT;
             RolCreacion = DateTime.Now;
         }
-        public Rol(int rolId, string name, string estado, DateTime rolCreacion)
+
+        public Rol(int rolId, string rolName, string estado, DateTime rolCreacion)
         {
-            RolId = rolId; 
-            RolName = name;
+            RolId = rolId;
+            RolName = rolName;
             Estado = estado;
             RolCreacion = rolCreacion;
         }

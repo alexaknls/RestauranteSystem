@@ -8,11 +8,11 @@
   <Shapes>
     <Shape ID="DesignTable:Clientes" ZOrder="7" X="136" Y="155" Height="273" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="214" />
     <Shape ID="DesignTable:Reservas" ZOrder="6" X="411" Y="59" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="214" />
-    <Shape ID="DesignTable:Usuarios" ZOrder="5" X="779" Y="70" Height="227" Width="227" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
-    <Shape ID="DesignTable:Roles" ZOrder="1" X="879" Y="476" Height="250" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
-    <Shape ID="DesignTable:RolesXUsuario" ZOrder="4" X="549" Y="676" Height="181" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
-    <Shape ID="DesignTable:Verificaciones" ZOrder="3" X="1043" Y="155" Height="273" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
-    <Shape ID="DesignTable:VerificacionesXRol" ZOrder="2" X="504" Y="475" Height="181" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
+    <Shape ID="DesignTable:Usuarios" ZOrder="2" X="217" Y="488" Height="227" Width="227" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:Roles" ZOrder="3" X="852" Y="468" Height="273" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
+    <Shape ID="DesignTable:RolesXUsuario" ZOrder="5" X="549" Y="676" Height="181" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
+    <Shape ID="DesignTable:Verificaciones" ZOrder="1" X="784" Y="112" Height="273" Width="442" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="28" OldDataTableHeight="0" SplitterPosition="122" />
+    <Shape ID="DesignTable:VerificacionesXRol" ZOrder="4" X="504" Y="475" Height="181" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

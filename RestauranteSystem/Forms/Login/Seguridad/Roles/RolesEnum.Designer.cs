@@ -137,7 +137,6 @@
             dtpRolFecha.Name = "dtpRolFecha";
             dtpRolFecha.Size = new Size(193, 27);
             dtpRolFecha.TabIndex = 22;
-            dtpRolFecha.CloseUp += dtpRolFecha_CloseUp;
             // 
             // RolesEnum
             // 

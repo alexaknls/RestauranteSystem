@@ -17,87 +17,91 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Roles
     {
         private EModoFormulario _modo;
         private Rol _rol;
-        private wwwRoles _wwwRoles;
+
         public RolesEnum()
         {
             InitializeComponent();
-            _rol = new Rol();
-            _wwwRoles = new wwwRoles();
         }
+
         public Rol Rol
         {
             get => _rol;
             set
             {
                 _rol = value;
-                setClientToControls();
+                setRolToControls();
             }
         }
+
         public EModoFormulario Modo
         {
             get => _modo;
             set
             {
+                _modo = value;
                 switch (value)
                 {
                     case EModoFormulario.Modificar:
                     case EModoFormulario.Eliminar:
                     case EModoFormulario.Consultar:
-                        setClientToControls();
+                        setRolToControls();
                         break;
                     case EModoFormulario.Nuevo:
                         break;
                 }
-                _modo = value;
             }
         }
-        private void setClientToControls()
+
+        private void setRolToControls()
         {
             if (_rol == null) return;
             if (_rol.RolId > 0)
             {
-                establecerTitulo();
+                txtCodigo.Text = _rol.RolId.ToString();
                 txtNombre.Text = _rol.RolName;
-                cboEstado.Text = _rol.Estado == "ACT" ? "Activo" : "Inactivo";
-                dtpRolFecha.Text = DateTime.Now.ToString();
+                cboEstado.Text = _rol.Estado;
+                dtpRolFecha.Value = _rol.RolCreacion;
                 setReadOnly();
+                establecerTitulo();
             }
         }
 
         private void establecerTitulo()
         {
-
             if (_rol.RolId > 0)
             {
                 switch (_modo)
                 {
                     case EModoFormulario.Modificar:
-                        tituloFormulario.Text = "Modificando Verificación";
-                        Text = "Modificando Verificación";
+                        tituloFormulario.Text = "Modificando Rol";
+                        Text = "Modificando Rol";
                         break;
                     case EModoFormulario.Eliminar:
-                        tituloFormulario.Text = "Eliminando Verificación";
-                        Text = "Eliminando Verificación";
+                        tituloFormulario.Text = "Eliminando Rol";
+                        Text = "Eliminando Rol";
                         break;
                     case EModoFormulario.Consultar:
-                        tituloFormulario.Text = "Detalle de Verificación";
-                        Text = "Detalle de Verificación";
+                        tituloFormulario.Text = "Detalle del Rol";
+                        Text = "Detalle del Rol";
                         break;
                 }
             }
         }
+
         private void setReadOnly()
         {
             if (_modo == EModoFormulario.Consultar || _modo == EModoFormulario.Eliminar)
             {
+                txtCodigo.Enabled = false;
                 txtNombre.Enabled = false;
-                dtpRolFecha.Enabled = false;
                 cboEstado.Enabled = false;
+                dtpRolFecha.Enabled = false;
                 if (_modo == EModoFormulario.Consultar)
                 {
                     btnConfirmar.Visible = false;
                 }
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -108,53 +112,23 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Roles
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            _rol = new Rol(
-                int.Parse(txtCodigo.Text),
-                txtNombre.Text,
-                cboEstado.SelectedItem.ToString() == "Activo" ? "ACT" : "INA",
-                dtpRolFecha.Value
-            );
-
-            if (_modo == EModoFormulario.Modificar)
+            try
             {
-                if (_wwwRoles.ActualizarRoles(_rol, _rol))
-                {
-                    MessageBox.Show("Verificación actualizada exitosamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la verificación");
-                }
+                string estado = cboEstado.Text == "Activo" ? ECommonStatus.ACT : ECommonStatus.INA;
+
+                this._rol = new Rol(
+                    int.Parse(txtCodigo.Text),
+                    txtNombre.Text,
+                    estado,
+                    DateTime.Now
+                );
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-            else if (_modo == EModoFormulario.Nuevo)
+            catch (Exception ex)
             {
-                if (_wwwRoles.InsertarRol(_rol))
-                {
-                    MessageBox.Show("Nueva verificación agregada exitosamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al agregar la nueva verificación");
-                }
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void dtpRolFecha_CloseUp(object sender, EventArgs e)
-        {
-            DateTime fechaHoraCreacion = dtpRolFecha.Value;
-
-            DateTime fechaHoraSinSegundos = new DateTime(
-                fechaHoraCreacion.Year,
-                fechaHoraCreacion.Month,
-                fechaHoraCreacion.Day,
-                fechaHoraCreacion.Hour,
-                fechaHoraCreacion.Minute,
-                0
-            );
-
-            dtpRolFecha.Value = fechaHoraSinSegundos;
         }
     }
 }

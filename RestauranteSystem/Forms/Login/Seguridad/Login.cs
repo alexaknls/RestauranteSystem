@@ -1,4 +1,5 @@
 ﻿using RestauranteSystem.Forms.Login;
+using RestauranteSystem.Forms.Login.Seguridad.Roles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,13 @@ namespace RestauranteSystem.Login.Seguridad
         private void btnSession_Click(object sender, EventArgs e)
         {
             FrmVerificaciones frmVerificaciones = new FrmVerificaciones();
-            frmVerificaciones.ShowDialog(); 
+            frmVerificaciones.ShowDialog();
+        }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            Roles frmRoles = new Roles();
+            frmRoles.ShowDialog();
         }
     }
 }

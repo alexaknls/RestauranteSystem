@@ -5961,32 +5961,36 @@ SELECT RolID, RolName, RolEstado, RolCreacion FROM Roles WHERE (RolID = @RolID)"
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT RolID, RolName, RolEstado, RolCreacion FROM dbo.Roles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion
-FROM     Roles INNER JOIN
-                  RolesXUsuario ON Roles.RolName = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE() AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.userId = @id";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM Roles";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion, RolesXUsuario.rol, RolesXUsuario.fechaExp, RolesXUsuario.status, RolesXUsuario.userId
-FROM     Roles LEFT OUTER JOIN
-                  RolesXUsuario ON Roles.RolName = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE() AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.userId = @id
-WHERE  (RolesXUsuario.status = NULL)";
+            this._commandCollection[2].CommandText = @"SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion
+FROM     Roles INNER JOIN
+                  RolesXUsuario ON Roles.RolName = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE() AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.userId = @id";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT RolID, RolName, RolEstado, RolCreacion\r\nFROM     Roles\r\nWHERE  (RolName = " +
-                "@RolName)";
+            this._commandCollection[3].CommandText = @"SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion, RolesXUsuario.rol, RolesXUsuario.fechaExp, RolesXUsuario.status, RolesXUsuario.userId
+FROM     Roles LEFT OUTER JOIN
+                  RolesXUsuario ON Roles.RolName = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE() AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.userId = @id
+WHERE  (RolesXUsuario.status = NULL)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RolName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RolName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT RolID, RolName, RolEstado, RolCreacion\r\nFROM     Roles\r\nWHERE  (RolName = " +
+                "@RolName)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RolName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RolName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6018,7 +6022,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAssignToUser(RestauranteDataSet.RolesDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6032,7 +6036,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.RolesDataTable GetDataByAssignToUser(int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             RestauranteDataSet.RolesDataTable dataTable = new RestauranteDataSet.RolesDataTable();
             this.Adapter.Fill(dataTable);
@@ -6044,7 +6048,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByNotAssignToUser(RestauranteDataSet.RolesDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6058,7 +6062,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.RolesDataTable GetDataByNotAssignToUser(int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             RestauranteDataSet.RolesDataTable dataTable = new RestauranteDataSet.RolesDataTable();
             this.Adapter.Fill(dataTable);
@@ -6070,7 +6074,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByRolName(RestauranteDataSet.RolesDataTable dataTable, string RolName) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((RolName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6089,7 +6093,7 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.RolesDataTable GetDataByRolName(string RolName) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((RolName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6287,6 +6291,34 @@ WHERE  (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string RolName, string RolEstado, global::System.Nullable<global::System.DateTime> RolCreacion, int Original_RolID, string Original_RolName, string Original_RolEstado, global::System.Nullable<global::System.DateTime> Original_RolCreacion) {
             return this.Update(Original_RolID, RolName, RolEstado, RolCreacion, Original_RolID, Original_RolName, Original_RolEstado, Original_RolCreacion);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ContarRoles() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -6883,7 +6915,7 @@ FROM     Verificaciones INNER JOIN
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, Verificaciones.verificacionID
+            this._commandCollection[3].CommandText = @"SELECT Verificaciones.verificacionID, Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, VerificacionesXRol.rol
 FROM     Verificaciones LEFT OUTER JOIN
                   VerificacionesXRol ON Verificaciones.verificacion = VerificacionesXRol.verificacion AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.fechaExp <= GETDATE() AND VerificacionesXRol.rol = @rol";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;

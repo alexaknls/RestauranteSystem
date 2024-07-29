@@ -9,106 +9,108 @@ using System.Threading.Tasks;
 
 namespace RestauranteLib.Controladores.Seguridad
 {
-        public class wwwRoles
+    public class wwwRoles
+    {
+        private RestauranteDataSet restaurantedataset;
+        private RolesTableAdapter rolesTableAdapter;
+        private List<Rol> _rolLista;
+
+        public wwwRoles()
         {
-            private RestauranteDataSet restaurantedataset;
-            private RolesTableAdapter rolesTableAdapter;
-            private List<Rol> _rolesLista;
+            restaurantedataset = new RestauranteDataSet();
+            rolesTableAdapter = new RolesTableAdapter();
+            _rolLista = new List<Rol>();
+        }
 
-            public wwwRoles()
+        public List<Rol> ObtenerRoles()
+        {
+            List<Rol> roles = new List<Rol>();
+            foreach (var rol in rolesTableAdapter.GetData())
             {
-                _rolesLista = new List<Rol>();
-                rolesTableAdapter = new RolesTableAdapter();
-                restaurantedataset = RestauranteDAO.Contexto.GetDataSet();
+                roles.Add(new Rol(rol.RolID, rol.RolName, rol.RolEstado, rol.RolCreacion));
             }
-           
-        public List<Rol> wwwObtenerRol()
+            return roles;
+        }
+        public bool InsertarRol(Rol rol)
+        {
+            try
             {
+                rolesTableAdapter.Insert(
+                    rol.RolId,
+                    rol.RolName,
+                    rol.Estado,
+                    rol.RolCreacion
+                );
                 rolesTableAdapter.Fill(restaurantedataset.Roles);
-                FillRoles();
-                return _rolesLista;
+                this.FillRoles();
+                return true;
             }
-
-            public bool InsertarRol(Rol _rol)
+            catch
             {
-                try
-                {
-                    rolesTableAdapter.Insert(
-                        _rol.RolId,
-                        _rol.RolName,
-                        _rol.Estado,
-                        _rol.RolCreacion
-                    );
-                    rolesTableAdapter.Fill(restaurantedataset.Roles);
-                    this.FillRoles();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("No se agrego correctamente");
-                    return false;
-                }
-            }
-
-            public bool ActualizarRoles(Rol updateTo, Rol updatedFrom)
-            {
-                try
-                {
-                    rolesTableAdapter.Update(
-                        updateTo.RolId,
-                        updateTo.RolName,
-                        updateTo.Estado,
-                        updateTo.RolCreacion,
-                        updatedFrom.RolId,
-                        updatedFrom.RolName,
-                        updatedFrom.Estado,
-                        updatedFrom.RolCreacion
-                    );
-                    rolesTableAdapter.Fill(restaurantedataset.Roles);
-                    this.FillRoles();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("No se actualizo correctamente");
-                    return false;
-                }
-            }
-
-            public bool EliminarRoles(Rol _rol)
-            {
-                try
-                {
-                    rolesTableAdapter.Delete(
-                        _rol.RolId,
-                        _rol.RolName,
-                        _rol.Estado,
-                        _rol.RolCreacion
-                        );
-                    rolesTableAdapter.Fill(restaurantedataset.Roles);
-                    this.FillRoles();
-                    return true;
-                }
-                catch
-                {
-                    return false;
-                }
-            }
-
-            private void FillRoles()
-            {
-                _rolesLista.Clear();
-                foreach (RestauranteDataSet.RolesRow _rol in restaurantedataset.Roles.Rows)
-                {
-                    _rolesLista.Add(new Rol(
-                            _rol.RolID,
-                            _rol.RolName,
-                            _rol.RolEstado,
-                            _rol.RolCreacion
-                        )
-                    );
-                }
+                return false;
             }
         }
+        public bool ActualizarRol(Rol rolActualizado, Rol rolOriginal)
+        {
+            try
+            {
+                rolesTableAdapter.Update(
+                    rolActualizado.RolId,
+                    rolActualizado.RolName,
+                    rolActualizado.Estado,
+                    rolActualizado.RolCreacion,
+                    rolOriginal.RolId,
+                    rolOriginal.RolName,
+                    rolOriginal.Estado,
+                    rolOriginal.RolCreacion
+                );
+                rolesTableAdapter.Fill(restaurantedataset.Roles);
+                this.FillRoles();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool EliminarRol(Rol rol)
+        {
+            try
+            {
+                rolesTableAdapter.Delete(
+                    rol.RolId,
+                    rol.RolName,
+                    rol.Estado,
+                    rol.RolCreacion
+                );
+                rolesTableAdapter.Fill(restaurantedataset.Roles);
+                this.FillRoles();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        private void FillRoles()
+        {
+            _rolLista.Clear();
+            foreach (RestauranteDataSet.RolesRow rol in restaurantedataset.Roles.Rows)
+            {
+                _rolLista.Add(new Rol(
+                    rol.RolID,
+                    rol.RolName,
+                    rol.RolEstado,
+                    rol.RolCreacion
+                ));
+            }
+        }
+
+
+
+
+
+
+    }
 }
 

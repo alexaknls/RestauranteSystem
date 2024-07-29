@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnNuevo = new Button();
             btnVer = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
             label1 = new Label();
-            dgvVerificaciones = new DataGridView();
+            dgvRoles = new DataGridView();
             colRolId = new DataGridViewTextBoxColumn();
             colRolName = new DataGridViewTextBoxColumn();
             colRolEstado = new DataGridViewTextBoxColumn();
             colRolCreacion = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvVerificaciones).BeginInit();
+            bndSrcRoles = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bndSrcRoles).BeginInit();
             SuspendLayout();
             // 
             // btnNuevo
@@ -49,6 +52,7 @@
             btnNuevo.TabIndex = 11;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnVer
             // 
@@ -58,6 +62,7 @@
             btnVer.TabIndex = 10;
             btnVer.Text = "Ver";
             btnVer.UseVisualStyleBackColor = true;
+            btnVer.Click += btnVer_Click;
             // 
             // btnEliminar
             // 
@@ -67,6 +72,7 @@
             btnEliminar.TabIndex = 9;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -76,6 +82,7 @@
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // label1
             // 
@@ -87,16 +94,19 @@
             label1.TabIndex = 7;
             label1.Text = "Roles";
             // 
-            // dgvVerificaciones
+            // dgvRoles
             // 
-            dgvVerificaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVerificaciones.Columns.AddRange(new DataGridViewColumn[] { colRolId, colRolName, colRolEstado, colRolCreacion });
-            dgvVerificaciones.Location = new Point(12, 44);
-            dgvVerificaciones.Name = "dgvVerificaciones";
-            dgvVerificaciones.RowHeadersWidth = 51;
-            dgvVerificaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVerificaciones.Size = new Size(428, 188);
-            dgvVerificaciones.TabIndex = 6;
+            dgvRoles.AutoGenerateColumns = false;
+            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoles.Columns.AddRange(new DataGridViewColumn[] { colRolId, colRolName, colRolEstado, colRolCreacion });
+            dgvRoles.DataSource = bndSrcRoles;
+            dgvRoles.Location = new Point(12, 44);
+            dgvRoles.Name = "dgvRoles";
+            dgvRoles.RowHeadersWidth = 51;
+            dgvRoles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRoles.Size = new Size(428, 188);
+            dgvRoles.TabIndex = 6;
+            dgvRoles.SelectionChanged += dgvRoles_SelectionChanged;
             // 
             // colRolId
             // 
@@ -109,14 +119,14 @@
             // colRolName
             // 
             colRolName.DataPropertyName = "RolName";
-            colRolName.HeaderText = "Rol";
+            colRolName.HeaderText = "RolName";
             colRolName.MinimumWidth = 6;
             colRolName.Name = "colRolName";
             colRolName.Width = 125;
             // 
             // colRolEstado
             // 
-            colRolEstado.DataPropertyName = "RolEstado";
+            colRolEstado.DataPropertyName = "Estado";
             colRolEstado.HeaderText = "Estado";
             colRolEstado.MinimumWidth = 6;
             colRolEstado.Name = "colRolEstado";
@@ -140,10 +150,12 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(label1);
-            Controls.Add(dgvVerificaciones);
+            Controls.Add(dgvRoles);
             Name = "Roles";
             Text = "Roles";
-            ((System.ComponentModel.ISupportInitialize)dgvVerificaciones).EndInit();
+            Load += Roles_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bndSrcRoles).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,7 +167,8 @@
         private Button btnEliminar;
         private Button btnEditar;
         private Label label1;
-        private DataGridView dgvVerificaciones;
+        private DataGridView dgvRoles;
+        private BindingSource bndSrcRoles;
         private DataGridViewTextBoxColumn colRolId;
         private DataGridViewTextBoxColumn colRolName;
         private DataGridViewTextBoxColumn colRolEstado;
