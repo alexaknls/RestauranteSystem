@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using static RestauranteDAO.RestauranteDataSet;
 using System.Runtime.CompilerServices;
 using System.Data;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace RestauranteLib.Controladores
 {
@@ -100,6 +101,7 @@ namespace RestauranteLib.Controladores
         {
             List<ReservasLib> _reservaLista = new List<ReservasLib>();
 
+
             _adapter.FillByClienteCedula(restauranteDataSet.Reservas, cedula);
 
             foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
@@ -172,16 +174,44 @@ namespace RestauranteLib.Controladores
             }
         }
 
-        public List<int> ObtenerMesasOcupadas(DateTime fechaHora)
+        public Dictionary<int, List<ReservasLib>> ObtenerMesasOcupadas(DateTime fechaHora)
         {
-            List<int> mesasOcupadas = new List<int>();
-            DataTable resultTable = _adapter.GetByMesasOcupadas(fechaHora);
-            foreach (DataRow row in resultTable.Rows)
+            var mesasOcupadas = new Dictionary<int, List<ReservasLib>>();
+
+            _adapter.GetByMesasOcupadas(fechaHora);
+            foreach (RestauranteDataSet.ReservasRow reservasRow in restauranteDataSet.Reservas)
             {
-                mesasOcupadas.Add(Convert.ToInt32(row["NumeroMesa"]));
+                string reservasCodigo = reservasRow.IsReservaCodigoNull() ? string.Empty : reservasRow.ReservaCodigo;
+                string reservasCedulaCliente = reservasRow.IsReservaClienteNull() ? string.Empty : reservasRow.ReservaCliente;
+
+                var reserva = new ReservasLib(
+                    reservasRow.ReservaID,
+                    reservasCodigo,
+                    reservasRow.ReservaDateTime,
+                    reservasRow.PersonasCant,
+                    reservasRow.NumeroMesa,
+                    reservasRow.ReservaEstado,
+                    reservasRow.ReservaCreacion,
+                    reservasCedulaCliente
+                );
+
+                if (!mesasOcupadas.ContainsKey(reserva.NumeroMesa))
+                {
+                    mesasOcupadas[reserva.NumeroMesa] = new List<ReservasLib>();
+                }
+
+                mesasOcupadas[reserva.NumeroMesa].Add(reserva);
             }
+
             return mesasOcupadas;
         }
+
+
+
+
+
+
+
 
 
 

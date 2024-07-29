@@ -114,11 +114,14 @@
             // 
             // dtpReservaHora
             // 
+            dtpReservaHora.CustomFormat = "";
             dtpReservaHora.Format = DateTimePickerFormat.Time;
             dtpReservaHora.Location = new Point(335, 93);
             dtpReservaHora.Name = "dtpReservaHora";
+            dtpReservaHora.ShowUpDown = true;
             dtpReservaHora.Size = new Size(219, 27);
             dtpReservaHora.TabIndex = 25;
+            dtpReservaHora.CloseUp += dtpReservaHora_CloseUp;
             // 
             // label10
             // 

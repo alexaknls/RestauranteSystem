@@ -37,6 +37,7 @@ namespace RestauranteSystem.Reservas
             _controladorReservas = new ControladorReservas();
             _reservasLista = _controladorReservas.ObtenerReservas();
             bnSrcReservas.DataSource = _reservasLista;
+            dtpReservaHora.CloseUp += new EventHandler(dtpReservaHora_CloseUp);
 
             GeneradordeCodigoReservaFromForm();
             LimpiarFormulario();
@@ -189,11 +190,16 @@ namespace RestauranteSystem.Reservas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+            ActivateElements();
+            _esEdicion = false;
+            _esEliminacion = false;
+            btnGuardar.Text = "Guardar";
         }
 
         private void btnMesasView_Click(object sender, EventArgs e)
         {
             DateTime fechaHoraSeleccionada = new DateTime(dtpReservaFecha.Value.Year, dtpReservaFecha.Value.Month, dtpReservaFecha.Value.Day, dtpReservaHora.Value.Hour, dtpReservaHora.Value.Minute, dtpReservaHora.Value.Second);
+
             MenuMesas menuMesas = new MenuMesas(fechaHoraSeleccionada);
             menuMesas.ShowDialog();
 
@@ -257,6 +263,7 @@ namespace RestauranteSystem.Reservas
             _esEliminacion = true;
             ActualizarTextBoxReserva();
             btnGuardar.Text = "Eliminar";
+            btnCancelar.Enabled = true;
 
         }
 
@@ -348,6 +355,25 @@ namespace RestauranteSystem.Reservas
                 serializador.Serialize(guardador, _reservasLista);
                 MessageBox.Show("Archivo Guardado Exitosamente");
             }
+        }
+
+        private void dtpReservaHora_CloseUp(object sender, EventArgs e)
+        {
+            // Obtener el valor actual del DateTimePicker
+            DateTime fechaHoraSeleccionada = dtpReservaHora.Value;
+
+            // Crear un nuevo DateTime con los segundos establecidos en 00
+            DateTime fechaHoraSinSegundos = new DateTime(
+                fechaHoraSeleccionada.Year,
+                fechaHoraSeleccionada.Month,
+                fechaHoraSeleccionada.Day,
+                fechaHoraSeleccionada.Hour,
+                fechaHoraSeleccionada.Minute,
+                0
+            );
+
+            // Actualizar el valor del DateTimePicker
+            dtpReservaHora.Value = fechaHoraSinSegundos;
         }
     }
 }
