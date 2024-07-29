@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             components = new System.ComponentModel.Container();
             Cliente = new Panel();
             dataGridView1 = new DataGridView();
@@ -503,5 +504,14 @@
         private DataGridViewTextBoxColumn reservaCreacionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn reservaClienteDataGridViewTextBoxColumn;
         private BindingSource reservasLibBindingSource;
+=======
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FrmClientes";
+        }
+
+        #endregion
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
     }
 }

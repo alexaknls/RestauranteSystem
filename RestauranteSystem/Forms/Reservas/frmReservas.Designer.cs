@@ -114,11 +114,22 @@
             // 
             // dtpReservaHora
             // 
+<<<<<<< HEAD
             dtpReservaHora.Format = DateTimePickerFormat.Time;
             dtpReservaHora.Location = new Point(335, 93);
             dtpReservaHora.Name = "dtpReservaHora";
             dtpReservaHora.Size = new Size(219, 27);
             dtpReservaHora.TabIndex = 25;
+=======
+            dtpReservaHora.CustomFormat = "";
+            dtpReservaHora.Format = DateTimePickerFormat.Time;
+            dtpReservaHora.Location = new Point(335, 93);
+            dtpReservaHora.Name = "dtpReservaHora";
+            dtpReservaHora.ShowUpDown = true;
+            dtpReservaHora.Size = new Size(219, 27);
+            dtpReservaHora.TabIndex = 25;
+            dtpReservaHora.CloseUp += dtpReservaHora_CloseUp;
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             // 
             // label10
             // 
@@ -350,7 +361,11 @@
             btnImportarXML.TabIndex = 26;
             btnImportarXML.Text = "Importar XML";
             btnImportarXML.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             btnImportarXML.Click += btnImportarExcel_Click;
+=======
+            btnImportarXML.Click += btnImportarXML_Click;
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             // 
             // btnExportarExcel
             // 

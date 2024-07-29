@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using RestauranteLib;
 using RestauranteSystem.Reservas;
 using System;
+=======
+﻿using System;
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+<<<<<<< HEAD
 using DocumentFormat.OpenXml.Drawing.Spreadsheet;
 using RestauranteDAO;
 using RestauranteDAO.RestauranteDataSetTableAdapters;
@@ -18,10 +23,13 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using SixLabors.Fonts;
 using RestauranteLib.Controladores;
 
+=======
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 namespace RestauranteSystem.Forms.Clientes
 {
     public partial class FrmClientes : Form
     {
+<<<<<<< HEAD
         private Clienteslib _clienteslib;
         private BindingList<Clienteslib> bindingList;
         private BindingSource _brnsCliente;
@@ -293,6 +301,11 @@ namespace RestauranteSystem.Forms.Clientes
                 MessageBox.Show("No se encontró ningún cliente con ese nombre.", "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+=======
+        public FrmClientes()
+        {
+            InitializeComponent();
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
     }
 }
