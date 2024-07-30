@@ -11,13 +11,7 @@ using System.Data.SqlClient;
 
 using RestauranteLib;
 using RestauranteLib.Controladores;
-<<<<<<< HEAD
 using RestauranteSystem.Forms.Reservas;
-=======
-
-using RestauranteSystem.Forms.Reservas;
-using RestauranteSystem.Forms.Clientes;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 using System.Diagnostics.Eventing.Reader;
 using System.Xml.Serialization;
 
@@ -28,19 +22,11 @@ namespace RestauranteSystem.Reservas
         private ControladorReservas _controladorReservas;
         private List<ReservasLib> _reservasLista;
         private ReservasLib _selectedReserva;
-<<<<<<< HEAD
-=======
-
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private string nuevoCodigoReserva;
 
         private bool _esEdicion = false;
         private bool _esEliminacion = false;
         private bool _esVerReserva = false;
-<<<<<<< HEAD
-=======
-
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private ReservasLib _originalReserva = null;
         private DateTime reservaDatetime;
 
@@ -50,12 +36,8 @@ namespace RestauranteSystem.Reservas
             InitializeComponent();
             _controladorReservas = new ControladorReservas();
             _reservasLista = _controladorReservas.ObtenerReservas();
-<<<<<<< HEAD
-=======
-
-            dtpReservaHora.CloseUp += new EventHandler(dtpReservaHora_CloseUp);
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             bnSrcReservas.DataSource = _reservasLista;
+            dtpReservaHora.CloseUp += new EventHandler(dtpReservaHora_CloseUp);
 
             GeneradordeCodigoReservaFromForm();
             LimpiarFormulario();
@@ -64,10 +46,7 @@ namespace RestauranteSystem.Reservas
         {
             dgvReservasView.DataSource = bnSrcReservas;
             LimpiarFormulario();
-<<<<<<< HEAD
 
-=======
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
         private void GeneradordeCodigoReservaFromForm()
         {
@@ -81,10 +60,7 @@ namespace RestauranteSystem.Reservas
             {
                 _selectedReserva = (ReservasLib)dgvReservasView.SelectedRows[0].DataBoundItem;
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
         private void LimpiarFormulario()
         {
@@ -114,67 +90,6 @@ namespace RestauranteSystem.Reservas
                 dtpReservaCreacion.Value = _selectedReserva.ReservaCreacion;
             }
         }
-<<<<<<< HEAD
-=======
-        private void DeactivateElements()
-        {
-            foreach (Control _controls in this.pnlNuevaReserva.Controls)
-            {
-                if (_controls is TextBox)
-                {
-                    _controls.Enabled = false;
-                }
-                if (_controls is DateTimePicker)
-                {
-                    _controls.Enabled = false;
-                }
-                if (_controls is Button)
-                {
-                    _controls.Enabled = false;
-                    btnGuardar.Enabled = true;
-                }
-            }
-        }
-        private void ActivateElements()
-        {
-            foreach (Control _controls in this.pnlNuevaReserva.Controls)
-            {
-                if (_controls is TextBox)
-                {
-                    _controls.Enabled = true;
-                    txbMesasNum.Enabled = false;
-                    txbReservaCodigo.Enabled = false;
-                }
-                if (_controls is DateTimePicker)
-                {
-                    _controls.Enabled = true;
-                    dtpReservaCreacion.Enabled = false;
-                }
-                if (_controls is Button)
-                {
-                    _controls.Enabled = true;
-                }
-            }
-        }
-        private void dtpReservaHora_CloseUp(object sender, EventArgs e)
-        {
-            DateTime fechaHoraSeleccionada = dtpReservaHora.Value;
-
-            DateTime fechaHoraSinSegundos = new DateTime(
-                fechaHoraSeleccionada.Year,
-                fechaHoraSeleccionada.Month,
-                fechaHoraSeleccionada.Day,
-                fechaHoraSeleccionada.Hour,
-                fechaHoraSeleccionada.Minute,
-                0
-            );
-
-            dtpReservaHora.Value = fechaHoraSinSegundos;
-        }
-
-
-        /************************  BOTONES ****************************************/
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -276,19 +191,19 @@ namespace RestauranteSystem.Reservas
             }
 
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+            ActivateElements();
+            _esEdicion = false;
+            _esEliminacion = false;
+            btnGuardar.Text = "Guardar";
         }
 
         private void btnMesasView_Click(object sender, EventArgs e)
         {
             DateTime fechaHoraSeleccionada = new DateTime(dtpReservaFecha.Value.Year, dtpReservaFecha.Value.Month, dtpReservaFecha.Value.Day, dtpReservaHora.Value.Hour, dtpReservaHora.Value.Minute, dtpReservaHora.Value.Second);
+
             MenuMesas menuMesas = new MenuMesas(fechaHoraSeleccionada);
             menuMesas.ShowDialog();
 
@@ -319,16 +234,6 @@ namespace RestauranteSystem.Reservas
             bnSrcReservas.ResetBindings(true);
         }
 
-=======
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            LimpiarFormulario();
-            ActivateElements();
-            _esEdicion = false;
-            _esEliminacion = false;
-            btnGuardar.Text = "Guardar";
-        }
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (_esVerReserva == true)
@@ -362,7 +267,7 @@ namespace RestauranteSystem.Reservas
             _esEliminacion = true;
             ActualizarTextBoxReserva();
             btnGuardar.Text = "Eliminar";
-<<<<<<< HEAD
+            btnCancelar.Enabled = true;
 
         }
 
@@ -407,11 +312,6 @@ namespace RestauranteSystem.Reservas
             }
         }
 
-=======
-            btnCancelar.Enabled = true;
-
-        }
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private void btnVerReserva_Click(object sender, EventArgs e)
         {
             _esVerReserva = true;
@@ -419,47 +319,6 @@ namespace RestauranteSystem.Reservas
             DeactivateElements();
             btnGuardar.Enabled = false;
         }
-<<<<<<< HEAD
-=======
-        private void btnMesasView_Click(object sender, EventArgs e)
-        {
-            DateTime fechaHoraSeleccionada = new DateTime(dtpReservaFecha.Value.Year, dtpReservaFecha.Value.Month, dtpReservaFecha.Value.Day, dtpReservaHora.Value.Hour, dtpReservaHora.Value.Minute, dtpReservaHora.Value.Second);
-
-            MenuMesas menuMesas = new MenuMesas(fechaHoraSeleccionada);
-            menuMesas.ShowDialog();
-
-            if (menuMesas.DialogResult == DialogResult.OK)
-            {
-                txbMesasNum.Text = menuMesas.NumeroMesasSeleccionada.ToString();
-            }
-        }
-        private void btnBuscarClienteID_Click(object sender, EventArgs e)
-        {
-            FrmClientes frmClientes = new FrmClientes();
-            frmClientes.ShowDialog();
-        }
-        private void btnBuscadorReserva_Click(object sender, EventArgs e)
-        {
-            string cedula = txbBuscadorReserva.Text;
-
-            if (string.IsNullOrEmpty(cedula))
-            {
-                MessageBox.Show("Por favor, introduzca la cédula del cliente.");
-                return;
-            }
-
-            List<ReservasLib> reservasFiltradas = _controladorReservas.BuscarReservasPorCedula(cedula);
-
-            if (reservasFiltradas.Count == 0)
-            {
-                MessageBox.Show("No se encontraron reservas para la cédula proporcionada.");
-            }
-
-            bnSrcReservas.DataSource = reservasFiltradas;
-            bnSrcReservas.ResetBindings(true);
-        }
-        
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 
         private void btnExportarExcel_Click(object sender, EventArgs e)
         {
@@ -472,11 +331,7 @@ namespace RestauranteSystem.Reservas
             }
         }
 
-<<<<<<< HEAD
         private void btnImportarExcel_Click(object sender, EventArgs e)
-=======
-        private void btnImportarXML_Click(object sender, EventArgs e)
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         {
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
@@ -488,10 +343,7 @@ namespace RestauranteSystem.Reservas
                 _reservasLista = (List<ReservasLib>)serializador.Deserialize(lector) ?? new List<ReservasLib>();
                 bnSrcReservas.DataSource = _reservasLista;
                 MessageBox.Show("Archivo Abierto Exitosamente");
-<<<<<<< HEAD
 
-=======
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             }
         }
 
@@ -508,11 +360,9 @@ namespace RestauranteSystem.Reservas
                 MessageBox.Show("Archivo Guardado Exitosamente");
             }
         }
-<<<<<<< HEAD
 
-        private void btnBuscarClienteID_Click(object sender, EventArgs e)
+        private void dtpReservaHora_CloseUp(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             DateTime fechaHoraSeleccionada = dtpReservaHora.Value;
 
             DateTime fechaHoraSinSegundos = new DateTime(
@@ -525,11 +375,6 @@ namespace RestauranteSystem.Reservas
             );
 
             dtpReservaHora.Value = fechaHoraSinSegundos;
-=======
-
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
         }
-=======
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
     }
 }
