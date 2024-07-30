@@ -7,10 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-=======
 using DocumentFormat.OpenXml.Drawing.Diagrams;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using RestauranteDAO;
 using RestauranteDAO.RestauranteDataSetTableAdapters;
@@ -23,53 +20,26 @@ namespace RestauranteSystem.Forms.Reservas
     public partial class MenuMesas : Form
     {
         private int numeroMesasSeleccionada;
-<<<<<<< HEAD
-        private ControladorReservas _controladorReservas;
-        private DateTime _fechaHoraSeleccionada;
-        public int MesaSeleccionada { get; private set; }
-=======
 
         private ControladorReservas _controladorReservas;
         private List<ReservasLib> _reservaList;
         private BindingSource bnSrcReservas;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         public int NumeroMesasSeleccionada { get => numeroMesasSeleccionada; set => numeroMesasSeleccionada = value; }
 
         public MenuMesas(DateTime _fechaHoraSeleccionada)
         {
             InitializeComponent();
             _controladorReservas = new ControladorReservas();
-<<<<<<< HEAD
-=======
             bnSrcReservas = new BindingSource();
             _reservaList = _controladorReservas.ObtenerReservas();
 
             bnSrcReservas.DataSource = _reservaList;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             DeshabilitarMesasOcupadas(_fechaHoraSeleccionada);
             BtnMesasControls();
         }
 
         private void DeshabilitarMesasOcupadas(DateTime fechaHoraSeleccionada)
         {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            List<int> mesasOcupadas = _controladorReservas.ObtenerMesasOcupadas(fechaHoraSeleccionada);
-
-            foreach (int mesa in mesasOcupadas)
-            {
-                string btnMesaOcupada = "btnMesa" + mesa.ToString();
-                Button buttonMesa = this.Controls.Find(btnMesaOcupada, true).FirstOrDefault() as Button;
-                if (buttonMesa != null)
-                {
-                    buttonMesa.Enabled = false;
-                    buttonMesa.BackColor = SystemColors.ControlDarkDark;
-                    buttonMesa.FlatStyle = FlatStyle.Flat;
-                }
-            }
-=======
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             var mesasOcupadas = _controladorReservas.ObtenerMesasOcupadas(fechaHoraSeleccionada);
 
             string mesasTexto = "-Mesas Ocupadas- \n";
@@ -115,10 +85,6 @@ namespace RestauranteSystem.Forms.Reservas
             }
 
             lblMesasOcupadas.Text = mesasTexto;
-<<<<<<< HEAD
-=======
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
         }
         public void BtnMesasControls()
         {

@@ -9,6 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <ProjectReference Include="..\RestauranteLib\RestauranteLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Folder Include="Forms\Menu\" />
+    <Folder Include="Forms\Login\" />
+    <Folder Include="Forms\Pedidos\" />
+=======
     <Compile Remove="Forms\Menu\**" />
     <Compile Remove="Forms\Pedidos\**" />
     <EmbeddedResource Remove="Forms\Menu\**" />
@@ -19,9 +30,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestauranteLib\RestauranteLib.csproj" />
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
   </ItemGroup>
 
   <ItemGroup>
+>>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

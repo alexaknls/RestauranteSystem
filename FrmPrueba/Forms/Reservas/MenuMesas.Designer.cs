@@ -74,14 +74,7 @@
             panel23 = new Panel();
             btnMesa20 = new Button();
             gbCocina = new GroupBox();
-<<<<<<< HEAD
             panel14 = new Panel();
-=======
-<<<<<<< HEAD
-=======
-            panel14 = new Panel();
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             lblMesasOcupadas = new Label();
             gbPatio = new GroupBox();
             panel17 = new Panel();
@@ -130,14 +123,7 @@
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             gbCocina.SuspendLayout();
-<<<<<<< HEAD
             panel14.SuspendLayout();
-=======
-<<<<<<< HEAD
-=======
-            panel14.SuspendLayout();
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             gbPatio.SuspendLayout();
             panel17.SuspendLayout();
             panel18.SuspendLayout();
@@ -165,11 +151,7 @@
             gbTerraza.Controls.Add(panel32);
             gbTerraza.Location = new Point(15, 12);
             gbTerraza.Name = "gbTerraza";
-<<<<<<< HEAD
             gbTerraza.Size = new Size(807, 152);
-=======
-            gbTerraza.Size = new Size(831, 152);
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             gbTerraza.TabIndex = 0;
             gbTerraza.TabStop = false;
             gbTerraza.Text = "Terraza";
@@ -578,23 +560,10 @@
             // gbCocina
             // 
             gbCocina.BackColor = Color.Silver;
-<<<<<<< HEAD
-            gbCocina.Controls.Add(panel14);
-=======
-<<<<<<< HEAD
-            gbCocina.Controls.Add(lblMesasOcupadas);
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
-            gbCocina.Location = new Point(621, 175);
-            gbCocina.Name = "gbCocina";
-            gbCocina.Size = new Size(201, 445);
-            gbCocina.TabIndex = 3;
-            gbCocina.TabStop = false;
-            gbCocina.Text = "Cocina";
-=======
             gbCocina.Controls.Add(panel14);
             gbCocina.Location = new Point(621, 175);
             gbCocina.Name = "gbCocina";
-            gbCocina.Size = new Size(226, 445);
+            gbCocina.Size = new Size(266, 445);
             gbCocina.TabIndex = 3;
             gbCocina.TabStop = false;
             gbCocina.Text = "Mesas Ocupadas";
@@ -605,27 +574,13 @@
             panel14.Controls.Add(lblMesasOcupadas);
             panel14.Location = new Point(6, 26);
             panel14.Name = "panel14";
-<<<<<<< HEAD
             panel14.Size = new Size(250, 413);
             panel14.TabIndex = 0;
-=======
-            panel14.Size = new Size(210, 413);
-            panel14.TabIndex = 0;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             // 
             // lblMesasOcupadas
             // 
             lblMesasOcupadas.AutoSize = true;
-<<<<<<< HEAD
             lblMesasOcupadas.Location = new Point(3, 8);
-=======
-<<<<<<< HEAD
-            lblMesasOcupadas.Location = new Point(9, 41);
-=======
-            lblMesasOcupadas.Location = new Point(3, 8);
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             lblMesasOcupadas.Name = "lblMesasOcupadas";
             lblMesasOcupadas.Size = new Size(50, 20);
             lblMesasOcupadas.TabIndex = 0;
@@ -839,11 +794,7 @@
             panelMesas.Controls.Add(gbEntrada);
             panelMesas.Location = new Point(12, 12);
             panelMesas.Name = "panelMesas";
-<<<<<<< HEAD
-            panelMesas.Size = new Size(844, 642);
-=======
-            panelMesas.Size = new Size(853, 642);
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
+            panelMesas.Size = new Size(913, 642);
             panelMesas.TabIndex = 5;
             // 
             // MenuMesas
@@ -851,11 +802,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-<<<<<<< HEAD
-            ClientSize = new Size(867, 666);
-=======
-            ClientSize = new Size(870, 666);
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
+            ClientSize = new Size(937, 666);
             Controls.Add(panelMesas);
             Name = "MenuMesas";
             Text = "MenuMesas";
@@ -884,17 +831,8 @@
             panel22.ResumeLayout(false);
             panel23.ResumeLayout(false);
             gbCocina.ResumeLayout(false);
-<<<<<<< HEAD
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
-=======
-<<<<<<< HEAD
-            gbCocina.PerformLayout();
-=======
-            panel14.ResumeLayout(false);
-            panel14.PerformLayout();
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
             gbPatio.ResumeLayout(false);
             panel17.ResumeLayout(false);
             panel18.ResumeLayout(false);
@@ -980,13 +918,6 @@
         private PictureBox pictureBox1;
         private Panel panelMesas;
         private Label lblMesasOcupadas;
-<<<<<<< HEAD
         private Panel panel14;
-=======
-<<<<<<< HEAD
-=======
-        private Panel panel14;
->>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
->>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
     }
 }

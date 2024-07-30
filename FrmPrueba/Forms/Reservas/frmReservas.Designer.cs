@@ -582,7 +582,6 @@
             Controls.Add(panel2);
             Controls.Add(pnlNuevaReserva);
             Name = "frmReservas";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmReservas";
             pnlNuevaReserva.ResumeLayout(false);
             pnlNuevaReserva.PerformLayout();

@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteSystem", "RestauranteSystem\RestauranteSystem.csproj", "{0723B2C5-91B3-4297-BFDA-3BDC14A51F8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteLib", "RestauranteLib\RestauranteLib.csproj", "{A6FE9E65-4DB2-4F75-BD9B-650239D2302E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestauranteLib", "RestauranteLib\RestauranteLib.csproj", "{A6FE9E65-4DB2-4F75-BD9B-650239D2302E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteDAO", "RestauranteDAO\RestauranteDAO.csproj", "{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}"
+<<<<<<< HEAD
+=======
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestauranteDAO", "RestauranteDAO\RestauranteDAO.csproj", "{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestauranteSystem", "FrmPrueba\RestauranteSystem.csproj", "{CEF34C86-49DE-4EB8-95AB-834421191ADA}"
+>>>>>>> 396ab73aa001af79e2bae9dc3a210179f1198268
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0723B2C5-91B3-4297-BFDA-3BDC14A51F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0723B2C5-91B3-4297-BFDA-3BDC14A51F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0723B2C5-91B3-4297-BFDA-3BDC14A51F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0723B2C5-91B3-4297-BFDA-3BDC14A51F8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6FE9E65-4DB2-4F75-BD9B-650239D2302E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6FE9E65-4DB2-4F75-BD9B-650239D2302E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6FE9E65-4DB2-4F75-BD9B-650239D2302E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +26,10 @@ Global
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
