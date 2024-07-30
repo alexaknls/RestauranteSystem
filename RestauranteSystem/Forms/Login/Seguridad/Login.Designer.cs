@@ -28,58 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnVerificaciones = new Button();
-            btnRoles = new Button();
-            btnUsuarios = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            label1 = new Label();
+            label2 = new Label();
+            txtUser = new TextBox();
+            txtPasword = new TextBox();
+            btnSession = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // btnVerificaciones
+            // label1
             // 
-            btnVerificaciones.Location = new Point(210, 145);
-            btnVerificaciones.Name = "btnVerificaciones";
-            btnVerificaciones.Size = new Size(131, 29);
-            btnVerificaciones.TabIndex = 0;
-            btnVerificaciones.Text = "Verificaciones";
-            btnVerificaciones.UseVisualStyleBackColor = true;
-            btnVerificaciones.Click += btnSession_Click;
+            label1.AutoSize = true;
+            label1.Location = new Point(107, 219);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Usuario";
             // 
-            // btnRoles
+            // label2
             // 
-            btnRoles.Location = new Point(110, 145);
-            btnRoles.Name = "btnRoles";
-            btnRoles.Size = new Size(94, 29);
-            btnRoles.TabIndex = 1;
-            btnRoles.Text = "Roles";
-            btnRoles.UseVisualStyleBackColor = true;
-            btnRoles.Click += btnRoles_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(107, 286);
+            label2.Name = "label2";
+            label2.Size = new Size(83, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Contraseña";
             // 
-            // btnUsuarios
+            // txtUser
             // 
-            btnUsuarios.Location = new Point(10, 145);
-            btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(94, 29);
-            btnUsuarios.TabIndex = 2;
-            btnUsuarios.Text = "Usuarios";
-            btnUsuarios.UseVisualStyleBackColor = true;
-            btnUsuarios.Click += btnUsuarios_Click;
+            txtUser.Location = new Point(107, 242);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(178, 27);
+            txtUser.TabIndex = 2;
+            // 
+            // txtPasword
+            // 
+            txtPasword.Location = new Point(107, 309);
+            txtPasword.Name = "txtPasword";
+            txtPasword.PasswordChar = '*';
+            txtPasword.Size = new Size(178, 27);
+            txtPasword.TabIndex = 3;
+            // 
+            // btnSession
+            // 
+            btnSession.Location = new Point(118, 366);
+            btnSession.Name = "btnSession";
+            btnSession.Size = new Size(140, 29);
+            btnSession.TabIndex = 4;
+            btnSession.Text = "Iniciar Sessión";
+            btnSession.UseVisualStyleBackColor = true;
+            btnSession.Click += btnSession_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(118, 30);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(153, 160);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(353, 186);
-            Controls.Add(btnUsuarios);
-            Controls.Add(btnRoles);
-            Controls.Add(btnVerificaciones);
+            ClientSize = new Size(414, 463);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnSession);
+            Controls.Add(txtPasword);
+            Controls.Add(txtUser);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "Login";
             Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button btnVerificaciones;
-        private Button btnRoles;
-        private Button btnUsuarios;
+        private Label label1;
+        private Label label2;
+        private TextBox txtUser;
+        private TextBox txtPasword;
+        private Button btnSession;
+        private PictureBox pictureBox1;
     }
 }

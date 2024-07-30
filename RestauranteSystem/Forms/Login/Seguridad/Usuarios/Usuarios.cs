@@ -2,6 +2,8 @@
 using RestauranteLib.Controladores.Seguridad;
 using RestauranteLib.Seguridad;
 using RestauranteSystem.Forms.Login.Seguridad.Roles;
+using RestauranteSystem.Forms.Login.Seguridad.Verificaciones;
+using RestauranteSystem.Login.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +25,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
         {
             InitializeComponent();
             _wwwUsuarios = new wwwUsuarios();
-            _usuariosLista = _wwwUsuarios.obtenerUsuarios();
+            _usuariosLista = _wwwUsuarios.GetUsuarios();
             bndSrcUsuarios.DataSource = _usuariosLista;
 
         }
@@ -41,30 +43,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
             dgvUsuarios.DataSource = bndSrcUsuarios;
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            UsuariosEnum nuevoUsuarioForm = new UsuariosEnum();
-            nuevoUsuarioForm.Modo = EModoFormulario.Nuevo;
 
-            if (nuevoUsuarioForm.ShowDialog() == DialogResult.OK)
-            {
-                Usuario nuevoUser = nuevoUsuarioForm.Usuario;
-
-                bool userAgregado = _wwwUsuarios.agregarUsuario(nuevoUser);
-
-                if (userAgregado)
-                {
-                    MessageBox.Show("User agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _usuariosLista = _wwwUsuarios.obtenerUsuarios();
-                    bndSrcUsuarios.DataSource = _usuariosLista;
-                    bndSrcUsuarios.ResetBindings(false);
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo agregar el user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
 
         private void btnVer_Click(object sender, EventArgs e)
         {
@@ -101,7 +80,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                     if (eliminado)
                     {
                         MessageBox.Show("Usuario eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _usuariosLista = _wwwUsuarios.obtenerUsuarios();
+                        _usuariosLista = _wwwUsuarios.GetUsuarios();
                         bndSrcUsuarios.DataSource = _usuariosLista;
                         bndSrcUsuarios.ResetBindings(false);
                     }
@@ -113,7 +92,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+    /*    private void btnEditar_Click(object sender, EventArgs e)
         {
             if (_usuarioSeleccionado != null)
             {
@@ -145,5 +124,19 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                 MessageBox.Show("Por favor, seleccione un user de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            UsuariosEnum usuarioNuevo = new UsuariosEnum();
+            usuarioNuevo.Modo = EModoFormulario.Nuevo;
+
+            if (usuarioNuevo.ShowDialog() == DialogResult.OK)
+            {
+                _usuariosLista = _wwwUsuarios.obtenerUsuarios();
+                bndSrcUsuarios.DataSource = _usuariosLista;
+                bndSrcUsuarios.ResetBindings(false);
+            }
+            usuarioNuevo.Dispose();
+        }*/
     }
 }

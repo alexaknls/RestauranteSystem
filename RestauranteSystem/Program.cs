@@ -10,8 +10,10 @@ namespace RestauranteSystem
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new RestauranteSystem.Login.Seguridad.Login());
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new RestauranteSystem.Login.Main());
+
+            Application.Run(new RestauranteSystem.Reservas.frmReservas());
         }
     }
 }

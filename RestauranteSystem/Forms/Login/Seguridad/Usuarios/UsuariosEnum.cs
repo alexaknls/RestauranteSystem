@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Wordprocessing;
 using RestauranteLib;
+using static RestauranteDAO.RestauranteDataSet;
 
 namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
 {
@@ -110,7 +111,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                 }
             }
         }
-        private void btnConfirmar_Click_1(object sender, EventArgs e)
+      /*  private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             byte[] passwordSaltBytes;
             string passwordHash = PasswordUtility.hashPassword(txtPassword.Text, out passwordSaltBytes);
@@ -125,9 +126,34 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                 txtUser.Text,
                 password,
                 DateTime.Now.AddDays(90),
+                passwordHash,
+                passwordSalt,
                 txtNombre.Text,
                 cboEstado.Text == "Activo" ? "ACT" : "INA"
             );
+
+                if (_modo == EModoFormulario.Modificar)
+                {
+                    if (_controladorUsuarios.actualizarUsuario(_usuario, _usuario))
+                    {
+                        MessageBox.Show("Usuario actualizada exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar el usuario");
+                    }
+                }
+                else if (_modo == EModoFormulario.Nuevo)
+                {
+                    if (_controladorUsuarios.agregarUsuario(_usuario))
+                    {
+                        MessageBox.Show("Nueva verificación agregada exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al agregar la nueva verificación");
+                    }
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -135,7 +161,9 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+
+            
+        }*/
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {

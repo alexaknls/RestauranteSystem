@@ -4,12 +4,13 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jenni\Desktop\NuevaCarpeta\RestauranteSystem\RestauranteDAO\RestauranteDB.mdf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="RestauranteDBConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jenni\Pictures\RestauranteSystem\RestauranteSystem\RestauranteDAO\RestauranteDB.mdf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="RestauranteDB.mdf" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\RestauranteDB.mdf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="RestauranteDBConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientesTableAdapter" GeneratorDataComponentClassName="ClientesTableAdapter" Name="Clientes" UserDataComponentName="ClientesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Clientes] WHERE (([ClienteID] = @Original_ClienteID) AND ([ClienteCedula] = @Original_ClienteCedula) AND ((@IsNull_ClienteNombre = 1 AND [ClienteNombre] IS NULL) OR ([ClienteNombre] = @Original_ClienteNombre)) AND ((@IsNull_ClienteApellido = 1 AND [ClienteApellido] IS NULL) OR ([ClienteApellido] = @Original_ClienteApellido)) AND ((@IsNull_ClientePhone = 1 AND [ClientePhone] IS NULL) OR ([ClientePhone] = @Original_ClientePhone)) AND ((@IsNull_ClienteEmail = 1 AND [ClienteEmail] IS NULL) OR ([ClienteEmail] = @Original_ClienteEmail)) AND ((@IsNull_ClienteDireccion = 1 AND [ClienteDireccion] IS NULL) OR ([ClienteDireccion] = @Original_ClienteDireccion)) AND ((@IsNull_ClienteReservas = 1 AND [ClienteReservas] IS NULL) OR ([ClienteReservas] = @Original_ClienteReservas)))</CommandText>
@@ -99,7 +100,7 @@ SELECT ClienteID, ClienteCedula, ClienteNombre, ClienteApellido, ClientePhone, C
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReservasTableAdapter" GeneratorDataComponentClassName="ReservasTableAdapter" Name="Reservas" UserDataComponentName="ReservasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Reservas] WHERE (([ReservaID] = @Original_ReservaID) AND ((@IsNull_ReservaCodigo = 1 AND [ReservaCodigo] IS NULL) OR ([ReservaCodigo] = @Original_ReservaCodigo)) AND ((@IsNull_ReservaDateTime = 1 AND [ReservaDateTime] IS NULL) OR ([ReservaDateTime] = @Original_ReservaDateTime)) AND ((@IsNull_PersonasCant = 1 AND [PersonasCant] IS NULL) OR ([PersonasCant] = @Original_PersonasCant)) AND ((@IsNull_NumeroMesa = 1 AND [NumeroMesa] IS NULL) OR ([NumeroMesa] = @Original_NumeroMesa)) AND ((@IsNull_ReservaEstado = 1 AND [ReservaEstado] IS NULL) OR ([ReservaEstado] = @Original_ReservaEstado)) AND ((@IsNull_ReservaCreacion = 1 AND [ReservaCreacion] IS NULL) OR ([ReservaCreacion] = @Original_ReservaCreacion)) AND ((@IsNull_ReservaCliente = 1 AND [ReservaCliente] IS NULL) OR ([ReservaCliente] = @Original_ReservaCliente)))</CommandText>
@@ -187,7 +188,7 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
               <Mapping SourceColumn="ReservaCliente" DataSetColumn="ReservaCliente" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="[C:\USERS\JENNI\DESKTOP\NUEVACARPETA\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.ContarReservasMesas" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="ContarReservasMesas" Modifier="Public" Name="ContarReservasMesas" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarReservasMesas">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="[C:\USERS\JENNI\DESKTOP\NUEVACARPETA\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.ContarReservasMesas" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="ContarReservasMesas" Modifier="Public" Name="ContarReservasMesas" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarReservasMesas">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ContarReservasMesas</CommandText>
@@ -197,7 +198,7 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByClienteCedula" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByClienteCedula" GeneratorSourceName="FillByClienteCedula" GetMethodModifier="Public" GetMethodName="GetDataByClienteCedula" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByClienteCedula" UserSourceName="FillByClienteCedula">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByClienteCedula" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByClienteCedula" GeneratorSourceName="FillByClienteCedula" GetMethodModifier="Public" GetMethodName="GetDataByClienteCedula" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByClienteCedula" UserSourceName="FillByClienteCedula">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
@@ -210,7 +211,7 @@ WHERE  (c.ClienteCedula = @Cedula)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMesasOcupadas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByMesasOcupadas" GeneratorSourceName="FillByMesasOcupadas" GetMethodModifier="Public" GetMethodName="GetByMesasOcupadas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByMesasOcupadas" UserSourceName="FillByMesasOcupadas">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMesasOcupadas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByMesasOcupadas" GeneratorSourceName="FillByMesasOcupadas" GetMethodModifier="Public" GetMethodName="GetByMesasOcupadas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByMesasOcupadas" UserSourceName="FillByMesasOcupadas">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT NumeroMesa
@@ -222,7 +223,7 @@ WHERE  (ReservaDateTime = @ReservaDateTime)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReservas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReservas" GeneratorSourceName="FillByReservas" GetMethodModifier="Public" GetMethodName="GetDataByReservas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReservas" UserSourceName="FillByReservas">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Reservas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReservas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReservas" GeneratorSourceName="FillByReservas" GetMethodModifier="Public" GetMethodName="GetDataByReservas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReservas" UserSourceName="FillByReservas">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, ReservaEstado, ReservaCreacion, ReservaCliente
@@ -234,7 +235,7 @@ WHERE  (ReservaID = @ReservaID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Reservas" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetReservasByCliente" Modifier="Public" Name="GetReservasByCliente" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetReservasByCliente">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Reservas" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetReservasByCliente" Modifier="Public" Name="GetReservasByCliente" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetReservasByCliente">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
@@ -248,7 +249,7 @@ FROM     Reservas INNER JOIN
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RolesTableAdapter" GeneratorDataComponentClassName="RolesTableAdapter" Name="Roles" UserDataComponentName="RolesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Roles] WHERE (([RolID] = @Original_RolID) AND ((@IsNull_RolName = 1 AND [RolName] IS NULL) OR ([RolName] = @Original_RolName)) AND ((@IsNull_RolEstado = 1 AND [RolEstado] IS NULL) OR ([RolEstado] = @Original_RolEstado)) AND ((@IsNull_RolCreacion = 1 AND [RolCreacion] IS NULL) OR ([RolCreacion] = @Original_RolCreacion)))</CommandText>
@@ -309,7 +310,7 @@ SELECT RolID, RolName, RolEstado, RolCreacion FROM Roles WHERE (RolID = @RolID)<
               <Mapping SourceColumn="RolCreacion" DataSetColumn="RolCreacion" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarRoles" Modifier="Public" Name="ContarRoles" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarRoles">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarRoles" Modifier="Public" Name="ContarRoles" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarRoles">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM Roles</CommandText>
@@ -317,7 +318,7 @@ SELECT RolID, RolName, RolEstado, RolCreacion FROM Roles WHERE (RolID = @RolID)<
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAssignToUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssignToUser" GeneratorSourceName="FillByAssignToUser" GetMethodModifier="Public" GetMethodName="GetDataByAssignToUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssignToUser" UserSourceName="FillByAssignToUser">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAssignToUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssignToUser" GeneratorSourceName="FillByAssignToUser" GetMethodModifier="Public" GetMethodName="GetDataByAssignToUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssignToUser" UserSourceName="FillByAssignToUser">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion
@@ -329,7 +330,7 @@ FROM     Roles INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNotAssignToUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToUser" GeneratorSourceName="FillByNotAssignToUser" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToUser" UserSourceName="FillByNotAssignToUser">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNotAssignToUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToUser" GeneratorSourceName="FillByNotAssignToUser" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToUser" UserSourceName="FillByNotAssignToUser">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Roles.RolName, Roles.RolEstado, Roles.RolCreacion, RolesXUsuario.rol, RolesXUsuario.fechaExp, RolesXUsuario.status, RolesXUsuario.userId
@@ -342,7 +343,7 @@ WHERE  (RolesXUsuario.status = NULL)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByRolName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByRolName" GeneratorSourceName="FillByRolName" GetMethodModifier="Public" GetMethodName="GetDataByRolName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByRolName" UserSourceName="FillByRolName">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByRolName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByRolName" GeneratorSourceName="FillByRolName" GetMethodModifier="Public" GetMethodName="GetDataByRolName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByRolName" UserSourceName="FillByRolName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT RolID, RolName, RolEstado, RolCreacion
@@ -358,7 +359,7 @@ WHERE  (RolName = @RolName)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RolesXUsuarioTableAdapter" GeneratorDataComponentClassName="RolesXUsuarioTableAdapter" Name="RolesXUsuario" UserDataComponentName="RolesXUsuarioTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.RolesXUsuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.RolesXUsuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[RolesXUsuario] WHERE (([userId] = @Original_userId) AND ((@IsNull_rol = 1 AND [rol] IS NULL) OR ([rol] = @Original_rol)) AND ((@IsNull_fechaExp = 1 AND [fechaExp] IS NULL) OR ([fechaExp] = @Original_fechaExp)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))</CommandText>
@@ -422,7 +423,7 @@ SELECT userId, rol, fechaExp, status FROM RolesXUsuario WHERE (userId = @userId)
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VerificacionesTableAdapter" GeneratorDataComponentClassName="VerificacionesTableAdapter" Name="Verificaciones" UserDataComponentName="VerificacionesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Verificaciones] WHERE (([verificacionID] = @Original_verificacionID) AND ((@IsNull_verificacion = 1 AND [verificacion] IS NULL) OR ([verificacion] = @Original_verificacion)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))</CommandText>
@@ -482,19 +483,19 @@ SELECT verificacionID, verificacion, name, status FROM Verificaciones WHERE (ver
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT verificacionID, verificacion, name, status
+                    <CommandText>SELECT verificacion, name, status
 FROM     Verificaciones
 WHERE  (verificacion = @verificacion)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="verificacion" ColumnName="verificacion" DataSourceName="[C:\USERS\JENNI\DESKTOP\NUEVACARPETA\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Verificaciones" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@verificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="verificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="verificacion" ColumnName="verificacion" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Verificaciones" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@verificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="verificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssignToRol" GeneratorSourceName="FillByAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssignToRol" UserSourceName="FillByAssignToRol">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAssignToRol" GeneratorSourceName="FillByAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAssignToRol" UserSourceName="FillByAssignToRol">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, Verificaciones.verificacionID
@@ -506,7 +507,7 @@ FROM     Verificaciones INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNotAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToRol" GeneratorSourceName="FillByNotAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToRol" UserSourceName="FillByNotAssignToRol">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNotAssignToRol" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNotAssignToRol" GeneratorSourceName="FillByNotAssignToRol" GetMethodModifier="Public" GetMethodName="GetDataByNotAssignToRol" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNotAssignToRol" UserSourceName="FillByNotAssignToRol">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Verificaciones.verificacionID, Verificaciones.verificacion, Verificaciones.name, Verificaciones.status, VerificacionesXRol.rol
@@ -518,7 +519,7 @@ FROM     Verificaciones LEFT OUTER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByVerificacionesID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVerificacionesID" GeneratorSourceName="FillByVerificacionesID" GetMethodModifier="Public" GetMethodName="GetDataByVerificacionesID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVerificacionesID" UserSourceName="FillByVerificacionesID">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByVerificacionesID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVerificacionesID" GeneratorSourceName="FillByVerificacionesID" GetMethodModifier="Public" GetMethodName="GetDataByVerificacionesID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVerificacionesID" UserSourceName="FillByVerificacionesID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT verificacionID, verificacion, name, status
@@ -534,7 +535,7 @@ WHERE  (verificacionID = @verificacionID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VerificacionesXRolTableAdapter" GeneratorDataComponentClassName="VerificacionesXRolTableAdapter" Name="VerificacionesXRol" UserDataComponentName="VerificacionesXRolTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.VerificacionesXRol" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.VerificacionesXRol" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[VerificacionesXRol] WHERE (([rol] = @Original_rol) AND ((@IsNull_verificacion = 1 AND [verificacion] IS NULL) OR ([verificacion] = @Original_verificacion)) AND ((@IsNull_fechaExp = 1 AND [fechaExp] IS NULL) OR ([fechaExp] = @Original_fechaExp)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))</CommandText>
@@ -594,14 +595,30 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
               <Mapping SourceColumn="fechaExp" DataSetColumn="fechaExp" />
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(*) AS VerifcacionXRol
+FROM     VerificacionesXRol CROSS JOIN
+                  Verificaciones CROSS JOIN
+                  Roles
+WHERE  (Roles.RolName = @RolName) AND (Verificaciones.verificacionID = @verificacionID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="RolName" ColumnName="RolName" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Roles" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@RolName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="RolName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="verificacionID" ColumnName="verificacionID" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Verificaciones" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@verificacionID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="verificacionID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosTableAdapter" GeneratorDataComponentClassName="UsuariosTableAdapter" Name="Usuarios" UserDataComponentName="UsuariosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Usuarios] WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))</CommandText>
+                    <CommandText>DELETE FROM [Usuarios] WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_user" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="user" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -619,7 +636,7 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Usuarios] ([user], [password], [passwordFchExp], [name], [status]) VALUES (@user, @password, @passwordFchExp, @name, @status);
+                    <CommandText>INSERT INTO [Usuarios] ([user], [password], [passwordFchExp], [name], [status]) VALUES (@user, @password, @passwordFchExp, @name, @status);
 SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (Id = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@user" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="user" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -631,14 +648,15 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id, [user], password, passwordFchExp, name, status FROM dbo.Usuarios</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Id, [user], password, passwordFchExp, name, status
+FROM     Usuarios</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Usuarios] SET [user] = @user, [password] = @password, [passwordFchExp] = @passwordFchExp, [name] = @name, [status] = @status WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)));
+                    <CommandText>UPDATE [Usuarios] SET [user] = @user, [password] = @password, [passwordFchExp] = @passwordFchExp, [name] = @name, [status] = @status WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)));
 SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (Id = @Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@user" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="user" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -657,7 +675,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="name" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -672,14 +690,36 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RestauranteDBConnectionString" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUser" GeneratorSourceName="FillByUser" GetMethodModifier="Public" GetMethodName="GetDataByUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUser" UserSourceName="FillByUser">
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarUsuarios" Modifier="Public" Name="ContarUsuarios" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarUsuarios">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Id, [user], password, passwordFchExp, name, status
-FROM     Usuarios
-WHERE  (USER = @user)</CommandText>
+                    <CommandText>SELECT COUNT(*)
+FROM     Usuarios</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUser" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUser" GeneratorSourceName="FillByUser" GetMethodModifier="Public" GetMethodName="GetDataByUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUser" UserSourceName="FillByUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Id, name, password, passwordFchExp, status, [user] FROM Usuarios WHERE ([user] = @user)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="user" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@user" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="user" ColumnName="user" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Usuarios" DataTypeServer="varchar(258)" DbType="AnsiString" Direction="Input" ParameterName="@user" Precision="0" ProviderType="VarChar" Scale="0" Size="258" SourceColumn="user" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="RestauranteDB.mdf" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="IsAuthorized" Modifier="Public" Name="IsAuthorized" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="IsAuthorized">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT TOP (1) 1 AS Authorized, Usuarios.*, RolesXUsuario.*
+FROM     Usuarios INNER JOIN
+                  RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp &gt; GETDATE() INNER JOIN
+                  VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp &gt; GETDATE() AND VerificacionesXRol.status = 'ACT'
+WHERE  (Usuarios.Id = @id) AND (VerificacionesXRol.verificacion = @verificacion)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="Id" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="verificacion" ColumnName="verificacion" DataSourceName="[C:\USERS\JENNI\PICTURES\RESTAURANTESYSTEM\RESTAURANTESYSTEM\RESTAURANTEDAO\RESTAURANTEDB.MDF].dbo.VerificacionesXRol" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@verificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="verificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -876,33 +916,33 @@ WHERE  (USER = @user)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuarios" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios">
+        <xs:element name="Usuarios" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
-              <xs:element name="user" msprop:Generator_UserColumnName="user" msprop:Generator_ColumnPropNameInTable="userColumn" msprop:Generator_ColumnPropNameInRow="user" msprop:Generator_ColumnVarNameInTable="columnuser" minOccurs="0">
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+              <xs:element name="user" msprop:Generator_ColumnPropNameInTable="userColumn" msprop:Generator_ColumnPropNameInRow="user" msprop:Generator_UserColumnName="user" msprop:Generator_ColumnVarNameInTable="columnuser" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="258" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnVarNameInTable="columnpassword" minOccurs="0">
+              <xs:element name="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnVarNameInTable="columnpassword" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="258" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="passwordFchExp" msprop:Generator_UserColumnName="passwordFchExp" msprop:Generator_ColumnPropNameInTable="passwordFchExpColumn" msprop:Generator_ColumnPropNameInRow="passwordFchExp" msprop:Generator_ColumnVarNameInTable="columnpasswordFchExp" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" minOccurs="0">
+              <xs:element name="passwordFchExp" msprop:Generator_ColumnPropNameInTable="passwordFchExpColumn" msprop:Generator_ColumnPropNameInRow="passwordFchExp" msprop:Generator_UserColumnName="passwordFchExp" msprop:Generator_ColumnVarNameInTable="columnpasswordFchExp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="128" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus" minOccurs="0">
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />

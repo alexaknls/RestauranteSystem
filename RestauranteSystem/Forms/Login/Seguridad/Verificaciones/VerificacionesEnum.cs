@@ -64,7 +64,6 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Verificaciones
                 txtCodigo.Text = _verificacion.VerificacionID.ToString();
                 txtCodigo.Enabled = false;
                 setReadOnly();
-                
             }
         }
 

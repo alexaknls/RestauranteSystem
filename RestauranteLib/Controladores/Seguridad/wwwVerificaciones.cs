@@ -3,6 +3,8 @@ using RestauranteDAO.RestauranteDataSetTableAdapters;
 using RestauranteLib.Seguridad;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 
 namespace RestauranteLib.Controladores.Seguridad
@@ -24,6 +26,40 @@ namespace RestauranteLib.Controladores.Seguridad
             verificacionesTableAdapter.Fill(restaurantedataset.Verificaciones);
             FillVerificaciones();
             return _verificacionLista;
+        }
+        public Verificacion? ObtenerVerificacion(string byverificacion)
+        {
+            try
+            {
+                // Asegúrate de que el parámetro y método están configurados correctamente
+                var verificacionDataTable = verificacionesTableAdapter.GetDataBy(byverificacion);
+
+                // Obtén la primera fila o null si no se encuentra
+                var verificacionRow = verificacionDataTable.Rows.Cast<DataRow>().FirstOrDefault();
+
+                if (verificacionRow != null)
+                {
+                    // Crea y devuelve el objeto Verificacion
+                    return new Verificacion
+                    {
+                        VerificacionID = Convert.ToInt32(verificacionRow["verificacionID"]),
+                        Codigo = verificacionRow["verificacion"].ToString(),
+                        Descripcion = verificacionRow["name"].ToString(),
+                        Estado = verificacionRow["status"].ToString()
+                    };
+                }
+                else
+                {
+                    Debug.WriteLine($"Verificación no encontrada: {byverificacion}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Debug.WriteLine($"Error al obtener la verificación: {ex.Message}");
+                return null;
+            }
         }
 
         public bool InsertarVerificacion(Verificacion verificacion)

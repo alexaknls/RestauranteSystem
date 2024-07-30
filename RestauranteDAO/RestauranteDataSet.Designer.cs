@@ -4228,9 +4228,9 @@ SELECT ClienteID, ClienteCedula, ClienteNombre, ClienteApellido, ClientePhone, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4776,9 +4776,9 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5487,9 +5487,9 @@ SELECT RolID, RolName, RolEstado, RolCreacion FROM Roles WHERE (RolID = @RolID)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6025,9 +6025,9 @@ SELECT userId, rol, fechaExp, status FROM RolesXUsuario WHERE (userId = @userId)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6421,9 +6421,9 @@ SELECT verificacionID, verificacion, name, status FROM Verificaciones WHERE (ver
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6436,8 +6436,8 @@ SELECT verificacionID, verificacion, name, status FROM Verificaciones WHERE (ver
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT verificacionID, verificacion, name, status\r\nFROM     Verificaciones\r\nWHERE" +
-                "  (verificacion = @verificacion)";
+            this._commandCollection[1].CommandText = "SELECT verificacion, name, status\r\nFROM     Verificaciones\r\nWHERE  (verificacion " +
+                "= @verificacion)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -6977,19 +6977,27 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT rol, verificacion, fechaExp, status FROM dbo.VerificacionesXRol";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) AS VerifcacionXRol\r\nFROM     VerificacionesXRol CROSS JOIN\r\n     " +
+                "             Verificaciones CROSS JOIN\r\n                  Roles\r\nWHERE  (Roles.R" +
+                "olName = @RolName) AND (Verificaciones.verificacionID = @verificacionID)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RolName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RolName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacionID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "verificacionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7011,6 +7019,44 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual RestauranteDataSet.VerificacionesXRolDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            RestauranteDataSet.VerificacionesXRolDataTable dataTable = new RestauranteDataSet.VerificacionesXRolDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(RestauranteDataSet.VerificacionesXRolDataTable dataTable, string RolName, int verificacionID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RolName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RolName));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(verificacionID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RestauranteDataSet.VerificacionesXRolDataTable GetDataBy(string RolName, int verificacionID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RolName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RolName));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(verificacionID));
             RestauranteDataSet.VerificacionesXRolDataTable dataTable = new RestauranteDataSet.VerificacionesXRolDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7355,7 +7401,7 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Usuarios] WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Usuarios] WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_user", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7370,10 +7416,10 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuarios] ([user], [password], [passwordFchExp], [name], [stat" +
-                "us]) VALUES (@user, @password, @passwordFchExp, @name, @status);\r\nSELECT Id, [us" +
-                "er], password, passwordFchExp, name, status FROM Usuarios WHERE (Id = SCOPE_IDEN" +
-                "TITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Usuarios] ([user], [password], [passwordFchExp], [name], [status]) V" +
+                "ALUES (@user, @password, @passwordFchExp, @name, @status);\r\nSELECT Id, [user], p" +
+                "assword, passwordFchExp, name, status FROM Usuarios WHERE (Id = SCOPE_IDENTITY()" +
+                ")";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7382,7 +7428,7 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Usuarios] SET [user] = @user, [password] = @password, [passwordFchExp] = @passwordFchExp, [name] = @name, [status] = @status WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Usuarios] SET [user] = @user, [password] = @password, [passwordFchExp] = @passwordFchExp, [name] = @name, [status] = @status WHERE (([Id] = @Original_Id) AND ((@IsNull_user = 1 AND [user] IS NULL) OR ([user] = @Original_user)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)) AND ((@IsNull_passwordFchExp = 1 AND [passwordFchExp] IS NULL) OR ([passwordFchExp] = @Original_passwordFchExp)) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)));
 SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7408,25 +7454,39 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Desktop\\NuevaC" +
-                "arpeta\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Security=Tr" +
-                "ue";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\jenni\\Pictures\\Resta" +
+                "uranteSystem\\RestauranteSystem\\RestauranteDAO\\RestauranteDB.mdf;Integrated Secur" +
+                "ity=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status FROM dbo.Usuarios";
+            this._commandCollection[0].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status\r\nFROM     Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status\r\nFROM     Usuarios\r\nWHE" +
-                "RE  (USER = @user)";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*)\r\nFROM     Usuarios";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Id, name, password, passwordFchExp, status, [user] FROM Usuarios WHERE ([u" +
+                "ser] = @user)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 258, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT TOP (1) 1 AS Authorized, Usuarios.*, RolesXUsuario.*
+FROM     Usuarios INNER JOIN
+                  RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp > GETDATE() INNER JOIN
+                  VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp > GETDATE() AND VerificacionesXRol.status = 'ACT'
+WHERE  (Usuarios.Id = @id) AND (VerificacionesXRol.verificacion = @verificacion)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7458,9 +7518,9 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUser(RestauranteDataSet.UsuariosDataTable dataTable, string user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(user));
@@ -7477,9 +7537,9 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.UsuariosDataTable GetDataByUser(string user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(user));
@@ -7730,6 +7790,69 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string user, string password, global::System.Nullable<global::System.DateTime> passwordFchExp, string name, string status, int Original_Id, string Original_user, string Original_password, global::System.Nullable<global::System.DateTime> Original_passwordFchExp, string Original_name, string Original_status) {
             return this.Update(user, password, passwordFchExp, name, status, Original_Id, Original_user, Original_password, Original_passwordFchExp, Original_name, Original_status, Original_Id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ContarUsuarios() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object IsAuthorized(int id, string verificacion) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            command.Parameters[0].Value = ((int)(id));
+            if ((verificacion == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(verificacion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     

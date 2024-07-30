@@ -52,7 +52,6 @@
             btnNuevo.TabIndex = 17;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnVer
             // 
@@ -82,7 +81,6 @@
             btnEditar.TabIndex = 14;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click;
             // 
             // label1
             // 

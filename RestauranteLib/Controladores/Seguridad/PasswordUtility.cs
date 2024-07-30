@@ -25,6 +25,7 @@ namespace RestauranteLib.Controladores.Seguridad
              );
             return Convert.ToHexString(hash);
         }
+
         public static bool comparePassword(string password, string hash, byte[] salt)
         {
             var hashToCompare = Rfc2898DeriveBytes.Pbkdf2(password, salt, iterations, hashAlgorithm, keySize);
