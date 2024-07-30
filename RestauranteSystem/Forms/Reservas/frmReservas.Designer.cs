@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReservas));
             pnlNuevaReserva = new Panel();
+            label11 = new Label();
+            cboLlegada = new ComboBox();
             dtpReservaHora = new DateTimePicker();
             label10 = new Label();
             cboReservaEstado = new ComboBox();
@@ -63,6 +65,12 @@
             txbBuscadorReserva = new TextBox();
             btnBuscadorReserva = new Button();
             dgvReservasView = new DataGridView();
+            bnSrcReservas = new BindingSource(components);
+            label1 = new Label();
+            saveDialogExcel = new SaveFileDialog();
+            openDialog = new OpenFileDialog();
+            saveDialogXML = new SaveFileDialog();
+            saveDialogX = new SaveFileDialog();
             colReservaCodigo = new DataGridViewTextBoxColumn();
             colReservaDateTime = new DataGridViewTextBoxColumn();
             colPersonasCant = new DataGridViewTextBoxColumn();
@@ -70,12 +78,7 @@
             colReservaEstado = new DataGridViewTextBoxColumn();
             colReservaCreacion = new DataGridViewTextBoxColumn();
             colCedula = new DataGridViewTextBoxColumn();
-            bnSrcReservas = new BindingSource(components);
-            label1 = new Label();
-            saveDialogExcel = new SaveFileDialog();
-            openDialog = new OpenFileDialog();
-            saveDialogXML = new SaveFileDialog();
-            saveDialogX = new SaveFileDialog();
+            colLlegada = new DataGridViewTextBoxColumn();
             pnlNuevaReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -86,6 +89,8 @@
             // pnlNuevaReserva
             // 
             pnlNuevaReserva.BorderStyle = BorderStyle.FixedSingle;
+            pnlNuevaReserva.Controls.Add(label11);
+            pnlNuevaReserva.Controls.Add(cboLlegada);
             pnlNuevaReserva.Controls.Add(dtpReservaHora);
             pnlNuevaReserva.Controls.Add(label10);
             pnlNuevaReserva.Controls.Add(cboReservaEstado);
@@ -111,6 +116,25 @@
             pnlNuevaReserva.Name = "pnlNuevaReserva";
             pnlNuevaReserva.Size = new Size(588, 297);
             pnlNuevaReserva.TabIndex = 0;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(23, 194);
+            label11.Name = "label11";
+            label11.Size = new Size(62, 20);
+            label11.TabIndex = 27;
+            label11.Text = "Llegada";
+            // 
+            // cboLlegada
+            // 
+            cboLlegada.FormattingEnabled = true;
+            cboLlegada.Items.AddRange(new object[] { "En Espera", "Llegada", "Atraso" });
+            cboLlegada.Location = new Point(85, 189);
+            cboLlegada.Name = "cboLlegada";
+            cboLlegada.Size = new Size(179, 28);
+            cboLlegada.TabIndex = 26;
+            cboLlegada.Text = "En Espera";
             // 
             // dtpReservaHora
             // 
@@ -183,7 +207,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(148, 206);
+            label8.Location = new Point(85, 242);
             label8.Name = "label8";
             label8.Size = new Size(92, 28);
             label8.TabIndex = 17;
@@ -192,16 +216,16 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(22, 189);
+            pictureBox1.Location = new Point(3, 234);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(123, 87);
+            pictureBox1.Size = new Size(74, 58);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(360, 237);
+            btnCancelar.Location = new Point(360, 263);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 15;
@@ -229,7 +253,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(460, 237);
+            btnGuardar.Location = new Point(460, 263);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 2;
@@ -300,7 +324,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(143, 227);
+            label9.Location = new Point(74, 262);
             label9.Name = "label9";
             label9.Size = new Size(117, 28);
             label9.TabIndex = 18;
@@ -418,7 +442,7 @@
             dgvReservasView.AllowUserToDeleteRows = false;
             dgvReservasView.AutoGenerateColumns = false;
             dgvReservasView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaCodigo, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion, colCedula });
+            dgvReservasView.Columns.AddRange(new DataGridViewColumn[] { colReservaCodigo, colReservaDateTime, colPersonasCant, colNumeroMesa, colReservaEstado, colReservaCreacion, colCedula, colLlegada });
             dgvReservasView.DataSource = bnSrcReservas;
             dgvReservasView.Location = new Point(22, 50);
             dgvReservasView.Name = "dgvReservasView";
@@ -428,6 +452,40 @@
             dgvReservasView.Size = new Size(536, 191);
             dgvReservasView.TabIndex = 0;
             dgvReservasView.SelectionChanged += dgvReservasView_SelectionChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(34, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 28);
+            label1.TabIndex = 1;
+            label1.Text = "Nueva Reserva";
+            // 
+            // saveDialogExcel
+            // 
+            saveDialogExcel.DefaultExt = "xlsx";
+            saveDialogExcel.FileName = "reservasDataBU";
+            saveDialogExcel.Filter = "Archivos de Excel 2007+ | *.xlsx";
+            // 
+            // openDialog
+            // 
+            openDialog.DefaultExt = "xml";
+            openDialog.FileName = "restauranteReserasListado";
+            openDialog.Filter = "Archivos XML (*.xml) | *.xml";
+            // 
+            // saveDialogXML
+            // 
+            saveDialogXML.DefaultExt = "xlsx";
+            saveDialogXML.FileName = "reservasDataBU";
+            saveDialogXML.Filter = "Archivos de Excel 2007+ | *.xlsx";
+            // 
+            // saveDialogX
+            // 
+            saveDialogX.DefaultExt = "xml";
+            saveDialogX.FileName = "saveXMLReservas";
+            saveDialogX.Filter = "Archivos XML (*.xml) | *.xml";
             // 
             // colReservaCodigo
             // 
@@ -492,39 +550,14 @@
             colCedula.ReadOnly = true;
             colCedula.Width = 125;
             // 
-            // label1
+            // colLlegada
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Nueva Reserva";
-            // 
-            // saveDialogExcel
-            // 
-            saveDialogExcel.DefaultExt = "xlsx";
-            saveDialogExcel.FileName = "reservasDataBU";
-            saveDialogExcel.Filter = "Archivos de Excel 2007+ | *.xlsx";
-            // 
-            // openDialog
-            // 
-            openDialog.DefaultExt = "xml";
-            openDialog.FileName = "restauranteReserasListado";
-            openDialog.Filter = "Archivos XML (*.xml) | *.xml";
-            // 
-            // saveDialogXML
-            // 
-            saveDialogXML.DefaultExt = "xlsx";
-            saveDialogXML.FileName = "reservasDataBU";
-            saveDialogXML.Filter = "Archivos de Excel 2007+ | *.xlsx";
-            // 
-            // saveDialogX
-            // 
-            saveDialogX.DefaultExt = "xml";
-            saveDialogX.FileName = "saveXMLReservas";
-            saveDialogX.Filter = "Archivos XML (*.xml) | *.xml";
+            colLlegada.DataPropertyName = "ReservaLlegada";
+            colLlegada.HeaderText = "Estado de Llegada";
+            colLlegada.MinimumWidth = 6;
+            colLlegada.Name = "colLlegada";
+            colLlegada.ReadOnly = true;
+            colLlegada.Width = 125;
             // 
             // frmReservas
             // 
@@ -580,13 +613,6 @@
         private DateTimePicker dtpReservaHora;
         private Label label10;
         private TextBox txbBuscadorReserva;
-        private DataGridViewTextBoxColumn colReservaCodigo;
-        private DataGridViewTextBoxColumn colReservaDateTime;
-        private DataGridViewTextBoxColumn colPersonasCant;
-        private DataGridViewTextBoxColumn colNumeroMesa;
-        private DataGridViewTextBoxColumn colReservaEstado;
-        private DataGridViewTextBoxColumn colReservaCreacion;
-        private DataGridViewTextBoxColumn colCedula;
         private Button btnExportarExcel;
         private Button btnVerReserva;
         private Button btnEliminar;
@@ -597,5 +623,15 @@
         private Button btnExportarXML;
         private SaveFileDialog saveDialogXML;
         private SaveFileDialog saveDialogX;
+        private Label label11;
+        private ComboBox cboLlegada;
+        private DataGridViewTextBoxColumn colReservaCodigo;
+        private DataGridViewTextBoxColumn colReservaDateTime;
+        private DataGridViewTextBoxColumn colPersonasCant;
+        private DataGridViewTextBoxColumn colNumeroMesa;
+        private DataGridViewTextBoxColumn colReservaEstado;
+        private DataGridViewTextBoxColumn colReservaCreacion;
+        private DataGridViewTextBoxColumn colCedula;
+        private DataGridViewTextBoxColumn colLlegada;
     }
 }

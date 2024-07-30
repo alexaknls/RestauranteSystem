@@ -71,6 +71,7 @@ namespace RestauranteSystem.Reservas
             txbCantPersonas.Text = "";
             txbMesasNum.Text = "";
             cboReservaEstado.Text = "ACT";
+            cboLlegada.Text = "En Espera";
             dtpReservaCreacion.Value = DateTime.Now;
         }
         private void ActualizarTextBoxReserva()
@@ -85,6 +86,7 @@ namespace RestauranteSystem.Reservas
                 txbCantPersonas.Text = _selectedReserva.PersonasCant.ToString();
                 txbMesasNum.Text = _selectedReserva.NumeroMesa.ToString();
                 cboReservaEstado.Text = _selectedReserva.ReservaEstado;
+                cboLlegada.Text = _selectedReserva.ReservaLlegada;
                 dtpReservaCreacion.Value = _selectedReserva.ReservaCreacion;
             }
         }
@@ -98,6 +100,8 @@ namespace RestauranteSystem.Reservas
                 int personasCant = int.Parse(txbCantPersonas.Text);
                 int numeroMesa = int.Parse(txbMesasNum.Text);
                 string reservaEstado = cboReservaEstado.SelectedItem.ToString();
+                string reservaLlegada = cboLlegada.SelectedItem.ToString();
+
                 DateTime reservaCreacion = dtpReservaCreacion.Value;
 
                 DateTime reservaFecha = dtpReservaFecha.Value;
@@ -111,7 +115,7 @@ namespace RestauranteSystem.Reservas
                 _selectedReserva.ReservaEstado = cboReservaEstado.Text;
                 _selectedReserva.ReservaCreacion = dtpReservaCreacion.Value;
                 _selectedReserva.ReservaCliente = txbClienteID.Text;
-
+                _selectedReserva.ReservaLlegada = cboLlegada.Text;
 
                 if (_esEdicion)
                 {
@@ -125,7 +129,6 @@ namespace RestauranteSystem.Reservas
                     {
                         MessageBox.Show("Error al actualizar la reserva.");
                     }
-
                 }
                 else
                 {
@@ -152,6 +155,7 @@ namespace RestauranteSystem.Reservas
                     else
                     {
                         cboReservaEstado.Enabled = false;
+                        cboLlegada.Enabled = false;
                         ReservasLib nuevaReserva = new ReservasLib
                         {
                             ReservaCodigo = reservaCodigo,
@@ -160,7 +164,8 @@ namespace RestauranteSystem.Reservas
                             NumeroMesa = numeroMesa,
                             ReservaEstado = reservaEstado,
                             ReservaCreacion = reservaCreacion,
-                            ReservaCliente = reservaCliente
+                            ReservaCliente = reservaCliente,
+                            ReservaLlegada = reservaLlegada
 
                         };
                         _controladorReservas.AgregarReserva(nuevaReserva);
@@ -186,7 +191,6 @@ namespace RestauranteSystem.Reservas
             }
 
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
@@ -251,11 +255,11 @@ namespace RestauranteSystem.Reservas
                     _selectedReserva.NumeroMesa,
                     _selectedReserva.ReservaEstado,
                     _selectedReserva.ReservaCreacion,
-                    _selectedReserva.ReservaCliente
+                    _selectedReserva.ReservaCliente,
+                    _selectedReserva.ReservaLlegada
                 );
                 ActualizarTextBoxReserva();
             }
-
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -359,10 +363,8 @@ namespace RestauranteSystem.Reservas
 
         private void dtpReservaHora_CloseUp(object sender, EventArgs e)
         {
-            // Obtener el valor actual del DateTimePicker
             DateTime fechaHoraSeleccionada = dtpReservaHora.Value;
 
-            // Crear un nuevo DateTime con los segundos establecidos en 00
             DateTime fechaHoraSinSegundos = new DateTime(
                 fechaHoraSeleccionada.Year,
                 fechaHoraSeleccionada.Month,
@@ -372,7 +374,6 @@ namespace RestauranteSystem.Reservas
                 0
             );
 
-            // Actualizar el valor del DateTimePicker
             dtpReservaHora.Value = fechaHoraSinSegundos;
         }
     }

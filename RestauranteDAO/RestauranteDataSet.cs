@@ -98,6 +98,30 @@ namespace RestauranteDAO
 {
 }
 
+namespace RestauranteDAO
+{
+}
+
+namespace RestauranteDAO
+{
+}
+
+namespace RestauranteDAO
+{
+}
+
+namespace RestauranteDAO
+{
+}
+
+namespace RestauranteDAO
+{
+}
+
+namespace RestauranteDAO
+{
+}
+
 namespace RestauranteDAO.RestauranteDataSetTableAdapters {
     
     

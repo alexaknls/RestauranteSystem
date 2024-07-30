@@ -13,12 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Menu\" />
-    <Folder Include="Forms\Login\" />
-    <Folder Include="Forms\Pedidos\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
