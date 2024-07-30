@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteLib", "Restauran
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteDAO", "RestauranteDAO\RestauranteDAO.csproj", "{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestauranteSystem", "FrmPrueba\RestauranteSystem.csproj", "{CEF34C86-49DE-4EB8-95AB-834421191ADA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F270C232-C9F2-4BE6-A0E6-8DFE5289AEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF34C86-49DE-4EB8-95AB-834421191ADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
