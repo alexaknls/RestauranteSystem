@@ -28,6 +28,8 @@ namespace RestauranteDAO {
         
         private ReservasDataTable tableReservas;
         
+<<<<<<< HEAD
+=======
         private RolesDataTable tableRoles;
         
         private RolesXUsuarioDataTable tableRolesXUsuario;
@@ -38,6 +40,7 @@ namespace RestauranteDAO {
         
         private UsuariosDataTable tableUsuarios;
         
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -72,6 +75,8 @@ namespace RestauranteDAO {
                 if ((ds.Tables["Reservas"] != null)) {
                     base.Tables.Add(new ReservasDataTable(ds.Tables["Reservas"]));
                 }
+<<<<<<< HEAD
+=======
                 if ((ds.Tables["Roles"] != null)) {
                     base.Tables.Add(new RolesDataTable(ds.Tables["Roles"]));
                 }
@@ -87,6 +92,7 @@ namespace RestauranteDAO {
                 if ((ds.Tables["Usuarios"] != null)) {
                     base.Tables.Add(new UsuariosDataTable(ds.Tables["Usuarios"]));
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -127,6 +133,8 @@ namespace RestauranteDAO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+<<<<<<< HEAD
+=======
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public RolesDataTable Roles {
@@ -177,6 +185,7 @@ namespace RestauranteDAO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -248,6 +257,8 @@ namespace RestauranteDAO {
                 if ((ds.Tables["Reservas"] != null)) {
                     base.Tables.Add(new ReservasDataTable(ds.Tables["Reservas"]));
                 }
+<<<<<<< HEAD
+=======
                 if ((ds.Tables["Roles"] != null)) {
                     base.Tables.Add(new RolesDataTable(ds.Tables["Roles"]));
                 }
@@ -263,6 +274,7 @@ namespace RestauranteDAO {
                 if ((ds.Tables["Usuarios"] != null)) {
                     base.Tables.Add(new UsuariosDataTable(ds.Tables["Usuarios"]));
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -308,6 +320,8 @@ namespace RestauranteDAO {
                     this.tableReservas.InitVars();
                 }
             }
+<<<<<<< HEAD
+=======
             this.tableRoles = ((RolesDataTable)(base.Tables["Roles"]));
             if ((initTable == true)) {
                 if ((this.tableRoles != null)) {
@@ -338,6 +352,7 @@ namespace RestauranteDAO {
                     this.tableUsuarios.InitVars();
                 }
             }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -352,6 +367,8 @@ namespace RestauranteDAO {
             base.Tables.Add(this.tableClientes);
             this.tableReservas = new ReservasDataTable();
             base.Tables.Add(this.tableReservas);
+<<<<<<< HEAD
+=======
             this.tableRoles = new RolesDataTable();
             base.Tables.Add(this.tableRoles);
             this.tableRolesXUsuario = new RolesXUsuarioDataTable();
@@ -362,6 +379,7 @@ namespace RestauranteDAO {
             base.Tables.Add(this.tableVerificacionesXRol);
             this.tableUsuarios = new UsuariosDataTable();
             base.Tables.Add(this.tableUsuarios);
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -378,6 +396,8 @@ namespace RestauranteDAO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+<<<<<<< HEAD
+=======
         private bool ShouldSerializeRoles() {
             return false;
         }
@@ -408,6 +428,7 @@ namespace RestauranteDAO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -467,6 +488,8 @@ namespace RestauranteDAO {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ReservasRowChangeEventHandler(object sender, ReservasRowChangeEvent e);
         
+<<<<<<< HEAD
+=======
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void RolesRowChangeEventHandler(object sender, RolesRowChangeEvent e);
         
@@ -482,6 +505,7 @@ namespace RestauranteDAO {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void UsuariosRowChangeEventHandler(object sender, UsuariosRowChangeEvent e);
         
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -1209,6 +1233,8 @@ namespace RestauranteDAO {
         }
         
         /// <summary>
+<<<<<<< HEAD
+=======
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
@@ -2759,6 +2785,7 @@ namespace RestauranteDAO {
         }
         
         /// <summary>
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ClientesRow : global::System.Data.DataRow {
@@ -3186,6 +3213,8 @@ namespace RestauranteDAO {
         }
         
         /// <summary>
+<<<<<<< HEAD
+=======
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class RolesRow : global::System.Data.DataRow {
@@ -3793,6 +3822,7 @@ namespace RestauranteDAO {
         }
         
         /// <summary>
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3859,6 +3889,8 @@ namespace RestauranteDAO {
                 }
             }
         }
+<<<<<<< HEAD
+=======
         
         /// <summary>
         ///Row event argument class
@@ -4029,6 +4061,7 @@ namespace RestauranteDAO {
                 }
             }
         }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
     }
 }
 namespace RestauranteDAO.RestauranteDataSetTableAdapters {
@@ -4784,7 +4817,11 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
+<<<<<<< HEAD
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+=======
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Reser" +
@@ -4792,6 +4829,32 @@ SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Rese
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
+<<<<<<< HEAD
+            this._commandCollection[1].CommandText = @"SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
+FROM     Reservas INNER JOIN
+                  Clientes AS c ON Reservas.ReservaCliente = c.ClienteCedula
+WHERE  (c.ClienteCedula = @Cedula)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteCedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT NumeroMesa\nFROM     Reservas\nWHERE  (ReservaDateTime = @fechaHora)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaHora", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT ReservaID, ReservaCodigo, ReservaDateTime, PersonasCant, NumeroMesa, Reser" +
+                "vaEstado, ReservaCreacion, ReservaCliente\nFROM     Reservas\nWHERE  (ReservaID = " +
+                "@ReservaID)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReservaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ReservaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT Reservas.ReservaID, Reservas.ReservaCodigo, Reservas.ReservaDateTime, Reservas.PersonasCant, Reservas.NumeroMesa, Reservas.ReservaEstado, Reservas.ReservaCreacion, Reservas.ReservaCliente
+FROM     Reservas INNER JOIN
+                  Clientes ON Reservas.ReservaCliente = Clientes.ClienteCedula";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+=======
             this._commandCollection[1].CommandText = "dbo.ContarReservasMesas";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4822,6 +4885,7 @@ WHERE  (c.ClienteCedula = @Cedula)";
 FROM     Reservas INNER JOIN
                   Clientes ON Reservas.ReservaCliente = Clientes.ClienteCedula";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4853,7 +4917,11 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByClienteCedula(RestauranteDataSet.ReservasDataTable dataTable, string Cedula) {
+<<<<<<< HEAD
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+=======
             this.Adapter.SelectCommand = this.CommandCollection[2];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             if ((Cedula == null)) {
                 throw new global::System.ArgumentNullException("Cedula");
             }
@@ -4872,7 +4940,11 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.ReservasDataTable GetDataByClienteCedula(string Cedula) {
+<<<<<<< HEAD
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+=======
             this.Adapter.SelectCommand = this.CommandCollection[2];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             if ((Cedula == null)) {
                 throw new global::System.ArgumentNullException("Cedula");
             }
@@ -4888,10 +4960,17 @@ FROM     Reservas INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+<<<<<<< HEAD
+        public virtual int FillByMesasOcupadas(RestauranteDataSet.ReservasDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaHora) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fechaHora.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(fechaHora.Value));
+=======
         public virtual int FillByMesasOcupadas(RestauranteDataSet.ReservasDataTable dataTable, global::System.Nullable<global::System.DateTime> ReservaDateTime) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((ReservaDateTime.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(ReservaDateTime.Value));
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4907,10 +4986,17 @@ FROM     Reservas INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+<<<<<<< HEAD
+        public virtual RestauranteDataSet.ReservasDataTable GetByMesasOcupadas(global::System.Nullable<global::System.DateTime> fechaHora) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fechaHora.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(fechaHora.Value));
+=======
         public virtual RestauranteDataSet.ReservasDataTable GetByMesasOcupadas(global::System.Nullable<global::System.DateTime> ReservaDateTime) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((ReservaDateTime.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(ReservaDateTime.Value));
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -4925,7 +5011,11 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByReservas(RestauranteDataSet.ReservasDataTable dataTable, int ReservaID) {
+<<<<<<< HEAD
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+=======
             this.Adapter.SelectCommand = this.CommandCollection[4];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4939,7 +5029,11 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RestauranteDataSet.ReservasDataTable GetDataByReservas(int ReservaID) {
+<<<<<<< HEAD
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+=======
             this.Adapter.SelectCommand = this.CommandCollection[4];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ReservaID));
             RestauranteDataSet.ReservasDataTable dataTable = new RestauranteDataSet.ReservasDataTable();
             this.Adapter.Fill(dataTable);
@@ -5264,6 +5358,10 @@ FROM     Reservas INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+<<<<<<< HEAD
+        public virtual object GetReservasByCliente() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+=======
         public virtual object ContarReservasMesas() {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -5294,6 +5392,7 @@ FROM     Reservas INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object GetReservasByCliente() {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5319,6 +5418,8 @@ FROM     Reservas INNER JOIN
     }
     
     /// <summary>
+<<<<<<< HEAD
+=======
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7734,6 +7835,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
     }
     
     /// <summary>
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7749,6 +7851,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         
         private ReservasTableAdapter _reservasTableAdapter;
         
+<<<<<<< HEAD
+=======
         private RolesTableAdapter _rolesTableAdapter;
         
         private RolesXUsuarioTableAdapter _rolesXUsuarioTableAdapter;
@@ -7759,6 +7863,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         
         private UsuariosTableAdapter _usuariosTableAdapter;
         
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -7804,6 +7909,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+<<<<<<< HEAD
+=======
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
@@ -7874,6 +7981,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -7899,6 +8007,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                             && (this._reservasTableAdapter.Connection != null))) {
                     return this._reservasTableAdapter.Connection;
                 }
+<<<<<<< HEAD
+=======
                 if (((this._rolesTableAdapter != null) 
                             && (this._rolesTableAdapter.Connection != null))) {
                     return this._rolesTableAdapter.Connection;
@@ -7919,6 +8029,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                             && (this._usuariosTableAdapter.Connection != null))) {
                     return this._usuariosTableAdapter.Connection;
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 return null;
             }
             set {
@@ -7938,6 +8049,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                 if ((this._reservasTableAdapter != null)) {
                     count = (count + 1);
                 }
+<<<<<<< HEAD
+=======
                 if ((this._rolesTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -7953,6 +8066,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                 if ((this._usuariosTableAdapter != null)) {
                     count = (count + 1);
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 return count;
             }
         }
@@ -7982,6 +8096,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+<<<<<<< HEAD
+=======
             if ((this._rolesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8027,6 +8143,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             return result;
         }
         
@@ -8053,6 +8170,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     allAddedRows.AddRange(addedRows);
                 }
             }
+<<<<<<< HEAD
+=======
             if ((this._rolesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8093,6 +8212,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     allAddedRows.AddRange(addedRows);
                 }
             }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             return result;
         }
         
@@ -8103,6 +8223,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(RestauranteDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+<<<<<<< HEAD
+=======
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8143,6 +8265,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             if ((this._reservasTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Reservas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8208,6 +8331,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
+<<<<<<< HEAD
+=======
             if (((this._rolesTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rolesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
@@ -8233,6 +8358,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" +
@@ -8283,6 +8409,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                         adaptersWithAcceptChangesDuringUpdate.Add(this._reservasTableAdapter.Adapter);
                     }
                 }
+<<<<<<< HEAD
+=======
                 if ((this._rolesTableAdapter != null)) {
                     revertConnections.Add(this._rolesTableAdapter, this._rolesTableAdapter.Connection);
                     this._rolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -8328,6 +8456,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                         adaptersWithAcceptChangesDuringUpdate.Add(this._usuariosTableAdapter.Adapter);
                     }
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 // 
                 //---- Perform updates -----------
                 //
@@ -8394,6 +8523,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     this._reservasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._reservasTableAdapter]));
                     this._reservasTableAdapter.Transaction = null;
                 }
+<<<<<<< HEAD
+=======
                 if ((this._rolesTableAdapter != null)) {
                     this._rolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rolesTableAdapter]));
                     this._rolesTableAdapter.Transaction = null;
@@ -8414,6 +8545,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
                     this._usuariosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usuariosTableAdapter]));
                     this._usuariosTableAdapter.Transaction = null;
                 }
+>>>>>>> ba77c355c82dc54ca88a7c89bb4bc2dd77c8fc9e
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
                     adaptersWithAcceptChangesDuringUpdate.CopyTo(adapters);
