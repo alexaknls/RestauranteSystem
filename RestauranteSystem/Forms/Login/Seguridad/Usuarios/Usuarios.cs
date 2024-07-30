@@ -43,24 +43,25 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            UsuariosEnum nuevoUserForm = new UsuariosEnum();
-            nuevoUserForm.Modo = EModoFormulario.Nuevo;
+            UsuariosEnum nuevoUsuarioForm = new UsuariosEnum();
+            nuevoUsuarioForm.Modo = EModoFormulario.Nuevo;
 
-            if (nuevoUserForm.ShowDialog() == DialogResult.OK)
+            if (nuevoUsuarioForm.ShowDialog() == DialogResult.OK)
             {
-                Usuario nuevoUser = nuevoUserForm.Usuario;
-                int resultado = _wwwUsuarios.agregarUsuario(nuevoUser);
+                Usuario nuevoUser = nuevoUsuarioForm.Usuario;
 
-                if (resultado > 0)
+                bool userAgregado = _wwwUsuarios.agregarUsuario(nuevoUser);
+
+                if (userAgregado)
                 {
-                    MessageBox.Show("Usuario agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("User agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _usuariosLista = _wwwUsuarios.obtenerUsuarios();
                     bndSrcUsuarios.DataSource = _usuariosLista;
                     bndSrcUsuarios.ResetBindings(false);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo agregar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se pudo agregar el user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -69,10 +70,79 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
         {
             if (_usuarioSeleccionado != null)
             {
-                UsuariosEnum verUserForm = new UsuariosEnum();
-                verUserForm.Modo = EModoFormulario.Consultar;
-                verUserForm.Usuario = _usuarioSeleccionado;
-                verUserForm.ShowDialog();
+                UsuariosEnum usuarioForm = new UsuariosEnum();
+                usuarioForm.Modo = EModoFormulario.Consultar;
+                usuarioForm.Usuario = _usuarioSeleccionado;
+                usuarioForm.ShowDialog();
+                usuarioForm.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un usuario de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            UsuariosEnum eliminarForm = new UsuariosEnum();
+            eliminarForm.Modo = EModoFormulario.Eliminar;
+            if (_usuarioSeleccionado != null)
+            {
+                DialogResult result = MessageBox.Show(
+                    "¿Estás seguro de que deseas eliminar este usuario?",
+                    "Confirmar Eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    bool eliminado = _wwwUsuarios.eliminarUsuario(_usuarioSeleccionado);
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Usuario eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _usuariosLista = _wwwUsuarios.obtenerUsuarios();
+                        bndSrcUsuarios.DataSource = _usuariosLista;
+                        bndSrcUsuarios.ResetBindings(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (_usuarioSeleccionado != null)
+            {
+                UsuariosEnum editarForm = new UsuariosEnum();
+                editarForm.Modo = EModoFormulario.Modificar;
+                editarForm.Usuario = _usuarioSeleccionado;
+
+                if (editarForm.ShowDialog() == DialogResult.OK)
+                {
+                    var userActualizado = editarForm.Usuario;
+                    bool userModificado = _wwwUsuarios.actualizarUsuario(userActualizado, _usuarioSeleccionado);
+
+                    if (userModificado)
+                    {
+                        _usuariosLista = _wwwUsuarios.obtenerUsuarios();
+                        bndSrcUsuarios.DataSource = _usuariosLista;
+                        bndSrcUsuarios.ResetBindings(false);
+                        MessageBox.Show("Usuario actualizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                editarForm.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un user de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

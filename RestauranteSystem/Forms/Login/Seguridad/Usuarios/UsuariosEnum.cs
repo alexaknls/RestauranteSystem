@@ -20,6 +20,8 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
             InitializeComponent();
             _usuario = new Usuario();
             _controladorUsuarios = new wwwUsuarios();
+            txtCodigo.Hide();
+            lblCodigoID.Hide();
         }
 
         public Usuario Usuario
@@ -29,6 +31,7 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
             {
                 _usuario = value;
                 setClientToControls();
+                
             }
         }
 
@@ -107,21 +110,17 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                 }
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             byte[] passwordSaltBytes;
             string passwordHash = PasswordUtility.hashPassword(txtPassword.Text, out passwordSaltBytes);
             string passwordSalt = Convert.ToHexString(passwordSaltBytes);
             string password = passwordSalt + passwordHash;
+            try
+            {
+                string estado = cboEstado.Text == "Activo" ? ECommonStatus.ACT : ECommonStatus.INA;
 
-            this._usuario = new Usuario(
+                this._usuario = new Usuario(
                 int.Parse(txtCodigo.Text),
                 txtUser.Text,
                 password,
@@ -129,8 +128,20 @@ namespace RestauranteSystem.Forms.Login.Seguridad.Usuarios
                 txtNombre.Text,
                 cboEstado.Text == "Activo" ? "ACT" : "INA"
             );
-            this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }
+
 }

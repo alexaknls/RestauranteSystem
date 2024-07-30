@@ -23,20 +23,30 @@ namespace RestauranteLib.Controladores.Seguridad
             usuariosTableAdapter = new UsuariosTableAdapter();
             restaurantedataset = RestauranteDAO.Contexto.GetDataSet();
         }
-        public int agregarUsuario(Usuario user)
+        public bool agregarUsuario(Usuario user)
         {
             byte[] passwordSaltBytes;
             string passwordHash = PasswordUtility.hashPassword(user.Password, out passwordSaltBytes);
             string passwordSalt = Convert.ToHexString(passwordSaltBytes);
             string password = passwordSalt + passwordHash;
-
-            return usuariosTableAdapter.Insert(
+            try
+            {
+                usuariosTableAdapter.Insert(
                 user.User,
                 password,
                 DateTime.Now.AddDays(90),
                 user.Name,
                 user.Estado
-            );
+                );
+                usuariosTableAdapter.Fill(restaurantedataset.Usuarios);
+                this.FillUsuarios();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         public bool actualizarUsuario(Usuario updateTo, Usuario updatedFrom)

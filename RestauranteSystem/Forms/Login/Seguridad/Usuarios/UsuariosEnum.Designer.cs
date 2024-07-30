@@ -68,6 +68,7 @@
             btnCancelar.TabIndex = 30;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // btnConfirmar
             // 
@@ -77,6 +78,7 @@
             btnConfirmar.TabIndex = 29;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click_1;
             // 
             // label3
             // 
